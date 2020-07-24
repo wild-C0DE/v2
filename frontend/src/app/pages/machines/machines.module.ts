@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './machines-routing.module';
 //import { ExportModule } from '../exports/exports.component';
@@ -16,7 +16,8 @@ import { TablesRoutingModule, routedComponents } from './machines-routing.module
     ThemeModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
-    NbListModule
+    NbListModule,
+    HttpClientModule
   ],
   declarations: [
     ...routedComponents,
