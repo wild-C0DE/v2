@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-
-import { SmartTableData } from '../../../@core/data/smart-table';
+import {HttpClient} from '@angular/common/http';
+import { ServerDataSource } from 'ng2-smart-table';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -9,7 +9,8 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./workorder.component.scss'],
 })
 export class WorkorderComponent {
-
+  data:any = [];
+  source: ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,68 +27,63 @@ export class WorkorderComponent {
       confirmDelete: true,
     },
     columns: {
-      img: {
-        title: 'Image',
-        type: 'string',
-      },
-      name: {
-        title: 'Name',
-        type: 'string',
-      },
-      family: {
-        title: 'Family',
-        type: 'string',
-      },
-      reference: {
-        title: 'Reference',
-        type: 'string',
-      },
-      state: {
-        title: 'State',
-        type: 'string',
-      },
-      sname: {
-        title: 'Supplier Name',
-        type: 'string',
-      },
-      scontact: {
-        title: 'Supplier Contact',
-        type: 'string',
-      },
-      serialnum: {
-        title: 'Serial Number',
+      numberOrder: {
+        title: 'Number Order',
         type: 'number',
       },
       date: {
         title: 'Date',
         type: 'number',
       },
-      inventory: {
-        title: 'Inventory',
+      nameOfTheIntervention: {
+        title: 'Name Of The Intervention',
         type: 'string',
       },
-      isbn: {
-        title: 'ISBN',
+      typeOfIntervention: {
+        title: 'Type Of Intervention',
         type: 'string',
       },
-      dep: {
-        title: 'Department',
+      machine: {
+        title: 'Machine',
         type: 'string',
       },
-      comment: {
-        title: 'Comment',
+      manager: {
+        title: 'Manager',
         type: 'string',
       },
+      agent: {
+        title: 'Agent',
+        type: 'string',
+      },
+      depertment: {
+        title: 'Depertment',
+        type: 'number',
+      },
+      equipmentUsed: {
+        title: 'Equipment Used',
+        type: 'number',
+      },
+      
     },
   };
+  
 
-  source: LocalDataSource = new LocalDataSource();
+ngOnInit(): void {
+this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/api/workorderList", });
+      console.log(this.source);
+    }
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }
-
+  constructor(private http: HttpClient){
+ 
+    //this.source. = 'data';
+    }
+    onCreateConfirm(event):void { 
+    } 
+    
+    onSaveConfirm(event):void {
+    }
+    
+   
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();
