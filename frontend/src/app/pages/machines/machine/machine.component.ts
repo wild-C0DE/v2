@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import {HttpErrorResponse} from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
+import { MachinModel } from './machin-model.model'
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './machine.component.html',
@@ -65,8 +66,8 @@ source:ServerDataSource;
         title: 'inventory',
         type: 'number',
       },
-      ISBN: {
-        title: 'ISBN',
+      isbn: {
+        title: 'isbn',
         type: 'string',
       },
       department: {
@@ -96,6 +97,36 @@ source:ServerDataSource;
     console.log(this.source);
  
 }
+
+onCreateConfirm(event):void { 
+  var data = {"name" : event.newData.name,
+                "reference" : event.newData.reference,
+                "family" : event.newData.family,
+                "state" : event.newData.state,
+                "brand" : event.newData.brand,
+                "supplierName" : event.newData.supplierName,
+                "serialNumber" : event.newData.serialNumber,
+                "dateOfPurchase" : event.newData.dateOfPurchase,
+                "inventory" : event.newData.inventory,
+                "isbn" : event.newData.isbn,
+                "department" : event.newData.department,               
+                "image" : event.newData.image,
+                "comment" : event.newData.comment,               
+                
+                };
+	this.http.post<MachinModel>('http://localhost:8080/api/addMachine', data).subscribe(
+        res => {
+          console.log(res);
+          event.confirm.resolve(event.newData);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log("Client-side error occured.");
+        } else {
+          console.log("Server-side error occured.");
+        }
+      });
+} 
    
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
