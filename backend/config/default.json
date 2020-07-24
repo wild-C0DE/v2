@@ -1,0 +1,4 @@
+{
+  "MONGO_URI": "mongodb+srv://bessam:123@cluster0-j6hoy.mongodb.net/<dbname>?retryWrites=true&w=majority"
+  
+}
