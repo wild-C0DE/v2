@@ -77,11 +77,7 @@ this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080
  
     //this.source. = 'data';
     }
-    onCreateConfirm(event):void { 
-    } 
-    
-    onSaveConfirm(event):void {
-    }
+  
     
    
   onDeleteConfirm(event): void {
