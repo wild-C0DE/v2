@@ -1,98 +1,156 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+//import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
-
+// import { SmartTableData } from '../../../@core/data/smart-table';
+import { HttpClient } from '@angular/common/http'
+import {HttpErrorResponse} from '@angular/common/http';
+import { ServerDataSource } from 'ng2-smart-table';
+import { MachinModel } from './machin-model.model'
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './machine.component.html',
   styleUrls: ['./machine.component.scss'],
 })
 export class MachineComponent {
-
+title = "machine"
+source:ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate:true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave:true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
       confirmDelete: true,
     },
     columns: {
-      img: {
-        title: 'Image',
-        type: 'string',
-      },
       name: {
-        title: 'Name',
-        type: 'string',
-      },
-      family: {
-        title: 'Family',
+        title: 'name',
         type: 'string',
       },
       reference: {
-        title: 'Reference',
+        title: 'reference',
+        type: 'string',
+      },
+      family: {
+        title: 'family',
         type: 'string',
       },
       state: {
-        title: 'State',
+        title: 'state',
         type: 'string',
       },
-      sname: {
-        title: 'Supplier Name',
+      brand: {
+        title: 'brand',
         type: 'string',
       },
-      scontact: {
-        title: 'Supplier Contact',
+      supplierName: {
+        title: 'supplierName',
         type: 'string',
       },
-      serialnum: {
-        title: 'Serial Number',
-        type: 'number',
+      supplierContact: {
+        title: 'supplierContact',
+        type: 'string',
       },
-      date: {
-        title: 'Date',
+      serialNumber: {
+        title: 'serialNumber',
+        type: 'string',
+      },
+      dateOfPurchase: {
+        title: 'dateOfPurchase',
         type: 'number',
       },
       inventory: {
-        title: 'Inventory',
-        type: 'string',
+        title: 'inventory',
+        type: 'number',
       },
       isbn: {
-        title: 'ISBN',
+        title: 'isbn',
         type: 'string',
       },
-      dep: {
-        title: 'Department',
+      department: {
+        title: 'department',
         type: 'string',
+      },     
+      image: {
+        title: 'image',
+        type:"html",
+        valuePrepareFunction: (photo:string) => {return `<img width="50px" src="${photo}" />`;},
+       
+        
       },
       comment: {
-        title: 'Comment',
+        title: 'comment',
         type: 'string',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  
+  constructor(private http: HttpClient) {
+    //this.source ='data
   }
+  ngOnInit(): void {
+    this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/machineList' })
+    console.log(this.source);
+ 
+}
 
+onCreateConfirm(event):void { 
+  var data = {"name" : event.newData.name,
+                "reference" : event.newData.reference,
+                "family" : event.newData.family,
+                "state" : event.newData.state,
+                "brand" : event.newData.brand,
+                "supplierName" : event.newData.supplierName,
+                "supplierContact" : event.newData.supplierContact,
+                "serialNumber" : event.newData.serialNumber,
+                "dateOfPurchase" : event.newData.dateOfPurchase,
+                "inventory" : event.newData.inventory,
+                "isbn" : event.newData.isbn,
+                "department" : event.newData.department,               
+                "image" : event.newData.image,
+                "comment" : event.newData.comment,               
+                
+                };
+	this.http.post<MachinModel>('http://localhost:8080/api/addMachine', data).subscribe(
+        res => {
+          console.log(res);
+          event.confirm.resolve(event.newData);
+      },
+      (err: HttpErrorResponse) => {
+        if (err.error instanceof Error) {
+          console.log("Client-side error occured.");
+        } else {
+          console.log("Server-side error occured.");
+        }
+      });
+} 
+onSaveConfirm(event):void {
+  
+}
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
+    console.log(event.data)
+    this.http.post<MachinModel>('http://localhost:8080/api/deleteMachin',event.data).subscribe(
+      res => {
+        console.log(res);
+        event.confirm.resolve(event.source.data);
+    },
+    (err: HttpErrorResponse) => {
+      if (err.error instanceof Error) {
+        console.log("Client-side error occured.");
+      } else {
+        console.log("Server-side error occured.");
+      }
+    });
+   
+}
 }

@@ -44,7 +44,7 @@ const Machine = new Schema({
     type: String,
     required: true,
   },
-  ISBN: {
+  isbn: {
     type: String,
     required: true,
   },
