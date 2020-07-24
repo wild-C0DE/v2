@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+//import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
-
+// import { SmartTableData } from '../../../@core/data/smart-table';
+import { HttpClient } from '@angular/common/http'
+import {HttpErrorResponse} from '@angular/common/http';
+import { ServerDataSource } from 'ng2-smart-table';
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './machine.component.html',
   styleUrls: ['./machine.component.scss'],
 })
 export class MachineComponent {
-
+title = "machine"
+source:ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,68 +29,74 @@ export class MachineComponent {
       confirmDelete: true,
     },
     columns: {
-      img: {
-        title: 'Image',
-        type: 'string',
-      },
       name: {
-        title: 'Name',
-        type: 'string',
-      },
-      family: {
-        title: 'Family',
+        title: 'name',
         type: 'string',
       },
       reference: {
-        title: 'Reference',
+        title: 'reference',
+        type: 'string',
+      },
+      family: {
+        title: 'family',
         type: 'string',
       },
       state: {
-        title: 'State',
+        title: 'state',
         type: 'string',
       },
-      sname: {
-        title: 'Supplier Name',
+      brand: {
+        title: 'brand',
         type: 'string',
       },
-      scontact: {
-        title: 'Supplier Contact',
+      supplierName: {
+        title: 'supplierName',
         type: 'string',
       },
-      serialnum: {
-        title: 'Serial Number',
-        type: 'number',
+      serialNumber: {
+        title: 'serialNumber',
+        type: 'string',
       },
-      date: {
-        title: 'Date',
+      dateOfPurchase: {
+        title: 'dateOfPurchase',
         type: 'number',
       },
       inventory: {
-        title: 'Inventory',
-        type: 'string',
+        title: 'inventory',
+        type: 'number',
       },
-      isbn: {
+      ISBN: {
         title: 'ISBN',
         type: 'string',
       },
-      dep: {
-        title: 'Department',
+      department: {
+        title: 'department',
         type: 'string',
+      },     
+      image: {
+        title: 'image',
+        type:"html",
+        valuePrepareFunction: (photo:string) => {return `<img width="50px" src="${photo}" />`;},
+       
+        
       },
       comment: {
-        title: 'Comment',
+        title: 'comment',
         type: 'string',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  
+  constructor(private http: HttpClient) {
+    //this.source ='data
   }
-
+  ngOnInit(): void {
+    this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/machineList' })
+    console.log(this.source);
+ 
+}
+   
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
       event.confirm.resolve();

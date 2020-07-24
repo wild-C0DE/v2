@@ -20,7 +20,7 @@ router.post("/", upload.single("file"), (req, res, next) => {
   console.log(req.file);
   console.log(req.body);
   const data = req.body;
-  data.image =  "../../../../../assets/img/"+req.file.filename
+  data.image =  "../../../assets/img/"+req.file.filename
   // req.file.path.replace("\\", "/");
 
   console.log(Object.values(data));
