@@ -19,11 +19,13 @@ source:ServerDataSource;
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmCreate:true,
     },
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      confirmSave:true,
     },
     delete: {
       deleteButtonContent: '<i class="nb-trash"></i>',
@@ -52,6 +54,10 @@ source:ServerDataSource;
       },
       supplierName: {
         title: 'supplierName',
+        type: 'string',
+      },
+      supplierContact: {
+        title: 'supplierContact',
         type: 'string',
       },
       serialNumber: {
@@ -105,6 +111,7 @@ onCreateConfirm(event):void {
                 "state" : event.newData.state,
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
+                "supplierContact" : event.newData.supplierContact,
                 "serialNumber" : event.newData.serialNumber,
                 "dateOfPurchase" : event.newData.dateOfPurchase,
                 "inventory" : event.newData.inventory,
@@ -127,12 +134,23 @@ onCreateConfirm(event):void {
         }
       });
 } 
-   
+onSaveConfirm(event):void {
+  
+}
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
+    console.log(event.data)
+    this.http.post<MachinModel>('http://localhost:8080/api/deleteMachin',event.data).subscribe(
+      res => {
+        console.log(res);
+        event.confirm.resolve(event.source.data);
+    },
+    (err: HttpErrorResponse) => {
+      if (err.error instanceof Error) {
+        console.log("Client-side error occured.");
+      } else {
+        console.log("Server-side error occured.");
+      }
+    });
+   
+}
 }
