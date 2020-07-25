@@ -69,7 +69,7 @@ export class WorkorderComponent {
   
 
 ngOnInit(): void {
-//this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/api/workorderList", });
+this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/api/workorderList", });
       console.log(this.source);
     }
 
@@ -77,12 +77,13 @@ ngOnInit(): void {
  
     //this.source. = 'data';
     }
-    onCreateConfirm(event):void { 
-    } 
-    
-    onSaveConfirm(event):void {
+    onCreateConfirm(event):void{
+ 
+
     }
-    
+    onSaveConfirm(event):void{
+
+    }
    
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {

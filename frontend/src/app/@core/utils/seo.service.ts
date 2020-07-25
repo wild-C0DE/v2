@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { NB_DOCUMENT } from '@nebular/theme';
 import { filter, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-
+ 
 @Injectable()
 export class SeoService implements OnDestroy {
 

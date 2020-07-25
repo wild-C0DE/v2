@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-
+import { ServerDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'ngx-smart-table',
@@ -9,7 +10,8 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./stock-table.component.scss'],
 })
 export class StockTableComponent {
-
+  data:any = [];
+  source: ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,12 +28,9 @@ export class StockTableComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      machine: {
-        title: 'Machine',
+     
+      name: {
+        title: 'Name',
         type: 'string',
       },
       reference: {
@@ -52,12 +51,14 @@ export class StockTableComponent {
       },
     },
   };
+  ngOnInit(): void {
+    this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/stock", });
+          console.log(this.source);
+        }
+ 
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private http: HttpClient) {
+    
   }
 
   onDeleteConfirm(event): void {

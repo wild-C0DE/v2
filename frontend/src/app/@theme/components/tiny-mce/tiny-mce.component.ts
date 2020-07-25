@@ -4,7 +4,7 @@ import { LocationStrategy } from '@angular/common';
 @Component({
   selector: 'ngx-tiny-mce',
   template: '',
-})
+}) 
 export class TinyMCEComponent implements OnDestroy, AfterViewInit {
 
   @Output() editorKeyup = new EventEmitter<any>();
