@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+//import { LocalDataSource } from 'ng2-smart-table';
 
-import { SmartTableData } from '../../../@core/data/smart-table';
+// import { SmartTableData } from '../../../@core/data/smart-table';
+import { HttpClient } from '@angular/common/http'
+import {HttpErrorResponse} from '@angular/common/http';
+import { ServerDataSource } from 'ng2-smart-table';
+import { Addwork } from '../../work-order/addwork.model'
 
 @Component({
   selector: 'ngx-smart-table',
@@ -9,7 +13,8 @@ import { SmartTableData } from '../../../@core/data/smart-table';
   styleUrls: ['./prevention.component.scss'],
 })
 export class PreventionComponent {
-
+  title = "prevention"
+  source:ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,45 +31,43 @@ export class PreventionComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
       machine: {
         title: 'Machine',
         type: 'string',
       },
-      reference: {
-        title: 'Reference',
+      nameOfTheIntervention: {
+        title: 'Name Of The Intervention',
         type: 'string',
       },
-      security: {
-        title: 'Security Stock',
-        type: 'Number',
+      date: {
+        title: 'Date',
+        type: 'number',
       },
-      min: {
-        title: 'Min',
-        type: 'Number',
+      manager: {
+        title: 'Manager',
+        type: 'string',
       },
-      max: {
-        title: 'Max',
+      duration: {
+        title: 'Duration',
+        type: 'string',
+      },
+      agent: {
+        title: 'Agent',
+        type: 'string',
+      },
+      department: {
+        title: 'Department',
         type: 'number',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor(private http: HttpClient) {
+    //this.source ='data
   }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
+  ngOnInit(): void {
+    this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/preventionList' })
+    console.log(this.source);
+ 
+}
 }

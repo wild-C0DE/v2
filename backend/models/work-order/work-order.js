@@ -38,7 +38,7 @@ const Work = new Schema({
     type: String,
     required: true,
   },
-  depertment: {
+  department: {
     type: String,
     required: true,
   },

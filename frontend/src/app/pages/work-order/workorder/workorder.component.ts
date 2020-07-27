@@ -64,8 +64,8 @@ export class WorkorderComponent {
         title: 'Agent',
         type: 'string',
       },
-      depertment: {
-        title: 'Depertment',
+      department: {
+        title: 'Department',
         type: 'number',
       },
       equipmentUsed: {
@@ -94,7 +94,7 @@ this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080
       "machine" : event.newData.machine,
       "manager" : event.newData.manager,
       "agent" : event.newData.agent,
-      "depertment" : event.newData.depertment,
+      "department" : event.newData.department,
       "duration" : event.newData.duration,
       "equipmentUsed" : event.newData.equipmentUsed,
       "isbn" : event.newData.isbn,

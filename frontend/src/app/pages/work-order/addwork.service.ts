@@ -15,7 +15,7 @@ export class AddworkService {
     machine : "",
     manager: "",
     agent :  "",
-    depertment : "",
+    department : "",
     duration : "",
     equipmentUsed : "",
 
