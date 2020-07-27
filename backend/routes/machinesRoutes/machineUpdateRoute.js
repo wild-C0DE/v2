@@ -9,8 +9,7 @@ router.post("/", (req, res) => {
   const data = req.body.name;
   var query = { _id: req.body.helper };
 
-  // const newMachineList = new MachineList(data);
-  //save the data
+  
   MachineList.findOneAndUpdate(query, req.body, (error) => {
     if (error) {
       console.log(error);
@@ -27,14 +26,3 @@ router.post("/", (req, res) => {
 
 module.exports = router;
 
-// router.post('/login', (req, res) => {
-//     Login.findOneAndUpdate(
-//           {phoneNumber: req.body.phoneNumber},
-//           { $set: {phoneNumber: req.body.phoneNumber }},
-//           {new: true, upsert: true }
-//         )
-//         .then((login) => login.view(true))
-//         .then(success(res, 201))
-//         .catch(next)
-//     })
-//     }
