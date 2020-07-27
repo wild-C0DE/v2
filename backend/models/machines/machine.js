@@ -13,51 +13,42 @@ const Machine = new Schema({
   },
   family: {
     type: String,
-    required: true,
   },
 
   state: {
     type: String,
-    
   },
   brand: {
     type: String,
-    required: true,
   },
   supplierName: {
     type: String,
-    required: true,
   },
   supplierContact: {
     type: String,
-    required: true,
   },
   serialNumber: {
-    type: String,
-    required: true,
+    type: Number,
   },
   dateOfPurchase: {
     type: String,
-    required: true,
   },
   inventory: {
     type: String,
-    required: true,
   },
   isbn: {
     type: String,
-    required: true,
   },
   department: {
     type: String,
     required: true,
   },
-  image: {
+  // image: {
+  //   type: String,
+  // },
+  comment: {
     type: String,
   },
-  comment: {
-    type: String
-  }
 });
 
 // Model
