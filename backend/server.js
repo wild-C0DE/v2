@@ -51,7 +51,7 @@ const equipmentList = require("./routes/equipmentRoutes/equipmentListRoute");
 const deleteEquipment = require("./routes/equipmentRoutes/equipmentDeleteRoute");
 const correctionList = require("./routes/machinesRoutes/correctionRoute")
 const preventionList = require("./routes/machinesRoutes/preventionRoute")
-
+const synthesis = require("./routes/machinesRoutes/synthesisRoute")
 
 
 
@@ -89,6 +89,7 @@ app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
 app.use("/api/correctionList", correctionList);
 app.use("/api/preventionList", preventionList);
+app.use("/api/synthesis", synthesis);
 
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

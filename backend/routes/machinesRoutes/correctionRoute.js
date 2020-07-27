@@ -7,9 +7,14 @@ const WorkOrder = require("../../models/work-order/work-order");
 
 
 router.get("/", (req, res) => {
- console.log(req.body)
+
     WorkOrder.find({typeOfIntervention: "correction"})
     .then((data) => {
+      var result = 0;
+      for(var i = 0; i< data.length; i++) {
+        result = result + data[i]["duration"]
+      }
+      console.log(result)
       res.send(data);
     })
     .catch((error) => {

@@ -140,6 +140,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Correction',
         link: '/pages/machines/correction',
       },
+      {
+        title: 'Synthesis',
+        link: '/pages/machines/synthesis',
+      },
     ],
   },
   {
