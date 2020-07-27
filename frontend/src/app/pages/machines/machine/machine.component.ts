@@ -91,6 +91,7 @@ source:ServerDataSource;
         title: 'comment',
         type: 'string',
       },
+      
     },
   };
 
@@ -136,10 +137,48 @@ onCreateConfirm(event):void {
 } 
 onSaveConfirm(event):void {
   
+  
+  var data = {
+  "helper" : event.data._id,
+  "name" : event.newData.name,
+  "reference" : event.newData.reference,
+  "family" : event.newData.family,
+  "state" : event.newData.state,
+  "brand" : event.newData.brand,
+  "supplierName" : event.newData.supplierName,
+  "supplierContact" : event.newData.supplierContact,
+  "serialNumber" : event.newData.serialNumber,
+  "dateOfPurchase" : event.newData.dateOfPurchase,
+  "inventory" : event.newData.inventory,
+  "isbn" : event.newData.isbn,
+  "department" : event.newData.department,               
+  "image" : event.newData.image,
+  "comment" : event.newData.comment,            
+  
+  };
+  
+  if (window.confirm('Do you confirm the changes?')) {
+this.http.post<MachinModel>('http://localhost:8080/api/updateMachin', data).subscribe(
+res => {
+console.log(res);
+event.confirm.resolve(event.newData);
+},
+(err: HttpErrorResponse) => {
+if (err.error instanceof Error) {
+console.log("Client-side error occured.");
+} else {
+console.log("Server-side error occured.");
+}
+});
+  } else {
+    event.confirm.reject();
+  }
 }
   onDeleteConfirm(event): void {
     console.log(event.data)
-    this.http.post<MachinModel>('http://localhost:8080/api/deleteMachin',event.data).subscribe(
+    
+      if (window.confirm('Are you sure you want to delete?')) {
+        this.http.post<MachinModel>('http://localhost:8080/api/deleteMachin',event.data).subscribe(
       res => {
         console.log(res);
         event.confirm.resolve(event.source.data);
@@ -152,5 +191,10 @@ onSaveConfirm(event):void {
       }
     });
    
+      } else {
+        event.confirm.reject();
+      }
+    
+    
 }
 }

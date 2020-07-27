@@ -12,5 +12,6 @@ export class MachinModel {
   isbn: string;
   department: string;
   image: string;
-  comment: string
+  comment: string;
+  
 }

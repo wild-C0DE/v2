@@ -43,7 +43,7 @@ const addMachine = require("./routes/machinesRoutes/machinesRoute");
 const machineList = require("./routes/machinesRoutes/machinListRoute");
 const workorderList = require("./routes/workOrderRoutes/work-orderList");
 const deleteMachin = require("./routes/machinesRoutes/machineDeleteRoute");
-
+const updateMachin = require("./routes/machinesRoutes/machineUpdateRoute");
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -71,4 +71,5 @@ app.use("/api/workOrder", workOrder);
 app.use("/api/machineList", machineList);
 app.use("/api/workorderList", workorderList);
 app.use("/api/deleteMachin", deleteMachin);
+app.use("/api/updateMachin", updateMachin);
 app.listen(PORT, console.log(`server is running on port ${PORT}`));
