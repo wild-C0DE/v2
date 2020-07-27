@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // use JWT auth to secure the api
-//app.use(jwt());
+  //app.use(jwt());
 
 // api routes
 app.use("/users", require("./users/users.controller"));
@@ -44,6 +44,10 @@ const machineList = require("./routes/machinesRoutes/machinListRoute");
 const workorderList = require("./routes/workOrderRoutes/work-orderList");
 const deleteMachin = require("./routes/machinesRoutes/machineDeleteRoute");
 const updateMachin = require("./routes/machinesRoutes/machineUpdateRoute");
+
+const deleteWorkoreder = require("./routes/workOrderRoutes/workorderDelete");
+
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -72,4 +76,5 @@ app.use("/api/machineList", machineList);
 app.use("/api/workorderList", workorderList);
 app.use("/api/deleteMachin", deleteMachin);
 app.use("/api/updateMachin", updateMachin);
+app.use("/api/deleteWorkorder",deleteWorkoreder)
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

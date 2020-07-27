@@ -6,9 +6,10 @@ const WorkOrder = require("../../models/work-order/work-order");
 
 
 
-router.get("/", (req, res) => {
- 
-    WorkOrder.find({})
+router.post("/", (req, res) => {
+ const data = req.body.nameOfTheIntervention
+ console.log(data)
+ WorkOrder.findOneAndDelete({nameOfTheIntervention: data})
     .then((data) => {
       res.send(data);
     })
@@ -16,4 +17,7 @@ router.get("/", (req, res) => {
       console.log("error", error);
     });
 });
+
+
+
 module.exports = router;
