@@ -139,7 +139,7 @@ onSaveConfirm(event):void {
 }
   onDeleteConfirm(event): void {
     console.log(event.data)
-    this.http.post<MachinModel>('http://localhost:8080/api/deleteMachin',event.data).subscribe(
+    this.http.post<MachinModel>('http://localhost:8080/api/deleteEquipment',event.data).subscribe(
       res => {
         console.log(res);
         event.confirm.resolve(event.source.data);

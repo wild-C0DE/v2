@@ -1,0 +1,61 @@
+const mongoose = require("mongoose");
+
+//*********Schema******** */
+const Schema = mongoose.Schema;
+const Equipment = new Schema({
+  nameOfEquipment: {
+    type: String,
+    required: true,
+  },
+  machnameOfAgentine: {
+    type: String,
+    required: true,
+  },
+  reference: {
+    type: String,
+    required: true,
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+
+  state: {
+    type: String,
+    
+  },
+  brand: {
+    type: String,
+    // required: true,
+  },
+  supplierName: {
+    type: String,
+    // required: true,
+  },
+  supplierContact: {
+    type: String,
+    // required: true,
+  },
+ 
+  dateOfUse: {
+    type: String,
+    required: true,
+  },
+  isbn: {
+    type: String,
+    // required: true,
+  },
+  department: {
+    type: String,
+    // required: true,
+  },
+  image: {
+    type: String,
+  },
+ 
+});
+
+// Model
+const EquipmentList = mongoose.model("EquipmentList", Equipment);
+
+module.exports = EquipmentList;
