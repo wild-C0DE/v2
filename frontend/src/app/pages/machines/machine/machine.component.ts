@@ -19,6 +19,7 @@ source:ServerDataSource;
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
+      uploadImageButton: '<i type="file" class="custom-file-input" id="inputGroupFile01>  ',
       confirmCreate:true,
     },
     edit: {
@@ -62,7 +63,7 @@ source:ServerDataSource;
       },
       serialNumber: {
         title: 'serialNumber',
-        type: 'string',
+        type: 'number',
       },
       dateOfPurchase: {
         title: 'dateOfPurchase',
@@ -80,13 +81,13 @@ source:ServerDataSource;
         title: 'department',
         type: 'string',
       },     
-      image: {
-        title: 'image',
-        type:"html",
-        valuePrepareFunction: (photo:string) => {return `<img width="50px" src="${photo}" />`;},
+      // image: {
+      //   title: 'image',
+      //   type:"html",
+      //   valuePrepareFunction: (photo:string) => {return `<img width="50px" src="${photo}" />`;},
        
         
-      },
+      // },
       comment: {
         title: 'comment',
         type: 'string',
@@ -118,10 +119,20 @@ onCreateConfirm(event):void {
                 "inventory" : event.newData.inventory,
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
-                "image" : event.newData.image,
+                // "image" : event.newData.image,
                 "comment" : event.newData.comment,               
                 
-                };
+                }; 
+  if (event.newData.name === "") {
+    window.confirm('please enter the name of the machin')
+                  
+   } else if (event.newData.reference === "") {
+                
+                  window.confirm('please enter the reference of the machin')
+  }else if(event.newData.department === "") {
+                    window.confirm('please enter the department of the machin')   
+                  
+  }else {
 	this.http.post<MachinModel>('http://localhost:8080/api/addMachine', data).subscribe(
         res => {
           console.log(res);
@@ -134,9 +145,12 @@ onCreateConfirm(event):void {
           console.log("Server-side error occured.");
         }
       });
+    }
+    
+   
 } 
+
 onSaveConfirm(event):void {
-  
   
   var data = {
   "helper" : event.data._id,
@@ -152,11 +166,21 @@ onSaveConfirm(event):void {
   "inventory" : event.newData.inventory,
   "isbn" : event.newData.isbn,
   "department" : event.newData.department,               
-  "image" : event.newData.image,
+  // "image" : event.newData.image,
   "comment" : event.newData.comment,            
   
   };
+  console.log(typeof event.newData.serialNumber)
+ if (event.newData.name === "") {
+  window.confirm('please enter the name of the machin')
   
+} else if (event.newData.reference === "") {
+
+  window.confirm('please enter the reference of the machin')
+}else if(event.newData.department === "") {
+    window.confirm('please enter the department of the machin')   
+  
+  }else {
   if (window.confirm('Do you confirm the changes?')) {
 this.http.post<MachinModel>('http://localhost:8080/api/updateMachin', data).subscribe(
 res => {
@@ -173,6 +197,8 @@ console.log("Server-side error occured.");
   } else {
     event.confirm.reject();
   }
+}
+
 }
   onDeleteConfirm(event): void {
     console.log(event.data)
