@@ -11,7 +11,7 @@ import { CalendarKitFullCalendarShowcaseComponent } from './calendar-kit/calenda
 
 const routes: Routes = [{
   path: '',
-  component: ExtraComponentsComponent,
+  component: ExtraComponentsComponent, 
   children: [
     {
       path: 'calendar',

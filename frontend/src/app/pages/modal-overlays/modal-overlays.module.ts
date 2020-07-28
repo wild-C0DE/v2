@@ -5,7 +5,7 @@ import {
   NbCardModule,
   NbCheckboxModule,
   NbDialogModule,
-  NbInputModule,
+  NbInputModule, 
   NbPopoverModule,
   NbSelectModule,
   NbTabsetModule,
