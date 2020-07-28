@@ -57,6 +57,11 @@ const deleteWorkoreder = require("./routes/workOrderRoutes/workorderDelete");
 const addEquipment = require("./routes/equipmentRoutes/equipmentRoute");
 const equipmentList = require("./routes/equipmentRoutes/equipmentListRoute");
 const deleteEquipment = require("./routes/equipmentRoutes/equipmentDeleteRoute");
+const updateEquipment = require("./routes/equipmentRoutes/equipmentUpdateRoute");
+
+
+
+
 const correctionList = require("./routes/machinesRoutes/correctionRoute")
 const preventionList = require("./routes/machinesRoutes/preventionRoute")
 const synthesis = require("./routes/machinesRoutes/synthesisRoute")
@@ -106,9 +111,14 @@ app.use("/api/deleteWorkorder",deleteWorkoreder)
 app.use("/api/addequipment", addEquipment);
 app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
+
+app.use("/api/updateEquipment", updateEquipment);
+
+
 app.use("/api/correctionList", correctionList);
 app.use("/api/preventionList", preventionList);
 app.use("/api/synthesis", synthesis);
+
 
 
 

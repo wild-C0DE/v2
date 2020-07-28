@@ -125,6 +125,52 @@ onCreateConfirm(event):void {
 } 
 onSaveConfirm(event):void {
   
+  var data = {
+  "helper" : event.data._id,
+  "nameOfEquipment" : event.newData.nameOfEquipment,
+  "machnameOfAgentine" : event.newData.machnameOfAgentine,
+  "reference" : event.newData.reference,
+  "quantity" : event.newData.quantity,
+  "state" : event.newData.state,
+  "brand" : event.newData.brand,
+  "supplierName" : event.newData.supplierName,
+  "supplierContact" : event.newData.supplierContact,
+  "dateOfUse" : event.newData.dateOfUse,
+  "isbn" : event.newData.isbn,
+  "department" : event.newData.department,               
+  "image" : event.newData.image,
+  
+  };
+  console.log(typeof event.newData.brand)
+ if (event.newData.name === "") {
+  window.confirm('please enter the name of the machin')
+  
+} else if (event.newData.reference === "") {
+
+  window.confirm('please enter the reference of the machin')
+}else if(event.newData.department === "") {
+    window.confirm('please enter the department of the machin')   
+  
+  }else {
+  if (window.confirm('Do you confirm the changes?')) {
+this.http.post<EquipmentModel>('http://localhost:8080/api/updateEquipment', data).subscribe(
+res => {
+console.log(res);
+event.confirm.resolve(event.newData);
+},
+(err: HttpErrorResponse) => {
+if (err.error instanceof Error) {
+console.log("Client-side error occured.");
+} else {
+console.log("Server-side error occured.");
+}
+});
+location.reload()
+  } else {
+    event.confirm.reject();
+  }
+}
+
 }
   onDeleteConfirm(event): void {
     console.log(event.data)
