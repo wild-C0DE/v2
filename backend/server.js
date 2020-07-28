@@ -89,4 +89,5 @@ app.use("/api/deleteEquipment", deleteEquipment);
 
 
 
+
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

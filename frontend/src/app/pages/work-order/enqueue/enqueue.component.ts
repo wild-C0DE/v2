@@ -2,14 +2,18 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { SmartTableData } from '../../../@core/data/smart-table';
-
+import {HttpClient} from '@angular/common/http';
+import { ServerDataSource } from 'ng2-smart-table';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Addwork} from "../addwork.model"
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './enqueue.component.html',
   styleUrls: ['./enqueue.component.scss'],
 })
 export class EnqueueComponent {
-
+  data:any = [];
+  source: ServerDataSource;
   settings = {
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -26,45 +30,60 @@ export class EnqueueComponent {
       confirmDelete: true,
     },
     columns: {
-      id: {
-        title: 'ID',
+      numberOrder: {
+        title: 'Number Order',
         type: 'number',
+      },
+      date: {
+        title: 'Date',
+        type: 'number',
+      },
+      nameOfTheIntervention: {
+        title: 'Name Of The Intervention',
+        type: 'string',
+      },
+      typeOfIntervention: {
+        title: 'Type Of Intervention',
+        type: 'string',
+      },
+      state: {
+        title: 'State',
+        type: 'string',
       },
       machine: {
         title: 'Machine',
         type: 'string',
       },
-      reference: {
-        title: 'Reference',
+      manager: {
+        title: 'Manager',
         type: 'string',
       },
-      security: {
-        title: 'Security Stock',
-        type: 'Number',
+      duration: {
+        title: 'Duration',
+        type: 'string',
       },
-      min: {
-        title: 'Min',
-        type: 'Number',
+      agent: {
+        title: 'Agent',
+        type: 'string',
       },
-      max: {
-        title: 'Max',
+      depertment: {
+        title: 'Depertment',
+        type: 'number',
+      },
+      equipmentUsed: {
+        title: 'Equipment Used',
         type: 'number',
       },
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
-
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
+  ngOnInit(): void {
+    this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/api/workorderList/enqueue", });
+          console.log(this.source);
+        }
+    
+      constructor(private http: HttpClient){
+     
+        //this.source. = 'data';
+        }
 }
