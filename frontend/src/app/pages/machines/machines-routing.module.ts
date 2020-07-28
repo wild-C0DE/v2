@@ -5,7 +5,7 @@ import { TablesComponent } from './machines.component';
 import { MachineComponent } from './machine/machine.component';
 import { PreventionComponent } from './prevention/prevention.component';
 import { CorrectionComponent } from './correction/correction.component';
-
+import { SynthesisComponent } from './synthesis/synthesis.component';
 const routes: Routes = [{
   path: '', 
   component: TablesComponent,
@@ -22,6 +22,9 @@ const routes: Routes = [{
       path: 'correction',
       component: CorrectionComponent,
     },
+    {path: 'synthesis',
+    component: SynthesisComponent,
+  },
   ],
 }];
 
@@ -36,4 +39,5 @@ export const routedComponents = [
   MachineComponent,
   PreventionComponent,
   CorrectionComponent,
+  SynthesisComponent
 ];
