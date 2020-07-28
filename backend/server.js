@@ -51,6 +51,7 @@ const stock = require('./routes/stock')
 
 
 const deleteMachin = require("./routes/machinesRoutes/machineDeleteRoute");
+const deleteWorkoreder = require("./routes/workOrderRoutes/workorderDelete");
 
 //************************************ */
 // ************mongod DB*************
@@ -90,6 +91,5 @@ app.use("/api/workOrder", workOrder);
 app.use("/api/machineList", machineList);
 app.use("/api/workorderList", workorderList);
 app.use("/api/deleteMachin", deleteMachin);
-
-
+app.use("/api/deleteWorkorder",deleteWorkoreder)
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

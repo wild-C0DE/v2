@@ -7,7 +7,7 @@ import {
   NbCalendarModule,
   NbCalendarRangeModule,
   NbCardModule,
-  NbChatModule,
+  NbChatModule, 
   NbIconModule,
   NbProgressBarModule,
   NbSelectModule,

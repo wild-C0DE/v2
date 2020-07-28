@@ -5,3 +5,12 @@
     transform: translate3d(0, 0, 0);
   }
 }
+@import '~@nebular/theme/styles/core/mixins';
+
+
+
+  button
+   {
+    margin: 0.5rem 0.2rem 0.5rem;
+  }
+
