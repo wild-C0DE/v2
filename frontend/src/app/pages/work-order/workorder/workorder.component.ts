@@ -48,6 +48,10 @@ export class WorkorderComponent {
         title: 'Type Of Intervention',
         type: 'string',
       },
+      state: {
+        title: 'State',
+        type: 'string',
+      },
       machine: {
         title: 'Machine',
         type: 'string',
@@ -117,6 +121,49 @@ this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080
 
     }
     onSaveConfirm(event):void{
+      var data = {
+        "helper" : event.data._id,
+        "typeOfIntervention" : event.newData.typeOfIntervention,
+        "family" : event.newData.family,
+        "machine" : event.newData.machine,
+        "state" : event.newData.state,
+        "manager" : event.newData.manager,
+        "agent" : event.newData.agent,
+        "depertment" : event.newData.depertment,
+        "duration" : event.newData.duration,
+        "equipmentUsed" : event.newData.equipmentUsed,
+                
+        
+        };
+        console.log(typeof event.newData.serialNumber)
+       if (event.newData.name === "") {
+        window.confirm('please enter the name of the machin')
+        
+      } else if (event.newData.reference === "") {
+      
+        window.confirm('please enter the reference of the machin')
+      }else if(event.newData.department === "") {
+          window.confirm('please enter the department of the machin')   
+        
+        }else {
+        if (window.confirm('Do you confirm the changes?')) {
+      this.http.post<Addwork>('http://localhost:8080/api/workorderList/updateWork', data).subscribe(
+      res => {
+      console.log(res)
+      event.confirm.resolve(event.newData);
+      },
+      (err: HttpErrorResponse) => {
+      if (err.error instanceof Error) {
+      console.log("Client-side error occured.");
+      } else {
+      console.log("Server-side error occured.");
+      }
+      });
+      location.reload()
+      } else {
+          event.confirm.reject();
+        }
+      }
 
     }
    

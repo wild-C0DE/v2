@@ -40,7 +40,7 @@ export class PreventionComponent {
         type: 'string',
       },
       duration: {
-        title: 'Duration',
+        title: 'Duration hours',
         type: 'string',
       },
       agent: {

@@ -22,7 +22,7 @@ const Work = new Schema({
     required: true,
   },
   state: {
-    type: Boolean,
+    type: String,
     required: false,
   },
   
