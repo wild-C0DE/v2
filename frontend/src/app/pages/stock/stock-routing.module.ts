@@ -4,18 +4,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './stock.component';
 import { StockTableComponent } from './stock-table/stock-table.component';
 import { ReportsComponent } from './reports/reports.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [{
   path: '', 
   component: TablesComponent,
   children: [
     { 
-      path: 'stock-table',
+      path: 'stock-table', 
       component: StockTableComponent,
     },
     {
       path: 'reports',
       component: ReportsComponent,
+    },
+    {
+      path: 'chat',
+      component: ChatComponent,
     },
   ],
 }];
@@ -30,4 +35,5 @@ export const routedComponents = [
   TablesComponent,
   StockTableComponent,
   ReportsComponent,
+  ChatComponent
 ];

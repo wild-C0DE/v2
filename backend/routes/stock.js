@@ -1,0 +1,34 @@
+const router = require('express').Router();
+let Stock = require('../models/Stock.module');
+
+router.get('/', (req, res) => {
+	Stock.find()
+	.then(stocks => res.json(stocks))
+	.catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.post('/', (req, res) => {
+	const name = req.body.name
+	const reference = req.body.reference;
+	const quantity = req.body.quantity;
+	const security = req.body.security;
+	const min = req.body.min;
+	const max = req.body.max;
+	
+
+	const newStock = new Stock({
+		name,
+		reference,
+		quantity,
+		security,
+		min,
+		max
+	});
+
+	newStock.save()
+	.then(() => res.json('stock added!!'))
+	.catch(err => res.status(400).json('Error: ' + err));
+});
+
+
+module.exports = router;

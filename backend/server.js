@@ -27,7 +27,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // use JWT auth to secure the api
-  //app.use(jwt());
+
+ // app.use(jwt());
+
 
 // api routes
 app.use("/users", require("./users/users.controller"));
@@ -42,6 +44,12 @@ const workOrder = require("./routes/workOrderRoutes/work-order");
 const addMachine = require("./routes/machinesRoutes/machinesRoute");
 const machineList = require("./routes/machinesRoutes/machinListRoute");
 const workorderList = require("./routes/workOrderRoutes/work-orderList");
+
+
+const stock = require('./routes/stock')
+
+
+
 const deleteMachin = require("./routes/machinesRoutes/machineDeleteRoute");
 const updateMachin = require("./routes/machinesRoutes/machineUpdateRoute");
 
@@ -53,6 +61,10 @@ const updateEquipment = require("./routes/equipmentRoutes/equipmentUpdateRoute")
 
 
 
+
+const correctionList = require("./routes/machinesRoutes/correctionRoute")
+const preventionList = require("./routes/machinesRoutes/preventionRoute")
+const synthesis = require("./routes/machinesRoutes/synthesisRoute")
 
 
 
@@ -79,6 +91,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(morgan("tiny"));
 //Use routes
 app.use("/api/addmachine", addMachine);
+
+app.use('/api/workOrder', workOrder)
+app.use('/api/machineList', machineList)
+app.use("/api/workorderList", workorderList)
+
+
+app.use('/stock', stock)
+
+
+
+
 app.use("/api/workOrder", workOrder);
 app.use("/api/machineList", machineList);
 app.use("/api/workorderList", workorderList);
@@ -88,7 +111,13 @@ app.use("/api/deleteWorkorder",deleteWorkoreder)
 app.use("/api/addequipment", addEquipment);
 app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
+
 app.use("/api/updateEquipment", updateEquipment);
+
+
+app.use("/api/correctionList", correctionList);
+app.use("/api/preventionList", preventionList);
+app.use("/api/synthesis", synthesis);
 
 
 

@@ -6,10 +6,10 @@ export class MachinModel {
   brand: string;
   supplierName: string;
   supplierContact: string;
-  serialNumber: number;
+  serialNumber: string;
   dateOfPurchase: string;
   inventory: string;
-  isbn: number;
+  isbn: string;
   department: string;
   // image: string;
   comment: string;

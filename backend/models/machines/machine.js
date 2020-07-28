@@ -28,7 +28,7 @@ const Machine = new Schema({
     type: String,
   },
   serialNumber: {
-    type: Number,
+    type: String,
   },
   dateOfPurchase: {
     type: String,

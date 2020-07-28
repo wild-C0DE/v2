@@ -4,10 +4,10 @@ export class Addwork {
     nameOfTheIntervention : string; 
     typeOfIntervention : string;
     state : string;
-    machine : string;
+    machine : string; 
     manager : string;
     agent : string;
-    depertment : string;
+    department : string;
     duration : string
     equipmentUsed : string
 }
