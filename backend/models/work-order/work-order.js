@@ -22,7 +22,7 @@ const Work = new Schema({
     required: true,
   },
   state: {
-    type: Boolean,
+    type: String,
     required: false,
   },
   
@@ -38,7 +38,7 @@ const Work = new Schema({
     type: String,
     required: true,
   },
-  depertment: {
+  department: {
     type: String,
     required: true,
   },
@@ -50,6 +50,7 @@ const Work = new Schema({
     type: String,
     required: true,
   },
+  
 });
 
 Work.plugin(AutoIncrement, {inc_field: 'numberOrder'});

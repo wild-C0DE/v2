@@ -7,7 +7,7 @@ export class Addwork {
     machine : string; 
     manager : string;
     agent : string;
-    depertment : string;
+    department : string;
     duration : string
     equipmentUsed : string
 }

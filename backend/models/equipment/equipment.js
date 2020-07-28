@@ -2,8 +2,12 @@ const mongoose = require("mongoose");
 
 //*********Schema******** */
 const Schema = mongoose.Schema;
-const Machine = new Schema({
-  name: {
+const Equipment = new Schema({
+  nameOfEquipment: {
+    type: String,
+    required: true,
+  },
+  machnameOfAgentine: {
     type: String,
     required: true,
   },
@@ -11,47 +15,47 @@ const Machine = new Schema({
     type: String,
     required: true,
   },
-  family: {
-    type: String,
+  quantity: {
+    type: Number,
+    required: true,
   },
 
   state: {
     type: String,
+    
   },
   brand: {
     type: String,
+    // required: true,
   },
   supplierName: {
     type: String,
+    // required: true,
   },
   supplierContact: {
     type: String,
+    // required: true,
   },
-  serialNumber: {
-    type: String,
-  },
-  dateOfPurchase: {
-    type: String,
-  },
-  inventory: {
-    type: String,
-  },
-  isbn: {
-    type: String,
-  },
-  department: {
+ 
+  dateOfUse: {
     type: String,
     required: true,
   },
-  // image: {
-  //   type: String,
-  // },
-  comment: {
+  isbn: {
+    type: String,
+    // required: true,
+  },
+  department: {
+    type: String,
+    // required: true,
+  },
+  image: {
     type: String,
   },
+ 
 });
 
 // Model
-const MachineList = mongoose.model("MachineList", Machine);
+const EquipmentList = mongoose.model("EquipmentList", Equipment);
 
-module.exports = MachineList;
+module.exports = EquipmentList;

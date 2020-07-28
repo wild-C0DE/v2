@@ -11,6 +11,7 @@ export class MachinModel {
   inventory: string;
   isbn: string;
   department: string;
-  image: string;
-  comment: string
+  // image: string;
+  comment: string;
+  
 }
