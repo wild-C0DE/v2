@@ -7,7 +7,7 @@ const Equipment = new Schema({
     type: String,
     required: true,
   },
-  machnameOfAgentine: {
+  nameOfAgent: {
     type: String,
     required: true,
   },
@@ -49,8 +49,8 @@ const Equipment = new Schema({
     type: String,
     // required: true,
   },
-  image: {
-    type: String,
+  cost: {
+    type: Number,
   },
  
 });

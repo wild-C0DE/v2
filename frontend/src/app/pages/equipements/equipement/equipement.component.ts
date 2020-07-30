@@ -37,7 +37,7 @@ export class EquipementComponent {
         title: 'nameOfEquipment',
         type: 'string',
       },
-      machnameOfAgentine: {
+      nameOfAgent: {
         title: 'nameOfAgent',
         type: 'string',
       },
@@ -77,9 +77,9 @@ export class EquipementComponent {
         title: 'department',
         type: 'string'
       },
-      image: {
-        title: 'image',
-        type: 'string'
+      cost: {
+        title: 'Cost',
+        type: 'number'
       },
       
     },
@@ -97,7 +97,7 @@ export class EquipementComponent {
 onCreateConfirm(event):void { 
   var data = {
                 "nameOfEquipment" : event.newData.nameOfEquipment,
-                "machnameOfAgentine" : event.newData.machnameOfAgentine,
+                "nameOfAgent" : event.newData.nameOfAgent,
                 "reference" : event.newData.reference,
                 "quantity" : event.newData.quantity,
                 "state" : event.newData.state,
@@ -107,7 +107,7 @@ onCreateConfirm(event):void {
                 "dateOfUse" : event.newData.dateOfUse,
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
-                "image" : event.newData.image,
+                "cost" : event.newData.cost,
                 
                 };
 	this.http.post<EquipmentModel>('http://localhost:8080/api/addEquipment', data).subscribe(
@@ -128,7 +128,7 @@ onSaveConfirm(event):void {
   var data = {
   "helper" : event.data._id,
   "nameOfEquipment" : event.newData.nameOfEquipment,
-  "machnameOfAgentine" : event.newData.machnameOfAgentine,
+  "nameOfAgent" : event.newData.nameOfAgent,
   "reference" : event.newData.reference,
   "quantity" : event.newData.quantity,
   "state" : event.newData.state,
@@ -138,18 +138,18 @@ onSaveConfirm(event):void {
   "dateOfUse" : event.newData.dateOfUse,
   "isbn" : event.newData.isbn,
   "department" : event.newData.department,               
-  "image" : event.newData.image,
+  "cost" : event.newData.cost,
   
   };
   console.log(typeof event.newData.brand)
  if (event.newData.name === "") {
-  window.confirm('please enter the name of the machin')
+  window.confirm('please enter the name of the equipment')
   
 } else if (event.newData.reference === "") {
 
-  window.confirm('please enter the reference of the machin')
+  window.confirm('please enter the reference of the equipment')
 }else if(event.newData.department === "") {
-    window.confirm('please enter the department of the machin')   
+    window.confirm('please enter the department of the equipment')   
   
   }else {
   if (window.confirm('Do you confirm the changes?')) {
