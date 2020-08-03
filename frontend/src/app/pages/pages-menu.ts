@@ -144,10 +144,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Correction',
         link: '/pages/machines/correction',
       },
-      {
-        title: 'Synthesis',
-        link: '/pages/machines/synthesis',
-      },
+      
     ],
   },
   {
@@ -179,6 +176,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/equipements/assign',
       },
     ],
+  },
+  {
+    title: 'Workers',
+    icon: "settings-outline",
+    link: '/pages/workers/worker',
+
+    // children: [
+    //   {
+    //     title: 'Equipements List',
+    //     link: '/pages/equipements/equipement',
+    //   },
+     
+    //   {
+    //     title: 'Assign',
+    //     link: '/pages/equipements/assign',
+    //   },
+    // ],
+  },
+  {
+    title: 'Synthesis',
+    icon: "settings-outline",
+    link: '/pages/synthesis/synthese',    
   },
   // {
   //   title: 'Miscellaneous',

@@ -3,7 +3,7 @@ import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModu
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { HttpClientModule } from '@angular/common/http';
 import { ThemeModule } from '../../@theme/theme.module';
-import { TablesRoutingModule, routedComponents } from './machines-routing.module';
+import { TablesRoutingModule, routedComponents } from './synthesis-routing.module';
 
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
@@ -22,7 +22,7 @@ import { TablesRoutingModule, routedComponents } from './machines-routing.module
   ],
   declarations: [
     ...routedComponents,
-    
+  
    
   ],
 })

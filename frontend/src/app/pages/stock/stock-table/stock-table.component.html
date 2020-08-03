@@ -8,8 +8,8 @@
 
         <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
         <button nbButton status="danger" (click)="downloadCSV()" ghost>CSV</button>
-        <button nbButton status="primary" printSectionId="print-section" ngxPrint  ghost>Print</button>
-      
+        <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
+        <button nbButton status="primary" printSectionId="print-section" ngxPrint  ghost>Print</button>        
     <ng2-smart-table [settings]="settings" [source]="source"   id="print-section" >
     </ng2-smart-table>
   </nb-card-body>

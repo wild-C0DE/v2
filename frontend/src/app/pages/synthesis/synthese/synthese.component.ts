@@ -2,69 +2,57 @@ import { Component, ViewChild, ElementRef } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import {HttpErrorResponse} from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
-import { Addwork } from '../../work-order/addwork.model'
 import * as jsPDF from "jspdf";
 import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
 
 @Component({
-  selector: 'ngx-smart-table',
-  templateUrl: './prevention.component.html',
-  styleUrls: ['./prevention.component.scss'],
+  selector: 'ngx-synthesis',
+  templateUrl: './synthese.component.html',
+  styleUrls: ['./synthese.component.scss']
 })
-export class PreventionComponent {
-  title = "prevention"
+export class SyntheseComponent  {
+  title = "synthesis"
   data: any = [];
-  fileName = "Prevention.xlsx";
+  fileName = "Synthesis.xlsx";
   source:ServerDataSource;
-  settings = {
-    actions: {
-      delete: false,
-      add: false,
-      edit: false
+  
+    settings = {
+      actions: {
+        delete: false,
+        add: false,
+        edit: false
 
-    },
-    columns: {
-      machine: {
-        title: 'Machine',
-        type: 'string',
+      },      
+      columns: {
+        totalTime :  {
+          title: 'total maintenance duration',
+          type: 'number',
+        },
+        correctionTime: {
+          title: 'correction maintenance duration',
+          type: 'number',
+        },
+        preventionTime: {
+          title: 'prevention maintenance duration',
+          type: 'number',
+        },
+        ratio: {
+          title: 'Ratio 1 : correction action over total actions',
+          type: 'number',
+        },
+       
       },
-      nameOfTheIntervention: {
-        title: 'Name Of The Intervention',
-        type: 'string',
-      },
-      date: {
-        title: 'Date',
-        type: 'number',
-      },
-      manager: {
-        title: 'Manager',
-        type: 'string',
-      },
-      duration: {
-        title: 'Duration hours',
-        type: 'string',
-      },
-      agent: {
-        title: 'Agent',
-        type: 'string',
-      },
-      department: {
-        title: 'Department',
-        type: 'number',
-      },
-    },
-  };
-
-  constructor(private http: HttpClient) {
-    //this.source ='data
+    };
+  
+    constructor(private http: HttpClient) {
+      //this.source ='data
+    }
+    ngOnInit(): void {
+      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/synthesis' })
+      console.log(this.source);   
   }
-  ngOnInit(): void {
-    this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/preventionList' })
-    console.log(this.source);
- 
-}
-@ViewChild("content") content: ElementRef;
+  @ViewChild("content") content: ElementRef;
 
   public downloadPDF() {
     var doc = new jsPDF("l", "pt", "letter");
@@ -92,7 +80,7 @@ export class PreventionComponent {
       elementHandlers: specialElementHandler,
     });
     doc.output("dataurlnewwindow");
-    doc.save("Prevention.pdf");
+    doc.save("Synthesis.pdf");
   }
 
   exportexcel(): void {
@@ -104,4 +92,5 @@ export class PreventionComponent {
 
     XLSX.writeFile(wb, this.fileName);
   }
+
 }

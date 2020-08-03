@@ -1,13 +1,19 @@
+<div #content>
 <nb-card>
   <nb-card-header>
     Machines
   </nb-card-header>
 
   <nb-card-body>
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)">
+    <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
+    <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
+
+
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)" id="tab">
       
     </ng2-smart-table>
     
   </nb-card-body>
 </nb-card>
 
+</div>

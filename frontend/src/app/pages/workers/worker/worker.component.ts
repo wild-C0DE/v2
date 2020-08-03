@@ -1,23 +1,25 @@
-import { Component, ViewChild, ElementRef } from "@angular/core";
+import { Component, ViewChild, ElementRef } from '@angular/core'
 import { HttpClient } from "@angular/common/http";
 import { HttpErrorResponse } from "@angular/common/http";
 import { ServerDataSource } from "ng2-smart-table";
-import { MachinModel } from "./machin-model.model";
+import { WorkersModel } from "./worker.model";
 import * as jsPDF from "jspdf";
 import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
-
 @Component({
   selector: "ngx-smart-table",
-  templateUrl: "./machine.component.html",
-  styleUrls: ["./machine.component.scss"],
+  templateUrl: "./worker.component.html",
+  styleUrls: ["./worker.component.scss"],
 })
-export class MachineComponent {
-  title = "machine";
+
+
+export class WorkerComponent {
+  title = "worker";
   data: any = [];
-  fileName = "Machines.xlsx";
+  fileName = "Workers.xlsx";
   source: ServerDataSource;
   settings = {
+   
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -37,61 +39,41 @@ export class MachineComponent {
       confirmDelete: true,
     },
     columns: {
+      registrationNumber: {
+        title: "Registration Number",
+        type: "string",
+      },
       name: {
         title: "name",
         type: "string",
       },
-      reference: {
-        title: "reference",
+      socialSecurity: {
+        title: "Social Security",
         type: "string",
       },
-      family: {
-        title: "family",
+      adress: {
+        title: "Adress",
         type: "string",
       },
-      state: {
-        title: "state",
+      occupation: {
+        title: "Occupation",
         type: "string",
       },
-      brand: {
-        title: "brand",
+      dateOfEmployment: {
+        title: "Date Of Employment",
         type: "string",
       },
-      supplierName: {
-        title: "supplierName",
+      annuelSalary: {
+        title: "Annuel Salary",
         type: "string",
       },
-      supplierContact: {
-        title: "supplierContact",
-        type: "string",
-      },
-      serialNumber: {
-        title: "serialNumber",
+      regularHourlyRate: {
+        title: "Regular Hourly Rate",
         type: "number",
       },
-      dateOfPurchase: {
-        title: "dateOfPurchase",
+      hourlyOvertimeRate: {
+        title: "Hourly Overtime Rate",
         type: "number",
-      },
-      inventory: {
-        title: "inventory",
-        type: "number",
-      },
-      isbn: {
-        title: "isbn",
-        type: "string",
-      },
-      department: {
-        title: "department",
-        type: "string",
-      },
-      cost: {
-        title: "cost",
-        type: "number",
-      },
-      comment: {
-        title: "comment",
-        type: "string",
       },
     },
   };
@@ -101,38 +83,30 @@ export class MachineComponent {
   }
   ngOnInit(): void {
     this.source = new ServerDataSource(this.http, {
-      endPoint: "http://localhost:8080/api/machineList",
+      endPoint: "http://localhost:8080/api/workersList",
     });
     console.log(this.source);
   }
 
   onCreateConfirm(event): void {
     var data = {
+      registrationNumber: event.newData.registrationNumber,
       name: event.newData.name,
-      reference: event.newData.reference,
-      family: event.newData.family,
-      state: event.newData.state,
-      brand: event.newData.brand,
-      supplierName: event.newData.supplierName,
-      supplierContact: event.newData.supplierContact,
-      serialNumber: event.newData.serialNumber,
-      dateOfPurchase: event.newData.dateOfPurchase,
-      inventory: event.newData.inventory,
-      isbn: event.newData.isbn,
-      department: event.newData.department,
-      cost: event.newData.cost,
-      // "image" : event.newData.image,
-      comment: event.newData.comment,
+      socialSecurity: event.newData.socialSecurity,
+      adress: event.newData.adress,
+      occupation: event.newData.occupation,
+      dateOfEmployment: event.newData.dateOfEmployment,
+      annuelSalary: event.newData.annuelSalary,
+      regularHourlyRate: event.newData.regularHourlyRate,
+      hourlyOvertimeRate: event.newData.hourlyOvertimeRate,
     };
     if (event.newData.name === "") {
-      window.confirm("please enter the name of the machin");
-    } else if (event.newData.reference === "") {
-      window.confirm("please enter the reference of the machin");
-    } else if (event.newData.department === "") {
-      window.confirm("please enter the department of the machin");
-    } else {
+      window.confirm("please enter the name of the employee");
+    } else if (event.newData.registrationNumber === "") {
+      window.confirm("please enter the Registration Number");
+    }else {
       this.http
-        .post<MachinModel>("http://localhost:8080/api/addMachine", data)
+        .post<WorkersModel>("http://localhost:8080/api/workerAdd", data)
         .subscribe(
           (res) => {
             console.log(res);
@@ -152,33 +126,25 @@ export class MachineComponent {
   onSaveConfirm(event): void {
     var data = {
       helper: event.data._id,
+      registrationNumber: event.newData.registrationNumber,
       name: event.newData.name,
-      reference: event.newData.reference,
-      family: event.newData.family,
-      state: event.newData.state,
-      brand: event.newData.brand,
-      supplierName: event.newData.supplierName,
-      supplierContact: event.newData.supplierContact,
-      serialNumber: event.newData.serialNumber,
-      dateOfPurchase: event.newData.dateOfPurchase,
-      inventory: event.newData.inventory,
-      isbn: event.newData.isbn,
-      department: event.newData.department,
-      cost: event.newData.cost,
-      // "image" : event.newData.image,
-      comment: event.newData.comment,
+      socialSecurity: event.newData.socialSecurity,
+      adress: event.newData.adress,
+      occupation: event.newData.occupation,
+      dateOfEmployment: event.newData.dateOfEmployment,
+      annuelSalary: event.newData.annuelSalary,
+      regularHourlyRate: event.newData.regularHourlyRate,
+      hourlyOvertimeRate: event.newData.hourlyOvertimeRate,
     };
-    console.log(typeof event.newData.serialNumber);
+
     if (event.newData.name === "") {
-      window.confirm("please enter the name of the machin");
-    } else if (event.newData.reference === "") {
-      window.confirm("please enter the reference of the machin");
-    } else if (event.newData.department === "") {
-      window.confirm("please enter the department of the machin");
+      window.confirm("please enter the name of the employee");
+    } else if (event.newData.registrationNumber === "") {
+      window.confirm("please enter the Registration Number");
     } else {
       if (window.confirm("Do you confirm the changes?")) {
         this.http
-          .post<MachinModel>("http://localhost:8080/api/updateMachin", data)
+          .post<WorkersModel>("http://localhost:8080/api/workerUpdate", data)
           .subscribe(
             (res) => {
               console.log(res);
@@ -203,7 +169,10 @@ export class MachineComponent {
 
     if (window.confirm("Are you sure you want to delete?")) {
       this.http
-        .post<MachinModel>("http://localhost:8080/api/deleteMachin", event.data)
+        .post<WorkersModel>(
+          "http://localhost:8080/api/workerDelete",
+          event.data
+        )
         .subscribe(
           (res) => {
             console.log(res);
@@ -221,7 +190,6 @@ export class MachineComponent {
       event.confirm.reject();
     }
   }
-
   @ViewChild("content") content: ElementRef;
 
   public downloadPDF() {
@@ -250,7 +218,7 @@ export class MachineComponent {
       elementHandlers: specialElementHandler,
     });
     doc.output("dataurlnewwindow");
-    doc.save("Machines.pdf");
+    doc.save("Workers.pdf");
   }
 
   exportexcel(): void {
