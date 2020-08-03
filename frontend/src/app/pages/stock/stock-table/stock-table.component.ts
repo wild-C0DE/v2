@@ -3,8 +3,9 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { ServerDataSource } from 'ng2-smart-table';
 import { SmartTableData } from '../../../@core/data/smart-table';
 import {HttpClient} from '@angular/common/http';
-import * as jsPDF from 'jspdf';
+import * as jsPDF from 'jspdf'
 import { ngxCsv } from 'ngx-csv/ngx-csv';
+import * as XLSX from 'xlsx';
 
 
 @Component({
@@ -14,8 +15,10 @@ import { ngxCsv } from 'ngx-csv/ngx-csv';
 })
 export class StockTableComponent {
   data:any = [];
+  fileName= 'ExcelSheet.xlsx';
+   
   source: ServerDataSource; 
-  settings = {
+  settings = { 
     hideSubHeader: true,
     actions: {
       add: false,
@@ -66,7 +69,9 @@ export class StockTableComponent {
   constructor(private http: HttpClient) {
     
   }
+ 
   @ViewChild('content') content: ElementRef;
+ 
   public downloadPDF() {
     var doc = new jsPDF('p', 'pt', 'letter');
 
@@ -75,12 +80,13 @@ export class StockTableComponent {
         return true;
       }
     }
+    
     let content = this.content.nativeElement;
-
     doc.fromHTML(content, 70, 15, {
       'width': 190,
       'elementHandlers': specialElementHandlers
     });
+    // doc.autoTable({ html: '#print-section' })
     doc.save('stock.pdf')
   };
 
@@ -94,9 +100,26 @@ export class StockTableComponent {
       useBom: true,
       
     };
+    
     this.source.getAll().then(data => {
       new ngxCsv(data, 'report', options);
     })
   }
-  
+  exportexcel(): void 
+  {
+     /* table id is passed over here */   
+     let element = document.getElementById('print-section'); 
+     const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+     /* generate workbook and add the worksheet */
+     const wb: XLSX.WorkBook = XLSX.utils.book_new();
+     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+     /* save to file */
+     XLSX.writeFile(wb, this.fileName);
+    
+  }
+ 
 }
+  
+
