@@ -23,9 +23,15 @@ router.get("/", (req, res) => {
                result2 = result2 + data[i]["duration"]
              }
             let   result3 = Math.round((result/result2)*100) + '%'
+            WorkOrder.find({typeOfIntervention: "prevention"})
+            .then((data) => {
+                var resultPrevention;
+                for(var i = 0; i< data.length; i++) {
+                  resultPrevention = resultPrevention + data[i]["duration"]
+                }
             
             
-           res.send([{totalTime : result2,correctionTime : result,ratio:result3}])
+           res.send([{totalTime : result2,correctionTime : result,ratio:result3, correctionTime : resultPrevention }])
          })
          .catch((error) => {
            console.log("error", error);
@@ -33,6 +39,10 @@ router.get("/", (req, res) => {
         
      
     })
+    .catch((error) => {
+      console.log("error", error);
+    });
+  })
     .catch((error) => {
       console.log("error", error);
     });

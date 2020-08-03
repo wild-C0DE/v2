@@ -18,6 +18,7 @@ export class PreventionComponent {
   fileName = "Prevention.xlsx";
   source:ServerDataSource;
   settings = {
+    hideSubHeader: true,
     actions: {
       delete: false,
       add: false,

@@ -19,7 +19,7 @@ export class WorkerComponent {
   fileName = "Workers.xlsx";
   source: ServerDataSource;
   settings = {
-   
+    hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',

@@ -13,11 +13,19 @@ import * as XLSX from "xlsx";
   styleUrls: ["./machine.component.scss"],
 })
 export class MachineComponent {
+  
   title = "machine";
   data: any = [];
   fileName = "Machines.xlsx";
   source: ServerDataSource;
+  
+  constructor(private http: HttpClient) {
+    
+    // this.dataSource = this.source
+  }
+  
   settings = {
+    hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -96,9 +104,7 @@ export class MachineComponent {
     },
   };
 
-  constructor(private http: HttpClient) {
-    //this.source ='data
-  }
+ 
   ngOnInit(): void {
     this.source = new ServerDataSource(this.http, {
       endPoint: "http://localhost:8080/api/machineList",
@@ -262,4 +268,6 @@ export class MachineComponent {
 
     XLSX.writeFile(wb, this.fileName);
   }
+
+   
 }
