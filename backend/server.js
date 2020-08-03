@@ -12,6 +12,7 @@ const errorHandler = require("_helpers/error-handler");
 const PORT = process.env.PORT || 8080;
 const app = express();
 const AutoIncrementFactory = require("mongoose-sequence");
+nodemailer = require("nodemailer");
 
 // require('dotenv').config()
 // set a bunch of http headers on the site and secure them prevent click jacking
@@ -141,6 +142,30 @@ app.use("/api/workerDelete", workerDelete);
 app.use("/api/workerUpdate", workerUpdate )
 app.use("/api/workerAdd", workerAdd )
 
+//email 
+app.post('/send', function (req, res) {
+  var data=req.body;
 
+  var smtpTransport = nodemailer.createTransport("SMTP",{
+     service: "Gmail", 
+     auth: {
+     user: "email@gmail.com",
+     pass: "gmailPassword"
+     }});
+
+ smtpTransport.sendMail({  //email options
+ from: data.email1,
+ to: data.email2, // receiver
+ subject: data.subject, // subject
+ html: data.content // body (var data which we've declared)
+  }, function(error, response){  //callback
+       if(error){
+         console.log(error);
+      }else{
+         console.log("Message sent: " + res.message);
+     }
+
+ smtpTransport.close(); 
+  }); });
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

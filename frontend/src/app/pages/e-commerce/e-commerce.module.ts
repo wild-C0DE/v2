@@ -5,7 +5,7 @@ import {
   NbProgressBarModule,
   NbTabsetModule,
   NbUserModule,
-  NbIconModule,
+  NbIconModule, 
   NbSelectModule,
   NbListModule,
 } from '@nebular/theme';
@@ -66,7 +66,7 @@ import { EarningLiveUpdateChartComponent } from './earning-card/front-side/earni
     NbTabsetModule,
     NbSelectModule,
     NbListModule,
-    ChartModule,
+    ChartModule, 
     NbProgressBarModule,
     NgxEchartsModule,
     NgxChartsModule,

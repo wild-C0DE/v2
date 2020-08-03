@@ -6,11 +6,11 @@ import { EchartsComponent } from './echarts/echarts.component';
 import { D3Component } from './d3/d3.component';
 import { ChartjsComponent } from './chartjs/chartjs.component';
 
-const routes: Routes = [{
+const routes: Routes = [{ 
   path: '',
   component: ChartsComponent,
   children: [{
-    path: 'echarts',
+    path: 'echarts', 
     component: EchartsComponent,
   }, {
     path: 'd3',
