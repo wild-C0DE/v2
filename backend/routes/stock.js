@@ -12,6 +12,7 @@ router.post('/', (req, res) => {
 	const reference = req.body.reference;
 	const quantity = req.body.quantity;
 	const security = req.body.security;
+	const price = req.body.price;
 	const min = req.body.min;
 	const max = req.body.max;
 	
@@ -20,7 +21,8 @@ router.post('/', (req, res) => {
 		name,
 		reference,
 		quantity,
-		security,
+		price,
+		security,	
 		min,
 		max
 	});

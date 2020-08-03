@@ -10,5 +10,5 @@ export class EquipmentModel {
   dateOfUse: string;
   isbn: string;
   department: string;
-  image: string;
+  cost: number;
 }

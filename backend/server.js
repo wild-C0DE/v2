@@ -12,6 +12,7 @@ const errorHandler = require("_helpers/error-handler");
 const PORT = process.env.PORT || 8080;
 const app = express();
 const AutoIncrementFactory = require("mongoose-sequence");
+nodemailer = require("nodemailer");
 
 // require('dotenv').config()
 // set a bunch of http headers on the site and secure them prevent click jacking
@@ -59,7 +60,12 @@ const workorderList = require("./routes/workOrderRoutes/work-orderList");
 const addEquipment = require("./routes/equipmentRoutes/equipmentRoute");
 const equipmentList = require("./routes/equipmentRoutes/equipmentListRoute");
 const deleteEquipment = require("./routes/equipmentRoutes/equipmentDeleteRoute");
+const updateEquipment = require("./routes/equipmentRoutes/equipmentUpdateRoute");
 
+const assignedEquipmentList = require("./routes/equipmentRoutes/assignEquipmentListRoutes");
+const addAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentRoutes");
+const deleteAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentDelete");
+const updateAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentUpdateRoutes");
 
 // synthesis routes
 const synthesis = require("./routes/machinesRoutes/synthesisRoute")
@@ -121,6 +127,14 @@ app.use("/api/preventionList", preventionList);
 app.use("/api/addequipment", addEquipment);
 app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
+app.use("/api/updateEquipment", updateEquipment);
+
+app.use("/api/assignList", assignedEquipmentList);
+app.use("/api/assignEquipment", addAssignedEquipment);
+app.use("/api/deleteAssignedEquipment", deleteAssignedEquipment);
+app.use("/api/updateAssignedEquipment", updateAssignedEquipment);
+
+
 
 // workers path 
 app.use("/api/workersList", workersList);
@@ -128,5 +142,30 @@ app.use("/api/workerDelete", workerDelete);
 app.use("/api/workerUpdate", workerUpdate )
 app.use("/api/workerAdd", workerAdd )
 
+//email 
+app.post('/send', function (req, res) {
+  var data=req.body;
+
+  var smtpTransport = nodemailer.createTransport("SMTP",{
+     service: "Gmail", 
+     auth: {
+     user: "email@gmail.com",
+     pass: "gmailPassword"
+     }});
+
+ smtpTransport.sendMail({  //email options
+ from: data.email1,
+ to: data.email2, // receiver
+ subject: data.subject, // subject
+ html: data.content // body (var data which we've declared)
+  }, function(error, response){  //callback
+       if(error){
+         console.log(error);
+      }else{
+         console.log("Message sent: " + res.message);
+     }
+
+ smtpTransport.close(); 
+  }); });
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

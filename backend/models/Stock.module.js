@@ -6,6 +6,7 @@ const stockSchema = new Schema({
 	name : {type: String, required: true, trim: true}, 
 	reference : {type: String, required: true, trim: true}, 
 	quantity : {type: Number, required: true, trim: true}, 
+	price : {type: Number, required: true}, 
 	security : {type: Number, required: true}, 
 	min : {type: Number}, 
 	max : {type: Number}, 
