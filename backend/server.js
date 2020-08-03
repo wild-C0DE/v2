@@ -59,6 +59,7 @@ const workorderList = require("./routes/workOrderRoutes/work-orderList");
 const addEquipment = require("./routes/equipmentRoutes/equipmentRoute");
 const equipmentList = require("./routes/equipmentRoutes/equipmentListRoute");
 const deleteEquipment = require("./routes/equipmentRoutes/equipmentDeleteRoute");
+const updateEquipment = require("./routes/equipmentRoutes/equipmentUpdateRoute");
 
 
 // synthesis routes
@@ -121,12 +122,16 @@ app.use("/api/preventionList", preventionList);
 app.use("/api/addequipment", addEquipment);
 app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
+app.use("/api/updateEquipment", updateEquipment);
+
+
 
 // workers path 
 app.use("/api/workersList", workersList);
 app.use("/api/workerDelete", workerDelete);
 app.use("/api/workerUpdate", workerUpdate )
 app.use("/api/workerAdd", workerAdd )
+
 
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));
