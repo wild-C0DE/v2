@@ -71,6 +71,16 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
+      path: 'workers',
+      loadChildren: () => import('./workers/workers.module')
+        .then(m => m.TablesModule),
+    },
+    {
+      path: 'synthesis',
+      loadChildren: () => import('./synthesis/synthesis.module')
+        .then(m => m.TablesModule),
+    },
+    {
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),
@@ -80,6 +90,7 @@ const routes: Routes = [{
       redirectTo: 'dashboard',
       pathMatch: 'full',
     },
+  
     {
       path: '**',
       component: NotFoundComponent,

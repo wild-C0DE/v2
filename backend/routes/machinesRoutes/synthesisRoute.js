@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
         for(var i = 0; i< data.length; i++) {
           result = result + data[i]["duration"]
         }
-         console.log(result)
+       
          WorkOrder.find({})
          .then(  (data) => {
              var result2 = 0;
@@ -23,6 +23,7 @@ router.get("/", (req, res) => {
                result2 = result2 + data[i]["duration"]
              }
             let   result3 = Math.round((result/result2)*100) + '%'
+            
             
            res.send([{totalTime : result2,correctionTime : result,ratio:result3}])
          })
