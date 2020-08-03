@@ -38,6 +38,10 @@ const Work = new Schema({
     type: String,
     required: true,
   },
+  agentRegistrationNumber: {
+    type: Number,
+    required: true,
+  },
   department: {
     type: String,
     required: true,
