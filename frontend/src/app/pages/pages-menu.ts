@@ -213,7 +213,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-
+   {
     title: 'Workers',
     icon: "settings-outline",
     link: '/pages/workers/worker',
