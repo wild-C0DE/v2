@@ -59,6 +59,10 @@ const equipmentList = require("./routes/equipmentRoutes/equipmentListRoute");
 const deleteEquipment = require("./routes/equipmentRoutes/equipmentDeleteRoute");
 const updateEquipment = require("./routes/equipmentRoutes/equipmentUpdateRoute");
 
+const assignedEquipmentList = require("./routes/equipmentRoutes/assignEquipmentListRoutes");
+const addAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentRoutes");
+const deleteAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentDelete");
+const updateAssignedEquipment = require("./routes/equipmentRoutes/assignedEquipmentUpdateRoutes");
 
 
 
@@ -111,8 +115,12 @@ app.use("/api/deleteWorkorder",deleteWorkoreder)
 app.use("/api/addequipment", addEquipment);
 app.use("/api/equipmentList", equipmentList);
 app.use("/api/deleteEquipment", deleteEquipment);
-
 app.use("/api/updateEquipment", updateEquipment);
+
+app.use("/api/assignList", assignedEquipmentList);
+app.use("/api/assignEquipment", addAssignedEquipment);
+app.use("/api/deleteAssignedEquipment", deleteAssignedEquipment);
+app.use("/api/updateAssignedEquipment", updateAssignedEquipment);
 
 
 app.use("/api/correctionList", correctionList);

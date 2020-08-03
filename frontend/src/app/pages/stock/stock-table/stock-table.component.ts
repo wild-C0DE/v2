@@ -76,7 +76,6 @@ export class StockTableComponent {
       }
     }
     let content = this.content.nativeElement;
-
     doc.fromHTML(content, 70, 15, {
       'width': 190,
       'elementHandlers': specialElementHandlers

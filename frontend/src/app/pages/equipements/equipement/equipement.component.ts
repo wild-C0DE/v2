@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-
+import { ViewChild, ElementRef } from '@angular/core';
+import * as jsPDF from 'jspdf';
+import { ngxCsv } from 'ngx-csv/ngx-csv';
 // import { SmartTableData } from '../../../@core/data/smart-table';
-
 import { HttpClient } from '@angular/common/http'
 import {HttpErrorResponse} from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
@@ -34,19 +35,19 @@ export class EquipementComponent {
     },
     columns: {
       nameOfEquipment: {
-        title: 'nameOfEquipment',
+        title: 'Name of equipment',
         type: 'string',
       },
       nameOfAgent: {
-        title: 'nameOfAgent',
+        title: 'Name of agent',
         type: 'string',
       },
       reference: {
-        title: 'reference',
+        title: 'Reference',
         type: 'string',
       },
       quantity: {
-        title: 'quantity',
+        title: 'Quantity',
         type: 'Number',
       },
       state: {
@@ -54,27 +55,27 @@ export class EquipementComponent {
         type: 'Number',
       },
       brand: {
-        title: 'brand',
+        title: 'Brand',
         type: 'number',
       },
       supplierName: {
-        title: 'supplierName',
+        title: 'Supplier name',
         type: 'string'
       },
       supplierContact: {
-        title: 'supplierContact',
+        title: 'Supplier contact',
         type: 'string'
       },
       dateOfUse: {
-        title: 'dateOfUse',
+        title: 'Date of use',
         type: 'string'
       },
       isbn: {
-        title: 'isbn',
+        title: 'ISBN',
         type: 'string'
       },
       department: {
-        title: 'department',
+        title: 'Department',
         type: 'string'
       },
       cost: {
@@ -186,6 +187,37 @@ location.reload()
         console.log("Server-side error occured.");
       }
     });
-   
 }
+@ViewChild('content') content: ElementRef;
+  public downloadPDF() {
+    var doc = new jsPDF('p', 'pt', 'letter');
+
+    let specialElementHandlers = {
+      '#editor': function(element, renderer) {
+        return true;
+      }
+    }
+    let content = this.content.nativeElement;
+
+    doc.fromHTML(content, 70, 15, {
+      'width': 190,
+      'elementHandlers': specialElementHandlers
+    });
+    doc.save('equipment.pdf')
+  };
+
+  downloadCSV() {
+    const options = {
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      showLabels: true,
+      showTitle: true,
+      useBom: true,
+      
+    };
+    this.source.getAll().then(data => {
+      new ngxCsv(data, 'report', options);
+    })
+  }
 }
