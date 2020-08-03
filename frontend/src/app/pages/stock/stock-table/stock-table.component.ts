@@ -5,7 +5,7 @@ import { SmartTableData } from '../../../@core/data/smart-table';
 import {HttpClient} from '@angular/common/http';
 import * as jsPDF from 'jspdf';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
-
+import autoTable from 'jspdf-autotable'
 
 @Component({
   selector: 'ngx-smart-table',
@@ -27,27 +27,33 @@ export class StockTableComponent {
       name: {
         title: 'Name',
         type: 'string',
-        filter: false
+        filter: true
       },
       reference: {
         title: 'Reference',
         type: 'string',
-        filter: false
+        filter: true
+      },
+      price: {
+        title: 'Price',
+        type: 'Number',
+        filter: true
       },
       security: {
         title: 'Security Stock',
         type: 'Number',
-        filter: false
+        filter: true
       },
+      
       min: {
         title: 'Min',
         type: 'Number',
-        filter: false
+        filter: true
       },
       max: {
         title: 'Max',
         type: 'number',
-        filter: false
+        filter: true
       },
     },
   };
@@ -79,9 +85,11 @@ export class StockTableComponent {
 
     doc.fromHTML(content, 70, 15, {
       'width': 190,
-      'elementHandlers': specialElementHandlers
+      'elementHandlers': specialElementHandlers,
+      'theme': 'grid' 
     });
     doc.save('stock.pdf')
+    
   };
 
   downloadCSV() {

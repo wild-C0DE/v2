@@ -14,14 +14,15 @@ const routes: Routes = [{
   component: PagesComponent,
   children: [
     {
+      path: 'home',
+      component: DashboardComponent,
+    },
+    {
       path: 'dashboard',
       component: ECommerceComponent,
     },
    
-    {
-      path: 'iot-dashboard',
-      component: DashboardComponent,
-    },
+    
  
     {
       path: 'forms',
@@ -77,7 +78,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'home',
       pathMatch: 'full',
     },
     {

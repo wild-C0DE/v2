@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './stock.component';
 import { StockTableComponent } from './stock-table/stock-table.component';
 import { ReportsComponent } from './reports/reports.component';
-import { ChatComponent } from './chat/chat.component';
+import { TrafficRevealCardComponent } from './traffic-reveal-card/traffic-reveal-card.component';
 
 const routes: Routes = [{
   path: '', 
@@ -19,8 +19,8 @@ const routes: Routes = [{
       component: ReportsComponent,
     },
     {
-      path: 'chat',
-      component: ChatComponent,
+      path: 'stock-chart',
+      component: TrafficRevealCardComponent,
     },
   ],
 }];
@@ -35,5 +35,5 @@ export const routedComponents = [
   TablesComponent,
   StockTableComponent,
   ReportsComponent,
-  ChatComponent
+  TrafficRevealCardComponent
 ];
