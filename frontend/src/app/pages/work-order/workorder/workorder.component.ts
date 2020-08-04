@@ -13,6 +13,7 @@ export class WorkorderComponent {
   data: any = [];
   source: ServerDataSource;
   settings = {
+    // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -33,51 +34,62 @@ export class WorkorderComponent {
       numberOrder: {
         title: "Number Order",
         type: "number",
+        filter: false,
       },
       date: {
         title: "Date",
         type: "number",
+        filter: false,
       },
       nameOfTheIntervention: {
         title: "Name Of The Intervention",
         type: "string",
+        filter: false,
       },
       typeOfIntervention: {
         title: "Type Of Intervention",
         type: "string",
+        filter: false,
       },
       state: {
         title: "State",
         type: "string",
+        filter: false,
       },
       machine: {
         title: "Machine",
         type: "string",
+        filter: false,
       },
       manager: {
         title: "Manager",
         type: "string",
+        filter: false,
       },
       duration: {
         title: "Duration",
-        type: "string",
-      },
-      agent: {
-        title: "Agent",
-        type: "string",
-      },
-      agentRegistrationNumber: {
-        title: "Agent Registration Number",
         type: "number",
+        filter: false,
       },
+      
+      agentId: {
+        title: "Agent ID",
+        type: "object",
+        filter: false,
+      },
+     
       department: {
         title: "Department",
-        type: "number",
+        type: "string",
+        filter: false,
       },
       equipmentUsed: {
         title: "Equipment Used",
         type: "number",
+        filter: false,
       },
+      
+
     },
   };
 
@@ -99,12 +111,11 @@ export class WorkorderComponent {
       state: event.newData.state,
       machine: event.newData.machine,
       manager: event.newData.manager,
-      agent: event.newData.agent,
-      agentRegistrationNumber: event.newData.agentRegistrationNumber,
+      agentId: event.newData.agentId,    
       department: event.newData.department,
       duration: event.newData.duration,
       equipmentUsed: event.newData.equipmentUsed,
-      isbn: event.newData.isbn,
+   
     };
     this.http
       .post<Addwork>("http://localhost:8080/api/workOrder ", data)
@@ -130,14 +141,14 @@ export class WorkorderComponent {
       machine: event.newData.machine,
       state: event.newData.state,
       manager: event.newData.manager,
-      agent: event.newData.agent,
-      agentRegistrationNumber: event.newData.agentRegistrationNumber,
+      agentId: event.newData.agentId,
+    
       depertment: event.newData.depertment,
       duration: event.newData.duration,
       equipmentUsed: event.newData.equipmentUsed,
     };
-    console.log(typeof event.newData.serialNumber);
-    if (event.newData.name === "") {
+   
+    if (event.newData.agentId === "") {
       window.confirm("please enter the name of the machin");
     } else if (event.newData.reference === "") {
       window.confirm("please enter the reference of the machin");

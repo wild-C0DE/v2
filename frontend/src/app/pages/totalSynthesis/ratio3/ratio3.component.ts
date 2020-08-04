@@ -7,14 +7,14 @@ import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
 
 @Component({
-  selector: 'ngx-synthesis',
-  templateUrl: './synthese.component.html',
-  styleUrls: ['./synthese.component.scss']
+  selector: 'ngx-smart-table',
+  templateUrl: './ratio3.component.html',
+  styleUrls: ['./ratio3.component.scss'],
 })
-export class SyntheseComponent  {
-  title = "synthesis"
+export class Ratio3Component {
+  title = "Ratio3"
   data: any = [];
-  fileName = "Synthesis.xlsx";
+  fileName = "ratio3.xlsx";
   source:ServerDataSource;
   
     settings = {
@@ -26,38 +26,43 @@ export class SyntheseComponent  {
 
       },      
       columns: {
-        totalTime :  {
-          title: 'total maintenance duration',
-          type: 'number',
-        },
-        correctionTime: {
-          title: 'correction maintenance duration',
-          type: 'number',
-        },
-        preventionTime: {
-          title: 'prevention maintenance duration',
-          type: 'number',
-        },
-        ratio1: {
-          title: 'Ratio 1 : correction action duration over total actions',
-          type: 'number',
-        },
-        ratio2: {
-          title: 'Ratio 2 : prevention action duration over total actions',
-          type: 'number',
-        },
+        // totalTime :  {
+        //   title: 'total maintenance duration',
+        //   type: 'number',
+        // },
+        // correctionTime: {
+        //   title: 'correction maintenance duration',
+        //   type: 'number',
+        // },
+        // preventionTime: {
+        //   title: 'prevention maintenance duration',
+        //   type: 'number',
+        // },
+        // ratio1: {
+        //   title: 'Ratio 1 : correction action duration over total actions',
+        //   type: 'number',
+        // },
+        // ratio2: {
+        //   title: 'Ratio 2 : prevention action duration over total actions',
+        //   type: 'number',
+        // },
         ratio3: {
-          title: 'Ratio 3 : cost prevention action',
+          title: 'cost prevention action',
           type: 'number',
         },
-        ratio4: {
-          title: 'Ratio 4 : cost corrrection action',
-          type: 'number',
-        },
+        // ratio4: {
+        //   title: 'Ratio 4 : cost corrrection action',
+        //   type: 'number',
+        // },
         ratio5: {
-          title: 'Ratio 5 : cost total action',
+          title: 'cost total action',
+          type: 'number',
+        },
+        ratio6: {
+          title: 'Ratio preventive cost',
           type: 'number',
         }
+
        
       },
     };

@@ -233,8 +233,28 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Synthesis',
     icon: "settings-outline",
-    link: '/pages/synthesis/synthese',    
+    link: '/pages/synthesis/synthese',
+        
   },
+  {
+    title: 'Total Synthesis',
+    icon: "settings-outline",
+    children: [
+      {
+        title: 'Ratio 1',
+        link: '/pages/totalSynthesis/ratio1',
+      },
+     
+      {
+        title: 'Ratio 2',
+        link: '/pages/totalSynthesis/ratio2',
+      },
+      {
+        title: 'Ratio3 ',
+        link: '/pages/totalSynthesis/ratio3',
+      }
+    ],
+  }
   
 
 ];

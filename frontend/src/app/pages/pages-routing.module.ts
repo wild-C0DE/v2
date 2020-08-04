@@ -82,6 +82,11 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
+      path: 'totalSynthesis',
+      loadChildren: () => import('./totalSynthesis/totalSynthesis.module')
+        .then(m => m.TablesModule),
+    },
+    {
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),

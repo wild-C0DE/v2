@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 //*********Schema******** */
 const Schema = mongoose.Schema;
 const Workers = new Schema({
-  registrationNumber: {
-    type: Number,
-    required: true,
+  agentId: {
+    type: String,
+    // required: true,
   },
-  name: {
+  agentName: {
     type: String,
     required: true,
   },
