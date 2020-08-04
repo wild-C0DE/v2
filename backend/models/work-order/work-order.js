@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const AutoIncrement = require('mongoose-sequence')(mongoose);
+const AutoIncrement = require("mongoose-sequence")(mongoose);
 
 //*********Schema******** */
 const Schema = mongoose.Schema;
 const Work = new Schema({
-  numberOrder: { 
-    type: Number, 
-    default : 0
+  numberOrder: {
+    type: Number,
+    default: 0,
   },
   date: {
     type: Date,
@@ -15,50 +15,45 @@ const Work = new Schema({
   },
   nameOfTheIntervention: {
     type: String,
-    required: true,
+    // required: true,
   },
   typeOfIntervention: {
     type: String,
-    required: true,
+    // required: true,
   },
   state: {
     type: String,
-    required: false,
+    // required: false,
   },
-  
+
   machine: {
     type: String,
-    required: true,
+    // required: true,
   },
   manager: {
     type: String,
-    required: true,
+    // required: true,
   },
-  agent: {
-    type: String,
-    required: true,
-  },
-  agentRegistrationNumber: {
-    type: Number,
-    required: true,
+  agentId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "WorkerList",
   },
   department: {
     type: String,
-    required: true,
+    // required: true,
   },
   duration: {
     type: Number,
-    required: true,
+    // required: true,
   },
   equipmentUsed: {
     type: String,
-    required: true,
+    // required: true,
   },
-  
 });
 
-Work.plugin(AutoIncrement, {inc_field: 'numberOrder'});
+Work.plugin(AutoIncrement, { inc_field: "numberOrder" });
 
 // Model
- const WorkOrder = mongoose.model("WorkOrder", Work);
+const WorkOrder = mongoose.model("WorkOrder", Work);
 module.exports = WorkOrder;

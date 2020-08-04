@@ -25,7 +25,7 @@ export class MachineComponent {
   }
   
   settings = {
-    hideSubHeader: true,
+    
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -48,58 +48,72 @@ export class MachineComponent {
       name: {
         title: "name",
         type: "string",
+        filter: false
       },
       reference: {
         title: "reference",
         type: "string",
+        filter: false
       },
       family: {
         title: "family",
         type: "string",
+        filter: false
       },
       state: {
         title: "state",
         type: "string",
+        filter: false
       },
       brand: {
         title: "brand",
         type: "string",
+        filter: false
       },
       supplierName: {
         title: "supplierName",
         type: "string",
+        filter: false
       },
       supplierContact: {
         title: "supplierContact",
         type: "string",
+        filter: false
       },
       serialNumber: {
         title: "serialNumber",
         type: "number",
+        filter: false
       },
       dateOfPurchase: {
         title: "dateOfPurchase",
         type: "number",
+        filter: false
       },
       inventory: {
         title: "inventory",
         type: "number",
+        filter: false
       },
       isbn: {
         title: "isbn",
         type: "string",
+        filter: false
       },
       department: {
         title: "department",
         type: "string",
+        filter: false
       },
       cost: {
         title: "cost",
         type: "number",
+        filter: false
       },
       comment: {
         title: "comment",
         type: "string",
+        filter: false
       },
     },
   };

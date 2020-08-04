@@ -7,14 +7,14 @@ import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
 
 @Component({
-  selector: 'ngx-synthesis',
-  templateUrl: './synthese.component.html',
-  styleUrls: ['./synthese.component.scss']
+  selector: 'ngx-smart-table',
+  templateUrl: './ratio1.component.html',
+  styleUrls: ['./ratio1.component.scss'],
 })
-export class SyntheseComponent  {
-  title = "synthesis"
+export class Ratio1Component {
+  title = "Ratio1"
   data: any = [];
-  fileName = "Synthesis.xlsx";
+  fileName = "ratio1.xlsx";
   source:ServerDataSource;
   
     settings = {
@@ -42,22 +42,22 @@ export class SyntheseComponent  {
           title: 'Ratio 1 : correction action duration over total actions',
           type: 'number',
         },
-        ratio2: {
-          title: 'Ratio 2 : prevention action duration over total actions',
-          type: 'number',
-        },
-        ratio3: {
-          title: 'Ratio 3 : cost prevention action',
-          type: 'number',
-        },
-        ratio4: {
-          title: 'Ratio 4 : cost corrrection action',
-          type: 'number',
-        },
-        ratio5: {
-          title: 'Ratio 5 : cost total action',
-          type: 'number',
-        }
+        // ratio2: {
+        //   title: 'Ratio 2 : prevention action duration over total actions',
+        //   type: 'number',
+        // },
+        // ratio3: {
+        //   title: 'Ratio 3 : cost prevention action',
+        //   type: 'number',
+        // },
+        // ratio4: {
+        //   title: 'Ratio 4 : cost corrrection action',
+        //   type: 'number',
+        // },
+        // ratio5: {
+        //   title: 'Ratio 5 : cost total action',
+        //   type: 'number',
+        // }
        
       },
     };

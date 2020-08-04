@@ -4,13 +4,11 @@ const router = express.Router();
 
 const WorkOrder = require("../../models/work-order/work-order");
 
-
 router.post("/updateWork", (req, res) => {
   console.log(req.body);
   const data = req.body.name;
   var query = { _id: req.body.helper };
 
-  
   WorkOrder.findOneAndUpdate(query, req.body, (error) => {
     if (error) {
       console.log(error);
@@ -25,9 +23,10 @@ router.post("/updateWork", (req, res) => {
   });
 });
 router.get("/", (req, res) => {
- 
-    WorkOrder.find({})
+  WorkOrder.find({})
+    .populate("agentId")
     .then((data) => {
+      console.log(data);
       res.send(data);
     })
     .catch((error) => {
@@ -35,14 +34,13 @@ router.get("/", (req, res) => {
     });
 });
 router.get("/enqueue", (req, res) => {
- 
-  WorkOrder.find({"state" : false})
-  .then((data) => {
-    res.send(data);
-  })
-  .catch((error) => {
-    console.log("error", error);
-  });
+  WorkOrder.find({ state: false })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((error) => {
+      console.log("error", error);
+    });
 });
 
 module.exports = router;

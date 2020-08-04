@@ -19,7 +19,7 @@ export class WorkerComponent {
   fileName = "Workers.xlsx";
   source: ServerDataSource;
   settings = {
-    hideSubHeader: true,
+   
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -39,41 +39,50 @@ export class WorkerComponent {
       confirmDelete: true,
     },
     columns: {
-      registrationNumber: {
-        title: "Registration Number",
-        type: "string",
+    agentId: {
+        title: "Agent ID",
+        type: "object",
+        filter: false
       },
-      name: {
+      agentName: {
         title: "name",
         type: "string",
+        filter: false
       },
       socialSecurity: {
         title: "Social Security",
         type: "string",
+        filter: false
       },
       adress: {
         title: "Adress",
         type: "string",
+        filter: false
       },
       occupation: {
         title: "Occupation",
         type: "string",
+        filter: false
       },
       dateOfEmployment: {
         title: "Date Of Employment",
         type: "string",
+        filter: false
       },
       annuelSalary: {
         title: "Annuel Salary",
         type: "string",
+        filter: false
       },
       regularHourlyRate: {
         title: "Regular Hourly Rate",
         type: "number",
+        filter: false
       },
       hourlyOvertimeRate: {
         title: "Hourly Overtime Rate",
         type: "number",
+        filter: false
       },
     },
   };
@@ -90,8 +99,8 @@ export class WorkerComponent {
 
   onCreateConfirm(event): void {
     var data = {
-      registrationNumber: event.newData.registrationNumber,
-      name: event.newData.name,
+      agentId: event.newData.agentId,
+      agentName: event.newData.agentName,
       socialSecurity: event.newData.socialSecurity,
       adress: event.newData.adress,
       occupation: event.newData.occupation,
@@ -100,11 +109,9 @@ export class WorkerComponent {
       regularHourlyRate: event.newData.regularHourlyRate,
       hourlyOvertimeRate: event.newData.hourlyOvertimeRate,
     };
-    if (event.newData.name === "") {
+    if (event.newData.agentName === "") {
       window.confirm("please enter the name of the employee");
-    } else if (event.newData.registrationNumber === "") {
-      window.confirm("please enter the Registration Number");
-    }else {
+    } else {
       this.http
         .post<WorkersModel>("http://localhost:8080/api/workerAdd", data)
         .subscribe(
@@ -126,8 +133,8 @@ export class WorkerComponent {
   onSaveConfirm(event): void {
     var data = {
       helper: event.data._id,
-      registrationNumber: event.newData.registrationNumber,
-      name: event.newData.name,
+      agentId: event.newData.agentId,
+      agentName: event.newData.agentName,
       socialSecurity: event.newData.socialSecurity,
       adress: event.newData.adress,
       occupation: event.newData.occupation,
@@ -137,11 +144,9 @@ export class WorkerComponent {
       hourlyOvertimeRate: event.newData.hourlyOvertimeRate,
     };
 
-    if (event.newData.name === "") {
+    if (event.newData.agentName === "") {
       window.confirm("please enter the name of the employee");
-    } else if (event.newData.registrationNumber === "") {
-      window.confirm("please enter the Registration Number");
-    } else {
+    }  else {
       if (window.confirm("Do you confirm the changes?")) {
         this.http
           .post<WorkersModel>("http://localhost:8080/api/workerUpdate", data)

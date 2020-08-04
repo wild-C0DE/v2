@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
  console.log(req.body)
     WorkOrder.find({typeOfIntervention: "prevention"})
     .then((data) => {
+
       res.send(data);
     })
     .catch((error) => {
