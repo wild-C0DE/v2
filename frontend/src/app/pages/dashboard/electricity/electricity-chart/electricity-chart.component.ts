@@ -13,6 +13,7 @@ import { ElectricityChart } from '../../../../@core/data/electricity';
          [merge]="option"
          class="echart"
          (chartInit)="onChartInit($event)">
+         <img src="assets/img/home2.gif" />
     </div>
   `,
 })

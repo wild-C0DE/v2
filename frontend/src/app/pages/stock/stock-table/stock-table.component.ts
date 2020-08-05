@@ -36,8 +36,12 @@ export class StockTableComponent {
       },
       reference: {
         title: 'Reference',
-        type: 'string',
-        filter: true
+        type: 'list',
+      config: {
+        list: [{value: '1', title: 'Lion King'}, {title: 'The Matrix', value: '2'}]
+      },
+        filter: false,
+
       },
       price: {
         title: 'Price',

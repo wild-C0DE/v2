@@ -52,7 +52,7 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
-import { NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbPasswordAuthStrategy,NbAuthJWTToken  } from '@nebular/auth';
 const socialLinks = [
   {
     url: 'https://github.com/akveo/nebular',
@@ -152,13 +152,18 @@ export const NB_CORE_PROVIDERS = [
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
+          token: {
+            class: NbAuthJWTToken,
+            key: 'token', // this parameter tells where to look for the token
+
+          },
           baseEndpoint: 'http://localhost:8080',
           login: {
             endpoint: '/auth/login',
             method: 'post',
           },
           register: {
-            endpoint: '/auth/register',
+            endpoint: '/accounts/authenticate',
             method: 'post',
           },
           logout: {

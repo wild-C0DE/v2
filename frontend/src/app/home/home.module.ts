@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { NgxAuthRoutingModule } from './auth-routing.module';
+import { HomeRoutingModule } from './home-routing.module';
 import { NbAuthModule } from '@nebular/auth';
-import { NgxLoginComponent } from './login/login.component';
-import { NgxRegisterComponent } from './register/register.component';
+import { HomeComponent } from './home.component';
 import { 
   NbAlertModule,
   NbButtonModule,
@@ -24,14 +23,14 @@ import {
     NbInputModule,
     NbButtonModule,
     NbCheckboxModule,
-    NgxAuthRoutingModule,
+    HomeRoutingModule,
 
     NbAuthModule,
   ],
   declarations: [
-    NgxLoginComponent,
-    NgxRegisterComponent
+    HomeComponent,
+    
   ],
 })
-export class NgxAuthModule {
+export class HomeModule {
 }
