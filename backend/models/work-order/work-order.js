@@ -38,6 +38,10 @@ const Work = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "WorkerList",
   },
+  agentName:  {
+    type: String,
+    // required: true,
+  },
   department: {
     type: String,
     // required: true,

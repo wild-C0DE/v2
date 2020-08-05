@@ -77,6 +77,11 @@ export class WorkorderComponent {
         type: "object",
         filter: false,
       },
+      agentName: {
+        title: "Agent Name",
+        type: "string",
+        filter: false,
+      },
      
       department: {
         title: "Department",
@@ -111,7 +116,8 @@ export class WorkorderComponent {
       state: event.newData.state,
       machine: event.newData.machine,
       manager: event.newData.manager,
-      agentId: event.newData.agentId,    
+      agentId: event.newData.agentId,  
+      agentName: event.newData.agentName,
       department: event.newData.department,
       duration: event.newData.duration,
       equipmentUsed: event.newData.equipmentUsed,
@@ -142,7 +148,7 @@ export class WorkorderComponent {
       state: event.newData.state,
       manager: event.newData.manager,
       agentId: event.newData.agentId,
-    
+      agentName: event.newData.agentName,
       depertment: event.newData.depertment,
       duration: event.newData.duration,
       equipmentUsed: event.newData.equipmentUsed,
