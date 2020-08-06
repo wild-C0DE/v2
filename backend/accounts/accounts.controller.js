@@ -85,12 +85,13 @@ function registerSchema(req, res, next) {
         email: Joi.string().email().required(),
         password: Joi.string().min(4).required(),
         confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
-        acceptTerms: Joi.boolean().valid(true).required()
+        // acceptTerms: Joi.boolean().valid(true).required()
     });
     validateRequest(req, next, schema);
 }
 
 function register(req, res, next) {
+    console.log('hello')
     accountService.register(req.body, req.get('origin'))
         .then(() => res.json({ message: 'Registration successful, please check your email for verification instructions' }))
         .catch(next);

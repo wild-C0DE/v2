@@ -15,7 +15,7 @@ export const routes: Routes = [
   
   { 
     path: 'pages',
-    canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
+   // canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
     loadChildren: 'app/pages/pages.module#PagesModule' 
   },
 
@@ -28,10 +28,7 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#NgxAuthModule',
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomeModule',
-  },
+ 
  
   // {
   //   path: 'auth',
@@ -63,8 +60,11 @@ export const routes: Routes = [
   //     },
   //   ],
   // },
+
+  { path: '**', redirectTo: 'pages' },
+
   { path: '', redirectTo: 'pages', pathMatch: 'full' },
-  //{ path: '**', redirectTo: 'home' },
+
 ];
 
 const config: ExtraOptions = {

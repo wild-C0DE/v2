@@ -96,7 +96,7 @@ const DATA_SERVICES = [
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
-    return observableOf('guest');
+    return observableOf('guest')
   }
 }
 
@@ -106,9 +106,40 @@ export const NB_CORE_PROVIDERS = [
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        token: {
+          class: NbAuthJWTToken,
+          key: 'token', // this parameter tells where to look for the token
+
+        },
+        baseEndpoint: 'http://localhost:8080',
+        login: {
+          endpoint: '/accounts/authenticate',
+          method: 'post',
+          alwaysFail: false,
+          requireValidToken: false,
+          redirect: {
+            success: '/pages',
+            failure: null,
+          },
+        },
+        register: {
+          endpoint: '/accounts/register',
+          method: 'post',
+        },
+        logout: {
+          endpoint: '/accounts/logout',
+          method: 'post',
+        },
+        requestPass: {
+          endpoint: '/accounts/request-pass',
+          method: 'post',
+        },
+        resetPass: {
+          endpoint: '/accounts/reset-pass',
+          method: 'post',
+        },
       }),
     ],
     forms: {
@@ -152,18 +183,18 @@ export const NB_CORE_PROVIDERS = [
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          token: {
-            class: NbAuthJWTToken,
-            key: 'token', // this parameter tells where to look for the token
+          // token: {
+          //   class: NbAuthJWTToken,
+          //   key: 'token', // this parameter tells where to look for the token
 
-          },
+          // },
           baseEndpoint: 'http://localhost:8080',
           login: {
-            endpoint: '/auth/login',
+            endpoint: '/accounts/login',
             method: 'post',
           },
           register: {
-            endpoint: '/accounts/authenticate',
+            endpoint: '/accounts/register',
             method: 'post',
           },
           logout: {
