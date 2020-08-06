@@ -1,6 +1,6 @@
 export class WorkersModel {
-  registrationNumber: number;
-  name: string;
+ agentId: number;
+  agentName: string;
   socialSecurity: string;
   adress: string;
   occupation: string;

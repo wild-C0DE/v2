@@ -13,11 +13,19 @@ import * as XLSX from "xlsx";
   styleUrls: ["./machine.component.scss"],
 })
 export class MachineComponent {
+  
   title = "machine";
   data: any = [];
   fileName = "Machines.xlsx";
   source: ServerDataSource;
+  
+  constructor(private http: HttpClient) {
+    
+    // this.dataSource = this.source
+  }
+  
   settings = {
+    
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -40,65 +48,77 @@ export class MachineComponent {
       name: {
         title: "name",
         type: "string",
+        filter: false
       },
       reference: {
         title: "reference",
         type: "string",
+        filter: false
       },
       family: {
         title: "family",
         type: "string",
+        filter: false
       },
       state: {
         title: "state",
         type: "string",
+        filter: false
       },
       brand: {
         title: "brand",
         type: "string",
+        filter: false
       },
       supplierName: {
         title: "supplierName",
         type: "string",
+        filter: false
       },
       supplierContact: {
         title: "supplierContact",
         type: "string",
+        filter: false
       },
       serialNumber: {
         title: "serialNumber",
         type: "number",
+        filter: false
       },
       dateOfPurchase: {
         title: "dateOfPurchase",
         type: "number",
+        filter: false
       },
       inventory: {
         title: "inventory",
         type: "number",
+        filter: false
       },
       isbn: {
         title: "isbn",
         type: "string",
+        filter: false
       },
       department: {
         title: "department",
         type: "string",
+        filter: false
       },
       cost: {
         title: "cost",
         type: "number",
+        filter: false
       },
       comment: {
         title: "comment",
         type: "string",
+        filter: false
       },
     },
   };
 
-  constructor(private http: HttpClient) {
-    //this.source ='data
-  }
+ 
   ngOnInit(): void {
     this.source = new ServerDataSource(this.http, {
       endPoint: "http://localhost:8080/api/machineList",
@@ -262,4 +282,6 @@ export class MachineComponent {
 
     XLSX.writeFile(wb, this.fileName);
   }
+
+   
 }

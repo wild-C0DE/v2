@@ -8,25 +8,26 @@ const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const uri = process.env.URI;
 const jwt = require("_helpers/jwt");
-const errorHandler = require("_helpers/error-handler");
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 const AutoIncrementFactory = require("mongoose-sequence");
-nodemailer = require("nodemailer");
-
+const nodemailer = require("nodemailer");
+const cookieParser = require('cookie-parser');
 // require('dotenv').config()
 // set a bunch of http headers on the site and secure them prevent click jacking
 app.use(helmet());
 const db = config.get("MONGO_URI");
-
+const errorHandler = require('_middleware/error-handler');
 //middlewares
 app.use(cors());
 
 //authentication siwar don't touch
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors());
 
+app.use(cors());
+app.use(cookieParser());
 // use JWT auth to secure the api
 
  // app.use(jwt());
@@ -75,6 +76,9 @@ const workerDelete = require("./routes/workers/workersDeleteRoutes")
 const workerUpdate = require("./routes/workers/workerUpdateRoute")
 const workersList = require("./routes/workers/workersListRoute")
 const workerAdd = require("./routes/workers/workerAddRoute")
+
+// interventions History
+const interventionsHistory = require("./routes/interventions History/interventiionsRoute")
 
 //************************************ */
 // ************mongod DB*************
@@ -142,30 +146,49 @@ app.use("/api/workerDelete", workerDelete);
 app.use("/api/workerUpdate", workerUpdate )
 app.use("/api/workerAdd", workerAdd )
 
+//Inteventions history route 
+app.use("/api/interventionsHistory", interventionsHistory);
+
+
+
+
+
 //email 
-app.post('/send', function (req, res) {
-  var data=req.body;
+// app.post('/send', function (req, res) {
+//   var data=req.body;
 
-  var smtpTransport = nodemailer.createTransport("SMTP",{
-     service: "Gmail", 
-     auth: {
-     user: "email@gmail.com",
-     pass: "gmailPassword"
-     }});
+//   var smtpTransport = nodemailer.createTransport("SMTP",{
+//      service: "Gmail", 
+//      auth: {
+//      user: "osa.bank.test@gmail.com",
+//      pass: "oussemasiwarahmed"
+//      }});
 
- smtpTransport.sendMail({  //email options
- from: data.email1,
- to: data.email2, // receiver
- subject: data.subject, // subject
- html: data.content // body (var data which we've declared)
-  }, function(error, response){  //callback
-       if(error){
-         console.log(error);
-      }else{
-         console.log("Message sent: " + res.message);
-     }
+//  smtpTransport.sendMail({  //email options
+//  from: data.email1,
+//  to: data.email2, // receiver
+//  subject: data.subject, // subject
+//  html: data.content // body (var data which we've declared)
+//   }, function(error, response){  //callback
+//        if(error){
+//          console.log(error);
+//       }else{
+//          console.log("Message sent: " + res.message);
+//      }
 
- smtpTransport.close(); 
-  }); });
+//  smtpTransport.close(); 
+//   }); });
+
+// allow cors requests from any origin and with credentials
+app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
+
+// api routes
+app.use('/accounts', require('./accounts/accounts.controller'));
+
+// swagger docs route
+app.use('/api-docs', require('_helpers/swagger'));
+
+// global error handler
+app.use(errorHandler);
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

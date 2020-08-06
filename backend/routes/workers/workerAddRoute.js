@@ -1,7 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
-;
+
 const WorkersList = require("../../models/workers/worker");
 
 

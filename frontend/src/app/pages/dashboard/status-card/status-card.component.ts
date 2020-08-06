@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
         <div class="icon status-{{ type }}" >
           <ng-content></ng-content>
         </div>
-      </div>
+      </div> 
 
       <div class="details">
         <div class="title h5">{{ title }}</div>

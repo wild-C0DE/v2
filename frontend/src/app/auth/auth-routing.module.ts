@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NbAuthComponent } from '@nebular/auth'; 
 import { NgxLoginComponent } from './login/login.component';
+import { NgxRegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
 	{
@@ -12,6 +13,10 @@ export const routes: Routes = [
 		  path: 'login',
 		  component: NgxLoginComponent, // <---
 		},
+		{
+			path: 'register',
+			component: NgxRegisterComponent, // <---
+		  },
 	  ],
 	},
   ];
@@ -19,6 +24,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
+  
 })
 export class NgxAuthRoutingModule {
 }

@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { ServerDataSource } from "ng2-smart-table";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Addwork } from "../addwork.model";
+// import {MultiSelComponent} from "./multi-sel/multi-sel.component"
 @Component({
   selector: "ngx-smart-table",
   templateUrl: "./workorder.component.html",
@@ -13,12 +14,14 @@ export class WorkorderComponent {
   data: any = [];
   source: ServerDataSource;
   settings = {
+    // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmCreate: true,
     },
+    
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
@@ -33,52 +36,77 @@ export class WorkorderComponent {
       numberOrder: {
         title: "Number Order",
         type: "number",
+        filter: false,
       },
+    //   multiple: {
+    //     title: 'Multi select',
+    //     type: 'html',
+    //      editor: {
+    //       type: 'custom',
+    //       valuePrepareFunction: (cell, row) => row,
+    //       component: MultiSelComponent,
+    //      },
+    //   }
+    //  ,
       date: {
         title: "Date",
         type: "number",
+        filter: false,
       },
       nameOfTheIntervention: {
         title: "Name Of The Intervention",
         type: "string",
+        filter: false,
       },
       typeOfIntervention: {
         title: "Type Of Intervention",
         type: "string",
+        filter: false,
       },
       state: {
         title: "State",
         type: "string",
+        filter: false,
       },
       machine: {
         title: "Machine",
         type: "string",
+        filter: false,
       },
       manager: {
         title: "Manager",
         type: "string",
+        filter: false,
       },
       duration: {
-        title: "Duration",
-        type: "string",
-      },
-      agent: {
-        title: "Agent",
-        type: "string",
-      },
-      agentRegistrationNumber: {
-        title: "Agent Registration Number",
+        title: "Previsionnel Duration",
         type: "number",
+        filter: false,
+      },  
+      effectiveDuration: {
+        title: "Effective Duration",
+        type: "number",
+        filter: false,
       },
+      agentName: {
+        title: "Agent Name",
+        type: "string",
+        filter: false,
+      },
+     
       department: {
         title: "Department",
-        type: "number",
+        type: "string",
+        filter: false,
       },
       equipmentUsed: {
         title: "Equipment Used",
         type: "number",
+        filter: false,
       },
-    },
+      
+
+    }
   };
 
   ngOnInit(): void {
@@ -93,19 +121,27 @@ export class WorkorderComponent {
   }
   onCreateConfirm(event): void {
     var data = {
+      date: event.newData.date ,
       nameOfTheIntervention: event.newData.nameOfTheIntervention,
       typeOfIntervention: event.newData.typeOfIntervention,
       family: event.newData.family,
       state: event.newData.state,
       machine: event.newData.machine,
       manager: event.newData.manager,
-      agent: event.newData.agent,
-      agentRegistrationNumber: event.newData.agentRegistrationNumber,
+      agentId: event.newData.agentId,  
+      agentName: event.newData.agentName,
       department: event.newData.department,
       duration: event.newData.duration,
+      effectiveDuration: event.newData.effectiveDuration,
       equipmentUsed: event.newData.equipmentUsed,
-      isbn: event.newData.isbn,
+   
     };
+
+
+    if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
+      window.confirm("the intervention is still ongoing");
+    } else {
+
     this.http
       .post<Addwork>("http://localhost:8080/api/workOrder ", data)
       .subscribe(
@@ -121,23 +157,26 @@ export class WorkorderComponent {
           }
         }
       );
+    }
   }
   onSaveConfirm(event): void {
     var data = {
       helper: event.data._id,
+      date: event.newData.date ,
       typeOfIntervention: event.newData.typeOfIntervention,
       family: event.newData.family,
       machine: event.newData.machine,
       state: event.newData.state,
       manager: event.newData.manager,
-      agent: event.newData.agent,
-      agentRegistrationNumber: event.newData.agentRegistrationNumber,
+      agentId: event.newData.agentId,
+      agentName: event.newData.agentName,
       depertment: event.newData.depertment,
       duration: event.newData.duration,
+      effectiveDuration: event.newData.effectiveDuration,
       equipmentUsed: event.newData.equipmentUsed,
     };
-    console.log(typeof event.newData.serialNumber);
-    if (event.newData.name === "") {
+   
+    if (event.newData.agentId === "") {
       window.confirm("please enter the name of the machin");
     } else if (event.newData.reference === "") {
       window.confirm("please enter the reference of the machin");

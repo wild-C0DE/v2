@@ -18,6 +18,7 @@ export class SyntheseComponent  {
   source:ServerDataSource;
   
     settings = {
+      hideSubHeader: true,
       actions: {
         delete: false,
         add: false,
@@ -37,10 +38,26 @@ export class SyntheseComponent  {
           title: 'prevention maintenance duration',
           type: 'number',
         },
-        ratio: {
-          title: 'Ratio 1 : correction action over total actions',
+        ratio1: {
+          title: 'Ratio 1 : correction action duration over total actions',
           type: 'number',
         },
+        ratio2: {
+          title: 'Ratio 2 : prevention action duration over total actions',
+          type: 'number',
+        },
+        ratio3: {
+          title: 'Ratio 3 : cost prevention action',
+          type: 'number',
+        },
+        ratio4: {
+          title: 'Ratio 4 : cost corrrection action',
+          type: 'number',
+        },
+        ratio5: {
+          title: 'Ratio 5 : cost total action',
+          type: 'number',
+        }
        
       },
     };

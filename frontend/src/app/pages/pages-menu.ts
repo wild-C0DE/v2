@@ -213,7 +213,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
 {
+
     title: 'Workers',
     icon: "settings-outline",
     link: '/pages/workers/worker',
@@ -233,9 +235,17 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Synthesis',
     icon: "settings-outline",
-    link: '/pages/synthesis/synthese',    
+    link: '/pages/synthesis/synthese',
+        
   },
   {
+    title: 'Interventions History',
+    icon: "settings-outline",
+    link: '/pages/interventions/intervention',
+        
+  },
+  {
+
     title: 'OEE',
     icon: "settings-outline",
     link: '/pages/oee/oee-synthese',    
@@ -245,6 +255,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "settings-outline",
     link: '/pages/mttr/mttr-synthesis',    
   },
+
+    title: 'Total Synthesis',
+    icon: "settings-outline",
+    children: [
+      {
+        title: 'Ratio 1',
+        link: '/pages/totalSynthesis/ratio1',
+      },
+     
+      {
+        title: 'Ratio 2',
+        link: '/pages/totalSynthesis/ratio2',
+      },
+      {
+        title: 'Ratio3 ',
+        link: '/pages/totalSynthesis/ratio3',
+      }
+    ],
+  }
+
   
 
 ];
