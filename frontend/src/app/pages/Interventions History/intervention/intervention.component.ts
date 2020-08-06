@@ -60,8 +60,8 @@ export class InterventionComponent  {
         type: "string",
         filter: false,
       },
-      duration: {
-        title: "Previsionnel Duration",
+      effectiveDuration: {
+        title: "Effective Duration",
         type: "number",
         filter: false,
       },      

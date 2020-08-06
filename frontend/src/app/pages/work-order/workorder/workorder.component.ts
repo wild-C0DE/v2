@@ -82,7 +82,12 @@ export class WorkorderComponent {
         title: "Previsionnel Duration",
         type: "number",
         filter: false,
-      },      
+      },  
+      effectiveDuration: {
+        title: "Effective Duration",
+        type: "number",
+        filter: false,
+      },
       agentName: {
         title: "Agent Name",
         type: "string",
@@ -127,9 +132,16 @@ export class WorkorderComponent {
       agentName: event.newData.agentName,
       department: event.newData.department,
       duration: event.newData.duration,
+      effectiveDuration: event.newData.effectiveDuration,
       equipmentUsed: event.newData.equipmentUsed,
    
     };
+
+
+    if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
+      window.confirm("the intervention is still ongoing");
+    } else {
+
     this.http
       .post<Addwork>("http://localhost:8080/api/workOrder ", data)
       .subscribe(
@@ -145,6 +157,7 @@ export class WorkorderComponent {
           }
         }
       );
+    }
   }
   onSaveConfirm(event): void {
     var data = {
@@ -159,6 +172,7 @@ export class WorkorderComponent {
       agentName: event.newData.agentName,
       depertment: event.newData.depertment,
       duration: event.newData.duration,
+      effectiveDuration: event.newData.effectiveDuration,
       equipmentUsed: event.newData.equipmentUsed,
     };
    

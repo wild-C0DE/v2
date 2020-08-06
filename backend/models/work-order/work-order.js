@@ -54,6 +54,10 @@ const Work = new Schema({
     type: String,
     // required: true,
   },
+  effectiveDuration: {
+    type: String,
+    // required: true,
+  }
 });
 
 Work.plugin(AutoIncrement, { inc_field: "numberOrder" });
