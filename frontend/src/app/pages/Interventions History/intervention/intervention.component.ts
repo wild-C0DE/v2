@@ -77,7 +77,7 @@ export class InterventionComponent  {
         filter: false,
       },
       equipmentUsed: {
-        title: "Equipment Used",
+        title: "Spare Parts Used",
         type: "number",
         filter: false,
       },

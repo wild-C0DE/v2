@@ -245,7 +245,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
         
   },
   {
-
     title: 'OEE',
     icon: "settings-outline",
     link: '/pages/oee/oee-synthese',    
@@ -255,8 +254,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "settings-outline",
     link: '/pages/mttr/mttr-synthesis',    
   },
+
  {
-    title: 'Total Synthesis',
+    title: 'AFNOR Standard Ratios',
+
     icon: "settings-outline",
     children: [
       {
