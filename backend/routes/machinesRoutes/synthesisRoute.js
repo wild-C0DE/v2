@@ -4,6 +4,7 @@ const router = express.Router();
 
 const WorkOrder = require("../../models/work-order/work-order");
 const Workers = require("../../models/workers/worker");
+const Stock = require("../../models/Stock.module");
 
 router.get("/", (req, res) => {
   var result = 0;
@@ -55,19 +56,36 @@ router.get("/", (req, res) => {
                 Math.round((resultCostPrevention / resultCostTotal) * 100) +
                 "%";
 
-              res.send([
-                {
-                  totalTime: resultTotal,
-                  correctionTime: resultCorrection,
-                  ratio1: resultRatio1,
-                  ratio2: resultRatio2,
-                  preventionTime: resultPrevention,
-                  ratio3: resultCostPrevention,
-                  ratio4: resultCostCorrection,
-                  ratio5: resultCostTotal,
-                  ratio6: resultCostPreventionRatio,
-                },
-              ]);
+              Stock.find({})
+                .then((data) => {
+                  let resultCostPartPieces = 0;
+                  for (let i = 0; i < data.length; i++) {
+                    resultCostPartPieces +=
+                      data[i]["price"] * data[i]["quantity"];
+                  }
+                  resultCostPartPieces = resultCostPartPieces.toFixed(2);
+                  var ratioWorkPieces = resultCostPartPieces / resultCostTotal
+                  ratioWorkPieces = Math.round(ratioWorkPieces.toFixed(2) * 100) +
+                  "%";
+                  res.send([
+                    {
+                      totalTime: resultTotal,
+                      correctionTime: resultCorrection,
+                      ratio1: resultRatio1,
+                      ratio2: resultRatio2,
+                      preventionTime: resultPrevention,
+                      ratio3: resultCostPrevention,
+                      ratio4: resultCostCorrection,
+                      ratio5: resultCostTotal,
+                      ratio6: resultCostPreventionRatio,
+                      ratio7: resultCostPartPieces,
+                      ratio8: ratioWorkPieces
+                    },
+                  ]);
+                })
+                .catch((error) => {
+                  console.log("error", error);
+                });
             })
             .catch((error) => {
               console.log("error", error);

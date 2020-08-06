@@ -59,7 +59,7 @@ export class Ratio3Component {
           type: 'number',
         },
         ratio6: {
-          title: 'Ratio preventive cost',
+          title: 'Ratio ',
           type: 'number',
         }
 

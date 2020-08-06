@@ -39,7 +39,7 @@ export class Ratio1Component {
           type: 'number',
         },
         ratio1: {
-          title: 'Ratio 1 : correction action duration over total actions',
+          title: 'Ratio',
           type: 'number',
         },
         // ratio2: {
