@@ -90,7 +90,9 @@ const routes: Routes = [{
     {
       path: 'mttr',
       loadChildren: () => import('./mttrComponent/mttr-synthesis.module')
-
+      .then(m => m.TablesModule),
+    },
+    {
       path: 'interventions',
       loadChildren: () => import('./Interventions History/interventions.module')
         .then(m => m.TablesModule),
