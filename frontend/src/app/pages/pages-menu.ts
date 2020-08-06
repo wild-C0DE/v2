@@ -213,7 +213,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-
+{
     title: 'Workers',
     icon: "settings-outline",
     link: '/pages/workers/worker',
@@ -234,6 +234,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Synthesis',
     icon: "settings-outline",
     link: '/pages/synthesis/synthese',    
+  },
+  {
+    title: 'OEE',
+    icon: "settings-outline",
+    link: '/pages/oee/oee-synthese',    
+  },
+  {
+    title: 'MTTR',
+    icon: "settings-outline",
+    link: '/pages/mttr/mttr-synthesis',    
   },
   
 
