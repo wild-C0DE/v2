@@ -8,7 +8,7 @@ const WorkOrder = require("../../models/work-order/work-order");
 
 router.get("/", (req, res) => {
 
-    WorkOrder.find({typeOfIntervention: "correction"})
+    WorkOrder.find({typeOfIntervention: "correction", state: "ongoing"})
     .then((data) => {
       var result = 0;
       for(var i = 0; i< data.length; i++) {

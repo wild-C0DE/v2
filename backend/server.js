@@ -77,6 +77,9 @@ const workerUpdate = require("./routes/workers/workerUpdateRoute")
 const workersList = require("./routes/workers/workersListRoute")
 const workerAdd = require("./routes/workers/workerAddRoute")
 
+// interventions History
+const interventionsHistory = require("./routes/interventions History/interventiionsRoute")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -142,6 +145,13 @@ app.use("/api/workersList", workersList);
 app.use("/api/workerDelete", workerDelete);
 app.use("/api/workerUpdate", workerUpdate )
 app.use("/api/workerAdd", workerAdd )
+
+//Inteventions history route 
+app.use("/api/interventionsHistory", interventionsHistory);
+
+
+
+
 
 //email 
 // app.post('/send', function (req, res) {

@@ -237,6 +237,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
         
   },
   {
+    title: 'Interventions History',
+    icon: "settings-outline",
+    link: '/pages/interventions/intervention',
+        
+  },
+  {
     title: 'Total Synthesis',
     icon: "settings-outline",
     children: [
