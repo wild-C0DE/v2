@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ThemeModule } from '../../@theme/theme.module';
-import { TablesRoutingModule, routedComponents } from './work-order-routing.module';
-// import { MultiSelComponent } from './workorder/multi-sel/multi-sel.component';
+import { TablesRoutingModule, routedComponents } from './interventions-routing.module';
+
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
 
@@ -17,11 +17,12 @@ import { TablesRoutingModule, routedComponents } from './work-order-routing.modu
     ThemeModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
-    NbListModule
+    NbListModule,
+    HttpClientModule
   ],
   declarations: [
     ...routedComponents,
-    // MultiSelComponent,
+  
    
   ],
 })

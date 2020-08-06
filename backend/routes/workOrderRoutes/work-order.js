@@ -17,32 +17,6 @@ router.post("/", async (req, res) => {
       msg: "not found",
     });
   }
-
-  // Workers.findOne({agentName:req.body.agentName})
-  //  .then((data) => {
-  //   //  console.log(data)
-  //   id = data["_id"]
-  //   //  console.log(id)
-  // })
-  //  .catch((error) => {
-  //   console.log("error", error);
-  // });
-  // req.body.agentId = id;
-  // console.log(id)
-
-  // var small = new WorkOrder(req.body);
-  // small.save((error) => {
-  //   if (error) {
-  //     console.log(error);
-  //     res.status(500).json({
-  //       msg: "server error",
-  //     });
-  //   } else {
-  //     res.json({
-  //       msg: "data saved succefully",
-  //     });
-  //   }
-  // });
 });
 
 module.exports = router;

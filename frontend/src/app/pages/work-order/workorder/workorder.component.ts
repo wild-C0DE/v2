@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { ServerDataSource } from "ng2-smart-table";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Addwork } from "../addwork.model";
+// import {MultiSelComponent} from "./multi-sel/multi-sel.component"
 @Component({
   selector: "ngx-smart-table",
   templateUrl: "./workorder.component.html",
@@ -20,6 +21,7 @@ export class WorkorderComponent {
       cancelButtonContent: '<i class="nb-close"></i>',
       confirmCreate: true,
     },
+    
     edit: {
       editButtonContent: '<i class="nb-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
@@ -36,6 +38,16 @@ export class WorkorderComponent {
         type: "number",
         filter: false,
       },
+    //   multiple: {
+    //     title: 'Multi select',
+    //     type: 'html',
+    //      editor: {
+    //       type: 'custom',
+    //       valuePrepareFunction: (cell, row) => row,
+    //       component: MultiSelComponent,
+    //      },
+    //   }
+    //  ,
       date: {
         title: "Date",
         type: "number",
@@ -67,16 +79,10 @@ export class WorkorderComponent {
         filter: false,
       },
       duration: {
-        title: "Duration",
+        title: "Previsionnel Duration",
         type: "number",
         filter: false,
-      },
-      
-      agentId: {
-        title: "Agent ID",
-        type: "object",
-        filter: false,
-      },
+      },      
       agentName: {
         title: "Agent Name",
         type: "string",
@@ -95,7 +101,7 @@ export class WorkorderComponent {
       },
       
 
-    },
+    }
   };
 
   ngOnInit(): void {
@@ -110,6 +116,7 @@ export class WorkorderComponent {
   }
   onCreateConfirm(event): void {
     var data = {
+      date: event.newData.date ,
       nameOfTheIntervention: event.newData.nameOfTheIntervention,
       typeOfIntervention: event.newData.typeOfIntervention,
       family: event.newData.family,
@@ -142,6 +149,7 @@ export class WorkorderComponent {
   onSaveConfirm(event): void {
     var data = {
       helper: event.data._id,
+      date: event.newData.date ,
       typeOfIntervention: event.newData.typeOfIntervention,
       family: event.newData.family,
       machine: event.newData.machine,

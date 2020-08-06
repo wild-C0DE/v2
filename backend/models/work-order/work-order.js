@@ -9,7 +9,7 @@ const Work = new Schema({
     default: 0,
   },
   date: {
-    type: Date,
+    type: String,
     // `Date.now()` returns the current unix timestamp as a number
     default: Date.now,
   },
