@@ -243,7 +243,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         
   },
   {
-    title: 'Total Synthesis',
+    title: 'AFNOR Standard Ratios',
     icon: "settings-outline",
     children: [
       {

@@ -46,72 +46,72 @@ export class MachineComponent {
     },
     columns: {
       name: {
-        title: "name",
+        title: "Name",
         type: "string",
         filter: false
       },
       reference: {
-        title: "reference",
+        title: "Reference",
         type: "string",
         filter: false
       },
       family: {
-        title: "family",
+        title: "Family",
         type: "string",
         filter: false
       },
       state: {
-        title: "state",
+        title: "State",
         type: "string",
         filter: false
       },
       brand: {
-        title: "brand",
+        title: "Brand",
         type: "string",
         filter: false
       },
       supplierName: {
-        title: "supplierName",
+        title: "Supplier Name",
         type: "string",
         filter: false
       },
       supplierContact: {
-        title: "supplierContact",
+        title: "Supplier Contact",
         type: "string",
         filter: false
       },
       serialNumber: {
-        title: "serialNumber",
+        title: "Serial Number",
         type: "number",
         filter: false
       },
       dateOfPurchase: {
-        title: "dateOfPurchase",
+        title: "Date Of Purchase",
         type: "number",
         filter: false
       },
       inventory: {
-        title: "inventory",
+        title: "Inventory",
         type: "number",
         filter: false
       },
       isbn: {
-        title: "isbn",
+        title: "ISBN",
         type: "string",
         filter: false
       },
       department: {
-        title: "department",
+        title: "Department",
         type: "string",
         filter: false
       },
       cost: {
-        title: "cost",
+        title: "Cost",
         type: "number",
         filter: false
       },
       comment: {
-        title: "comment",
+        title: "Comment",
         type: "string",
         filter: false
       },

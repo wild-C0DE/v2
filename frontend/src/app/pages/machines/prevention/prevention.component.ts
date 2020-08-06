@@ -47,7 +47,7 @@ export class PreventionComponent {
         type: 'string',
       },
       costHours: {
-        title: 'cost hours',
+        title: 'Cost Hours',
         type: 'string',
       },
       agent: {

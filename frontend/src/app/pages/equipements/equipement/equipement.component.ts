@@ -35,11 +35,11 @@ export class EquipementComponent {
     },
     columns: {
       nameOfEquipment: {
-        title: 'Name of equipment',
+        title: 'Name',
         type: 'string',
       },
       nameOfAgent: {
-        title: 'Name of agent',
+        title: 'Agent Name',
         type: 'string',
       },
       reference: {
@@ -59,15 +59,15 @@ export class EquipementComponent {
         type: 'number',
       },
       supplierName: {
-        title: 'Supplier name',
+        title: 'Supplier Name',
         type: 'string'
       },
       supplierContact: {
-        title: 'Supplier contact',
+        title: 'Supplier Contact',
         type: 'string'
       },
       dateOfUse: {
-        title: 'Date of use',
+        title: 'Date Of Use',
         type: 'string'
       },
       isbn: {

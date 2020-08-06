@@ -47,7 +47,7 @@ export class Ratio3Component {
         //   type: 'number',
         // },
         ratio3: {
-          title: 'cost prevention action',
+          title: 'Cost Prevention Action',
           type: 'number',
         },
         // ratio4: {
@@ -55,7 +55,7 @@ export class Ratio3Component {
         //   type: 'number',
         // },
         ratio5: {
-          title: 'cost total action',
+          title: 'Cost Total Action',
           type: 'number',
         },
         ratio6: {

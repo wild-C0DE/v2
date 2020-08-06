@@ -33,19 +33,19 @@ export class AssignComponent {
     columns: {
    
       nameOfAgent: {
-        title: 'Name of the agent',
+        title: 'Agent Name',
         type: 'string',
       },
       referenceOfAgent:  {
-        title: 'Reference of the agent',
+        title: 'Agent Reference',
         type: 'string',
       },
       listOfEquipment: {
-        title: 'List of equipments',
+        title: 'Equipments List',
         type: 'string',
       },
       referenceOfEquipment: {
-        title: 'Reference of the equipment',
+        title: 'Equipment Reference',
         type: 'string',
       },
       state: {
@@ -54,7 +54,7 @@ export class AssignComponent {
       },
       
       date: {
-        title: 'Date in use',
+        title: 'Date Of Assignment',
         type: 'number',
       },
       isbn: {
