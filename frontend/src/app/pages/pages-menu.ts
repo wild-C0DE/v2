@@ -271,6 +271,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Ratio3 ',
         link: '/pages/totalSynthesis/ratio3',
+      },
+      {
+        title: 'Ratio4 ',
+        link: '/pages/totalSynthesis/ratio4',
       }
     ],
   }

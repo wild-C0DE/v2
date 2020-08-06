@@ -8,13 +8,13 @@ import * as XLSX from "xlsx";
 
 @Component({
   selector: 'ngx-smart-table',
-  templateUrl: './ratio2.component.html',
-  styleUrls: ['./ratio2.component.scss'],
+  templateUrl: './ratio4.component.html',
+  styleUrls: ['./ratio4.component.scss'],
 })
-export class Ratio2Component {
-  title = "Ratio2"
+export class Ratio4Component {
+  title = "Ratio4"
   data: any = [];
-  fileName = "ratio2.xlsx";
+  fileName = "ratio4.xlsx";
   source:ServerDataSource;
   
     settings = {
@@ -26,38 +26,51 @@ export class Ratio2Component {
 
       },      
       columns: {
-        totalTime :  {
-          title: 'total maintenance duration',
-          type: 'number',
-        },
-        correctionTime: {
-          title: 'correction maintenance duration',
-          type: 'number',
-        },
-        preventionTime: {
-          title: 'prevention maintenance duration',
-          type: 'number',
-        },
+        // totalTime :  {
+        //   title: 'total maintenance duration',
+        //   type: 'number',
+        // },
+        // correctionTime: {
+        //   title: 'correction maintenance duration',
+        //   type: 'number',
+        // },
+        // preventionTime: {
+        //   title: 'prevention maintenance duration',
+        //   type: 'number',
+        // },
         // ratio1: {
         //   title: 'Ratio 1 : correction action duration over total actions',
         //   type: 'number',
         // },
-        ratio2: {
-          title: 'Ratio ',
-          type: 'number',
-        },
+        // ratio2: {
+        //   title: 'Ratio 2 : prevention action duration over total actions',
+        //   type: 'number',
+        // },
         // ratio3: {
-        //   title: 'Ratio 3 : cost prevention action',
+        //   title: 'cost prevention action',
         //   type: 'number',
         // },
         // ratio4: {
         //   title: 'Ratio 4 : cost corrrection action',
         //   type: 'number',
         // },
-        // ratio5: {
-        //   title: 'Ratio 5 : cost total action',
+        ratio5: {
+          title: 'cost of Workers',
+          type: 'number',
+        },
+        // ratio6: {
+        //   title: 'Ratio preventive cost',
         //   type: 'number',
-        // }
+        // },
+        ratio7: {
+          title: 'Cost Total Part Pieces',
+          type: 'number',
+        },
+        ratio8: {
+          title: 'Ratio',
+          type: 'number',
+        }
+
        
       },
     };
