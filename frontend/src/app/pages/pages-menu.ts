@@ -255,7 +255,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "settings-outline",
     link: '/pages/mttr/mttr-synthesis',    
   },
-
+ {
     title: 'Total Synthesis',
     icon: "settings-outline",
     children: [
