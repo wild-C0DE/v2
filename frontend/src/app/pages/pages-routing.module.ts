@@ -82,6 +82,15 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
+
+      path: 'oee',
+      loadChildren: () => import('./oeeComponent/oee-synthese.module')
+        .then(m => m.TablesModule),
+    },
+    {
+      path: 'mttr',
+      loadChildren: () => import('./mttrComponent/mttr-synthesis.module')
+
       path: 'interventions',
       loadChildren: () => import('./Interventions History/interventions.module')
         .then(m => m.TablesModule),
@@ -89,6 +98,7 @@ const routes: Routes = [{
     {
       path: 'totalSynthesis',
       loadChildren: () => import('./totalSynthesis/totalSynthesis.module')
+
         .then(m => m.TablesModule),
     },
     {

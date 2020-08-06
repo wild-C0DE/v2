@@ -1,0 +1,14 @@
+<div #content>
+<nb-card>
+    <nb-card-header>
+      Quality Table
+    </nb-card-header>
+  
+    <nb-card-body>
+      <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
+    <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
+      <ng2-smart-table [settings]="settings" [source]="source" id="tab" >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+</div>
