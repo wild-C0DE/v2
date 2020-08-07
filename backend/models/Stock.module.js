@@ -8,6 +8,7 @@ const stockSchema = new Schema({
 	quantity : {type: Number, required: true, trim: true}, 
 	price : {type: Number, required: true}, 
 	security : {type: Number, required: true}, 
+	lifetime : { type : Number},
 	min : {type: Number}, 
 	max : {type: Number}, 
 }, {

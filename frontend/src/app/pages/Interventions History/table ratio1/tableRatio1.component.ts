@@ -5,15 +5,15 @@ import { HttpErrorResponse } from "@angular/common/http";
 import * as jsPDF from "jspdf";
 import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
-import { Addwork } from "../addwork.model";
+
 @Component({
   selector: 'ngx-intervention',
-  templateUrl: './intervention.component.html',
-  styleUrls: ['./intervention.component.scss']
+  templateUrl: './tableRatio1.component.html',
+  styleUrls: ['./tableRatio1.component.scss']
 })
-export class InterventionComponent  {
+export class TableRatiosComponent  {
   data: any = [];
-  fileName = "Interventions History.xlsx";
+  fileName = "Ratios Table.xlsx";
   source: ServerDataSource;
   settings = {
     hideSubHeader: true,
@@ -24,63 +24,33 @@ export class InterventionComponent  {
 
     },
     columns: {
-      numberOrder: {
-        title: "Number Order",
-        type: "number",
-        filter: false,
-      },
+     
     
       date: {
         title: "Date",
         type: "number",
         filter: false,
-      },
-      nameOfTheIntervention: {
-        title: "Name Of Intervention",
+      },      
+      ratio1: {
+        title: "Ratio 1",
         type: "string",
         filter: false,
       },
-      typeOfIntervention: {
-        title: "Type Of Intervention",
+      ratio2: {
+        title: "Ratio 2",
         type: "string",
         filter: false,
       },
-      // state: {
-      //   title: "State",
-      //   type: "string",
-      //   filter: false,
-      // },
-      machine: {
-        title: "Machine",
+      ratio3: {
+        title: "Ratio 3",
         type: "string",
-        filter: false,
-      },
-      manager: {
-        title: "Manager",
-        type: "string",
-        filter: false,
-      },
-      effectiveDuration: {
-        title: "Effective Duration",
-        type: "number",
         filter: false,
       },      
-      agentName: {
-        title: "Agent Name",
+      ratio4: {
+        title: "Ratio 4",
         type: "string",
         filter: false,
-      },
-     
-      department: {
-        title: "Department",
-        type: "string",
-        filter: false,
-      },
-      equipmentUsed: {
-        title: "Spare Parts Used",
-        type: "number",
-        filter: false,
-      },
+      },  
       
 
     }
@@ -88,7 +58,7 @@ export class InterventionComponent  {
 
   ngOnInit(): void {
     this.source = new ServerDataSource(this.http, {
-      endPoint: "http://localhost:8080/api/interventionsHistory",
+      endPoint: "http://localhost:8080/api/ratioTable",
     });
     console.log(this.source);
   }

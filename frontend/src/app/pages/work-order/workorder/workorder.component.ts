@@ -140,8 +140,9 @@ export class WorkorderComponent {
 
     if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
       window.confirm("the intervention is still ongoing");
+    } else  if (event.newData.state === "done" && event.newData.effectiveDuration === "") {
+      window.confirm("please fill the Effective Duration row");
     } else {
-
     this.http
       .post<Addwork>("http://localhost:8080/api/workOrder ", data)
       .subscribe(
@@ -176,12 +177,10 @@ export class WorkorderComponent {
       equipmentUsed: event.newData.equipmentUsed,
     };
    
-    if (event.newData.agentId === "") {
-      window.confirm("please enter the name of the machin");
-    } else if (event.newData.reference === "") {
-      window.confirm("please enter the reference of the machin");
-    } else if (event.newData.department === "") {
-      window.confirm("please enter the department of the machin");
+    if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
+      window.confirm("the intervention is still ongoing");
+    } else  if (event.newData.state === "done" && event.newData.effectiveDuration === "") {
+      window.confirm("please fill the Effective Duration row");
     } else {
       if (window.confirm("Do you confirm the changes?")) {
         this.http

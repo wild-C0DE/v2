@@ -48,11 +48,17 @@ export class StockTableComponent {
         type: 'Number',
         filter: true
       },
+      lifetime :{
+        title: 'Lifetime In Hours',
+        type: 'Number',
+        filter: true
+      }, 
       security: {
         title: 'Security Stock',
         type: 'Number',
         filter: true
       },
+      
       
       min: {
         title: 'Min',

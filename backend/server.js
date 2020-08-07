@@ -79,6 +79,11 @@ const workerAdd = require("./routes/workers/workerAddRoute")
 
 // interventions History
 const interventionsHistory = require("./routes/interventions History/interventiionsRoute")
+const ratioTable = require("./routes/ratios table/ratioTableRoute")
+
+//ratio table
+
+
 
 //MTTR routes
 const mttr = require("./routes/mttrRoutes/mttrRouter")
@@ -104,14 +109,15 @@ app.use(express.urlencoded({ extended: false }));
 //*******routes******** */
 
 app.use(morgan("tiny"));
-//Use routes
+
+//.........Use routes...............
 
 
 
 
 
 
-// stock route
+// stock path
 app.use('/stock', stock)
 
 
@@ -151,6 +157,9 @@ app.use("/api/workerAdd", workerAdd )
 
 //Inteventions history route 
 app.use("/api/interventionsHistory", interventionsHistory);
+
+//Ratio table 
+app.use("/api/ratioTable", ratioTable )
 
 //MTTR path
 app.use("/api/mttr", mttr);
