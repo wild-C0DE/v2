@@ -85,6 +85,9 @@ const ratioTable = require("./routes/ratios table/ratioTableRoute")
 
 
 
+//MTTR routes
+const mttr = require("./routes/mttrRoutes/mttrRouter")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -157,6 +160,10 @@ app.use("/api/interventionsHistory", interventionsHistory);
 
 //Ratio table 
 app.use("/api/ratioTable", ratioTable )
+
+//MTTR path
+app.use("/api/mttr", mttr);
+
 
 
 

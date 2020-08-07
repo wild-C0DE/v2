@@ -9,7 +9,7 @@ const routes: Routes = [{
   component: TablesComponent,
   children: [
     {
-      path: 'mttr',
+      path: 'mttr-synthesis',
       component: MTTRComponent,
     },
   ],
