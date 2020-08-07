@@ -4,6 +4,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './work-order-routing.module';
+// import { MultiSelComponent } from './workorder/multi-sel/multi-sel.component';
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
 import {
@@ -49,6 +50,7 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
   ],
   declarations: [
     ...routedComponents,
+    // MultiSelComponent,
    
   ],
 })

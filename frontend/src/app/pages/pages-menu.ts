@@ -217,7 +217,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-   {
+
+{
+
     title: 'Workers',
     icon: "settings-outline",
     link: '/pages/workers/worker',
@@ -241,7 +243,48 @@ export const MENU_ITEMS: NbMenuItem[] = [
         
   },
   {
-    title: 'Total Synthesis',
+    title: 'Interventions History',
+    icon: "settings-outline",
+    //link: '/pages/interventions/intervention',
+    children: [    
+     
+      {
+        title: 'Actions history',
+        link: '/pages/interventions/actions',
+      },
+      {
+        title: 'Tableau Ratio1',
+        link: '/pages/interventions/ratio1',
+      },
+      // {
+      //   title: 'Tableau Ratio2',
+      //   link: '/pages/interventions/ratio2',
+      // },
+      // {
+      //   title: 'Tableau Ratio3',
+      //   link: '/pages/interventions/ratio3',
+      // },
+      // {
+      //   title: 'Tableau Ratio4',
+      //   link: '/pages/interventions/ratio4',
+      // }
+    ],
+        
+  },
+  {
+    title: 'OEE',
+    icon: "settings-outline",
+    link: '/pages/oee/oee-synthese',    
+  },
+  {
+    title: 'MTTR',
+    icon: "settings-outline",
+    link: '/pages/mttr/mttr-synthesis',    
+  },
+
+ {
+    title: 'AFNOR Standard Ratios',
+
     icon: "settings-outline",
     children: [
       {
@@ -256,9 +299,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Ratio3 ',
         link: '/pages/totalSynthesis/ratio3',
+      },
+      {
+        title: 'Ratio4 ',
+        link: '/pages/totalSynthesis/ratio4',
       }
     ],
   }
+
   
 
 ];

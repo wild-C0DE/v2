@@ -9,7 +9,7 @@ const Work = new Schema({
     default: 0,
   },
   date: {
-    type: Date,
+    type: String,
     // `Date.now()` returns the current unix timestamp as a number
     default: Date.now,
   },
@@ -38,6 +38,10 @@ const Work = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "WorkerList",
   },
+  agentName:  {
+    type: String,
+    // required: true,
+  },
   department: {
     type: String,
     // required: true,
@@ -50,6 +54,10 @@ const Work = new Schema({
     type: String,
     // required: true,
   },
+  effectiveDuration: {
+    type: String,
+    // required: true,
+  }
 });
 
 Work.plugin(AutoIncrement, { inc_field: "numberOrder" });

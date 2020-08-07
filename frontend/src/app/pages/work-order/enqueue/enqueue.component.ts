@@ -67,7 +67,7 @@ export class EnqueueComponent {
         type: 'string',
       },
       depertment: {
-        title: 'Depertment',
+        title: 'Department',
         type: 'number',
       },
       equipmentUsed: {

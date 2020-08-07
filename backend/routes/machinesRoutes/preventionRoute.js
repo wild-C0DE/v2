@@ -8,7 +8,7 @@ const WorkOrder = require("../../models/work-order/work-order");
 
 router.get("/", (req, res) => {
  console.log(req.body)
-    WorkOrder.find({typeOfIntervention: "prevention"})
+    WorkOrder.find({typeOfIntervention: "prevention", state: "ongoing"})
     .then((data) => {
 
       res.send(data);

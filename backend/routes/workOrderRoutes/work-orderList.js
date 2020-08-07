@@ -26,8 +26,12 @@ router.get("/", (req, res) => {
   WorkOrder.find({})
     .populate("agentId")
     .then((data) => {
-      console.log(data);
-      res.send(data);
+      // for(var i = 0; i < data.length; i++){
+      // result = data[i]["numberOrder"];
+      // }
+      // console.log(result)
+      res.send(data)    
+
     })
     .catch((error) => {
       console.log("error", error);

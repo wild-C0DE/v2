@@ -14,17 +14,15 @@ import {HttpClient} from '@angular/common/http';
   selector: 'ngx-header',
   template: `
 
-    <nb-layout-header fixed>
-      <nb-user 
-       
-    ></nb-user
-      >
-    </nb-layout-header>
+  <nb-layout-header fixed>
+  <nb-user [name]="this.user.fullName" ></nb-user>
+</nb-layout-header>
   `
 })
 export class HeaderComponent implements OnInit {
   //user variable will store the token payload inside of the component
-  user = {};
+ 
+  user: any = {};
   
   constructor(private authService: NbAuthService, private http: HttpClient) {
 

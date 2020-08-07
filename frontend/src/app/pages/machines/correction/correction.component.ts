@@ -46,8 +46,8 @@ source:ServerDataSource;
         title: 'Duration',
         type: 'string',
       },
-      agent: {
-        title: 'Agent',
+      agentName: {
+        title: 'Agent Name',
         type: 'string',
       },
       department: {

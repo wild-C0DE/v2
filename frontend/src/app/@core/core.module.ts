@@ -96,19 +96,57 @@ const DATA_SERVICES = [
 export class NbSimpleRoleProvider extends NbRoleProvider {
   getRole() {
     // here you could provide any role based on any auth flow
-    return observableOf('guest');
+    return observableOf('guest')
   }
 }
-
+ 
 export const NB_CORE_PROVIDERS = [
   ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        token: {
+          class: NbAuthJWTToken,
+          key: 'token', // this parameter tells where to look for the token
+          
+        },
+        baseEndpoint: 'http://localhost:8080',
+        login: {
+          endpoint: '/auth/login',
+          method: 'post',
+          alwaysFail: false,
+        
+          redirect: {
+            success: '/pages/home',
+            failure: null,
+          },
+        },
+        register: {
+          endpoint: '/auth/sign-up',
+          method: 'post',
+          alwaysFail: false,
+
+          requireValidToken:false,
+          redirect: {
+            success: '/auth/login',
+            failure: null,
+          },
+        },
+        logout: {
+          endpoint: '/accounts/logout',
+          method: 'post',
+        },
+        requestPass: {
+          endpoint: '/auth/request-pass',
+          method: 'post',
+        },
+        resetPass: {
+          endpoint: '/auth/reset-pass',
+          method: 'post',
+        },
       }),
     ],
     forms: {
@@ -128,13 +166,15 @@ export const NB_CORE_PROVIDERS = [
       },
       user: {
         parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
+        create: '',
+        edit: '',
+        remove: '',
       },
     },
   }).providers,
 
+
+  
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },
@@ -152,14 +192,14 @@ export const NB_CORE_PROVIDERS = [
       strategies: [
         NbPasswordAuthStrategy.setup({
           name: 'email',
-          token: {
-            class: NbAuthJWTToken,
-            key: 'token', // this parameter tells where to look for the token
+          // token: {
+          //   class: NbAuthJWTToken,
+          //   key: 'token', // this parameter tells where to look for the token
 
-          },
+          // },
           baseEndpoint: 'http://localhost:8080',
           login: {
-            endpoint: '/auth/login',
+            endpoint: '/accounts/login',
             method: 'post',
           },
           register: {

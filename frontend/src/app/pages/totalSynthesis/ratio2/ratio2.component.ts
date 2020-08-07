@@ -27,15 +27,15 @@ export class Ratio2Component {
       },      
       columns: {
         totalTime :  {
-          title: 'total maintenance duration',
+          title: 'Total Maintenance Duration',
           type: 'number',
         },
         correctionTime: {
-          title: 'correction maintenance duration',
+          title: 'Correction Maintenance Duration',
           type: 'number',
         },
         preventionTime: {
-          title: 'prevention maintenance duration',
+          title: 'Prevention Maintenance Duration',
           type: 'number',
         },
         // ratio1: {
@@ -43,7 +43,7 @@ export class Ratio2Component {
         //   type: 'number',
         // },
         ratio2: {
-          title: 'Ratio 2 : prevention action duration over total actions',
+          title: 'Ratio ',
           type: 'number',
         },
         // ratio3: {

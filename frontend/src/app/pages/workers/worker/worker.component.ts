@@ -39,13 +39,13 @@ export class WorkerComponent {
       confirmDelete: true,
     },
     columns: {
-    agentId: {
-        title: "Agent ID",
-        type: "object",
-        filter: false
-      },
+    // agentId: {
+    //     title: "Agent ID",
+    //     type: "object",
+    //     filter: false
+    //   },
       agentName: {
-        title: "name",
+        title: "Agent Name",
         type: "string",
         filter: false
       },
