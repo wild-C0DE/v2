@@ -241,7 +241,30 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Interventions History',
     icon: "settings-outline",
-    link: '/pages/interventions/intervention',
+    //link: '/pages/interventions/intervention',
+    children: [    
+     
+      {
+        title: 'Actions history',
+        link: '/pages/interventions/actions',
+      },
+      {
+        title: 'Tableau Ratio1',
+        link: '/pages/interventions/ratio1',
+      },
+      // {
+      //   title: 'Tableau Ratio2',
+      //   link: '/pages/interventions/ratio2',
+      // },
+      // {
+      //   title: 'Tableau Ratio3',
+      //   link: '/pages/interventions/ratio3',
+      // },
+      // {
+      //   title: 'Tableau Ratio4',
+      //   link: '/pages/interventions/ratio4',
+      // }
+    ],
         
   },
   {
