@@ -111,33 +111,40 @@ export const NB_CORE_PROVIDERS = [
         token: {
           class: NbAuthJWTToken,
           key: 'token', // this parameter tells where to look for the token
-
+          
         },
         baseEndpoint: 'http://localhost:8080',
         login: {
-          endpoint: '/accounts/authenticate',
+          endpoint: '/auth/login',
           method: 'post',
           alwaysFail: false,
-          requireValidToken: false,
+        
           redirect: {
-            success: '/pages',
+            success: '/pages/home',
             failure: null,
           },
         },
         register: {
-          endpoint: '/accounts/register',
+          endpoint: '/auth/sign-up',
           method: 'post',
+          alwaysFail: false,
+
+          requireValidToken:false,
+          redirect: {
+            success: '/auth/login',
+            failure: null,
+          },
         },
         logout: {
           endpoint: '/accounts/logout',
           method: 'post',
         },
         requestPass: {
-          endpoint: '/accounts/request-pass',
+          endpoint: '/auth/request-pass',
           method: 'post',
         },
         resetPass: {
-          endpoint: '/accounts/reset-pass',
+          endpoint: '/auth/reset-pass',
           method: 'post',
         },
       }),
@@ -159,13 +166,15 @@ export const NB_CORE_PROVIDERS = [
       },
       user: {
         parent: 'guest',
-        create: '*',
-        edit: '*',
-        remove: '*',
+        create: '',
+        edit: '',
+        remove: '',
       },
     },
   }).providers,
 
+
+  
   {
     provide: NbRoleProvider, useClass: NbSimpleRoleProvider,
   },

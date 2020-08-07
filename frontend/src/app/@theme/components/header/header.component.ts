@@ -15,7 +15,7 @@ import {HttpClient} from '@angular/common/http';
   template: `
 
   <nb-layout-header fixed>
-  <nb-user [name]="user?.name" ></nb-user>
+  <nb-user [name]="this.user.fullName" ></nb-user>
 </nb-layout-header>
   `
 })
