@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TablesComponent } from './work-order.component';
 import { WorkorderComponent } from './workorder/workorder.component';
 import { EnqueueComponent } from './enqueue/enqueue.component';
-
+import { WorkDownloadComponent } from './work-download/wd.component';
 
 const routes: Routes = [{
   path: '', 
@@ -17,6 +17,10 @@ const routes: Routes = [{
     {
       path: 'enqueue',
       component: EnqueueComponent,
+    },
+    {
+      path: 'work-download',
+      component: WorkDownloadComponent,
     }
   ],
 }];
@@ -31,5 +35,6 @@ export const routedComponents = [
   TablesComponent,
   WorkorderComponent,
   EnqueueComponent,
+  WorkDownloadComponent
   
 ];

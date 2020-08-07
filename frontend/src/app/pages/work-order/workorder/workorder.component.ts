@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { ServerDataSource } from "ng2-smart-table";
 import { HttpErrorResponse } from "@angular/common/http";
 import { Addwork } from "../addwork.model";
+import * as jsPDF from 'jspdf'
 @Component({
   selector: "ngx-smart-table",
   templateUrl: "./workorder.component.html",
@@ -199,4 +200,5 @@ export class WorkorderComponent {
         }
       );
   }
+  
 }

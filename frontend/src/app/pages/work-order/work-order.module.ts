@@ -6,9 +6,25 @@ import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './work-order-routing.module';
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
+import {
+  NbActionsModule,
+  NbButtonModule,
+ 
+  NbCheckboxModule,
+  NbDatepickerModule, 
+
+  NbRadioModule,
+  NbSelectModule,
+  NbUserModule,
+} from '@nebular/theme';
+
+import {NgxPrintModule} from 'ngx-print';
+import { FormsModule as ngFormsModule } from '@angular/forms';
+
 
 @NgModule({
-  imports: [
+  imports: [ 
+    NgxPrintModule,
     NbCardModule, 
     NbTreeGridModule,
     NbIconModule,
@@ -16,7 +32,20 @@ import { TablesRoutingModule, routedComponents } from './work-order-routing.modu
     ThemeModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
-    NbListModule
+    NbListModule,
+    ThemeModule,
+    NbInputModule,
+    NbCardModule,
+    NbButtonModule,
+    NbActionsModule,
+    NbUserModule,
+    NbCheckboxModule,
+    NbRadioModule,
+    NbDatepickerModule,
+    
+    NbSelectModule,
+    NbIconModule,
+    ngFormsModule,
   ],
   declarations: [
     ...routedComponents,

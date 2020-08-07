@@ -163,7 +163,7 @@ export const NB_CORE_PROVIDERS = [
             method: 'post',
           },
           register: {
-            endpoint: '/accounts/authenticate',
+            endpoint: '/auth/register',
             method: 'post',
           },
           logout: {

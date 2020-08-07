@@ -162,6 +162,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Enqueue',
         link: '/pages/work-order/enqueue',
       },
+      {
+        title: 'Intervention Form',
+        link: '/pages/work-order/work-download',
+      },
      
     ],
   },

@@ -2,10 +2,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
 import { SeoService } from './@core/utils/seo.service';
-
 @Component({
   selector: 'ngx-app',
-  template: '<router-outlet></router-outlet>',
+  // styleUrls: ['app.component.scss'],
+   template: '<router-outlet></router-outlet>',
+
 })
 export class AppComponent implements OnInit {
 

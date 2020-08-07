@@ -7,7 +7,7 @@ const config = require("config");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
 const uri = process.env.URI;
-const jwt = require("_helpers/jwt");
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -18,7 +18,10 @@ const cookieParser = require('cookie-parser');
 // set a bunch of http headers on the site and secure them prevent click jacking
 app.use(helmet());
 const db = config.get("MONGO_URI");
-const errorHandler = require('_middleware/error-handler');
+
+
+
+
 //middlewares
 app.use(cors());
 
@@ -36,12 +39,9 @@ app.use(cookieParser());
 // api routes
 app.use("/users", require("./users/users.controller"));
 
-// global error handler
-app.use(errorHandler);
 
-// end of siwa's auth
 
-const authRoute = require("./routes/auth.js");
+
 const stock = require('./routes/stock')
 
 //machines routes
@@ -169,16 +169,6 @@ app.use("/api/workerAdd", workerAdd )
 //  smtpTransport.close(); 
 //   }); });
 
-// allow cors requests from any origin and with credentials
-app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
-// api routes
-app.use('/accounts', require('./accounts/accounts.controller'));
-
-// swagger docs route
-app.use('/api-docs', require('_helpers/swagger'));
-
-// global error handler
-app.use(errorHandler);
 
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

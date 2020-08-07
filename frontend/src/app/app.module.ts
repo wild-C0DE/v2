@@ -2,13 +2,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthGuard } from './auth-guard.service';
-
+import { NbAuthModule } from '@nebular/auth';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -18,11 +17,14 @@ import {
   NbToastrModule,
   NbWindowModule,
 } from '@nebular/theme';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    
+    NbAuthModule,
+    FormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -39,13 +41,18 @@ import {
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
 
-    
+    // NbAuthModule.forRoot({
+    //   strategies: [
+    //     NbPasswordAuthStrategy.setup({
+    //       name: 'email',
+    //     }),
+    //   ],
+    //   forms: {},
+    // }),
   
   ],
   providers: [
-    
-    AuthGuard
-  ],
+    ],
   bootstrap: [AppComponent],
 
 })
