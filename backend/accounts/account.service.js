@@ -30,7 +30,7 @@ async function authenticate({ email, password, ipAddress }) {
     }
 
     // authentication successful so generate jwt and refresh tokens
-    const jwtToken = generateJwtToken(account);
+    const token = generateJwtToken(account);
     const refreshToken = generateRefreshToken(account, ipAddress);
 
     // save refresh token
@@ -39,7 +39,7 @@ async function authenticate({ email, password, ipAddress }) {
     // return basic details and tokens
     return {
         ...basicDetails(account),
-        jwtToken,
+        token,
         refreshToken: refreshToken.token
     };
 }
@@ -252,12 +252,15 @@ function basicDetails(account) {
 async function sendVerificationEmail(account, origin) {
     let message;
     if (origin) {
-        const verifyUrl = `${origin}/account/verify-email?token=${account.verificationToken}`;
+        console.log(account)
+        const verifyUrl = `${origin}/auth/verify-email?token=${account.verificationToken}`;
         message = `<p>Please click the below link to verify your email address:</p>
                    <p><a href="${verifyUrl}">${verifyUrl}</a></p>`;
     } else {
+        
         message = `<p>Please use the below token to verify your email address with the <code>/account/verify-email</code> api route:</p>
                    <p><code>${account.verificationToken}</code></p>`;
+
     }
 
     await sendEmail({
@@ -267,6 +270,8 @@ async function sendVerificationEmail(account, origin) {
                <p>Thanks for registering!</p>
                ${message}`
     });
+
+
 }
 
 async function sendAlreadyRegisteredEmail(email, origin) {

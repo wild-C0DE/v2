@@ -198,7 +198,7 @@ app.use("/api/mttr", mttr);
 app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
 // api routes
-app.use('/accounts', require('./accounts/accounts.controller'));
+app.use('/auth', require('./accounts/accounts.controller'));
 
 // swagger docs route
 app.use('/api-docs', require('_helpers/swagger'));
