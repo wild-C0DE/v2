@@ -25,15 +25,19 @@ export class MTTRComponent  {
 
       },      
       columns: {
+        _id :  {
+          title: 'Machine',
+          type: 'number',
+        },
         totalMaintenanceTime :  {
           title: 'Total Maintenance Time',
           type: 'number',
         },
-        totalNumberOfRepair: {
-          title: 'Tota Number Of Repair',
+        same_machine: {
+          title: 'Total Number Of Repair',
           type: 'number',
         },
-        mttr: {
+        MTTR: {
           title: 'MTTR',
           type: 'number',
         },
@@ -46,7 +50,8 @@ export class MTTRComponent  {
       //this.source ='data
     }
     ngOnInit(): void {
-      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/synthesis' })
+      console.log('il = m here+')
+      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/mttr' })
       console.log(this.source);   
   }
   @ViewChild("content") content: ElementRef;

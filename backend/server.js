@@ -80,6 +80,9 @@ const workerAdd = require("./routes/workers/workerAddRoute")
 // interventions History
 const interventionsHistory = require("./routes/interventions History/interventiionsRoute")
 
+//MTTR routes
+const mttr = require("./routes/mttrRoutes/mttrRouter")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -148,6 +151,9 @@ app.use("/api/workerAdd", workerAdd )
 
 //Inteventions history route 
 app.use("/api/interventionsHistory", interventionsHistory);
+
+//MTTR path
+app.use("/api/mttr", mttr);
 
 
 
