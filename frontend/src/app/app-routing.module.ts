@@ -15,7 +15,7 @@ export const routes: Routes = [
   
   { 
     path: 'pages',
-   // canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
+      canActivate: [AuthGuard], // here we tell Angular to check the access with our AuthGuard
     loadChildren: 'app/pages/pages.module#PagesModule' 
   },
 
