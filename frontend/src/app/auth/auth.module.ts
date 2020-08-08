@@ -32,6 +32,7 @@ import {
   declarations: [
     NgxLoginComponent,
     NgxRegisterComponent,
+
     VerifyComponent,
   ],
 })

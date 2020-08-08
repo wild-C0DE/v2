@@ -16,6 +16,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     
   },
   {
+    title: 'Charts',
+    group: true,
+  },
+  {
+    title: 'Chart1',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/echarts',
+  },
+  
+  {
     title: 'FEATURES',
     group: true,
   },

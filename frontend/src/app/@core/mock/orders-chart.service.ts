@@ -7,7 +7,7 @@ export class OrdersChartService extends OrdersChartData {
 
   private year = [
     '2012',
-    '2013',
+    '2013', 
     '2014',
     '2015',
     '2016',
