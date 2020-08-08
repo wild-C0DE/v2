@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-
+import {   NbButtonModule,} from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './equipements-routing.module';
 //import { ExportModule } from '../exports/exports.component';
@@ -16,7 +16,8 @@ import { TablesRoutingModule, routedComponents } from './equipements-routing.mod
     ThemeModule,
     TablesRoutingModule,
     Ng2SmartTableModule,
-    NbListModule
+    NbListModule,
+    NbButtonModule
   ],
   declarations: [
     ...routedComponents,
