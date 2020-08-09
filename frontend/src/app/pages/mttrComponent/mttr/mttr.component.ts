@@ -18,6 +18,7 @@ export class MTTRComponent  {
   source:ServerDataSource;
   
     settings = {
+      hideSubHeader: true,
       actions: {
         delete: false,
         add: false,
