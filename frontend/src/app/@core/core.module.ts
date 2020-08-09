@@ -136,7 +136,7 @@ export const NB_CORE_PROVIDERS = [
           },
         },
         logout: {
-          endpoint: '/accounts/logout',
+          endpoint: '/auth/logout',
           method: 'post',
         },
         requestPass: {
