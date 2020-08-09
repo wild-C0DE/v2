@@ -7,9 +7,6 @@ import { Ratio2Component } from './ratio2/ratio2.component';
 import { Ratio3Component } from './ratio3/ratio3.component';
 import { Ratio4Component } from './ratio4/ratio4.component';
 
-
-
-
 const routes: Routes = [{
   path: '', 
   component: TablesComponent,
@@ -29,6 +26,10 @@ const routes: Routes = [{
     {
       path: 'ratio4',
       component: Ratio4Component,
+    },
+    {
+      path: 'Charts',
+    
     }
     ,
     {
