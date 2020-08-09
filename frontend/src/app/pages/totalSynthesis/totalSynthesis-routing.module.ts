@@ -31,6 +31,11 @@ const routes: Routes = [{
       path: 'Charts',
     
     }
+    ,
+    {
+      path: 'charts',
+      component: Ratio4Component,
+    }
     
   ],
 }];
@@ -47,5 +52,6 @@ export const routedComponents = [
   Ratio2Component,
   Ratio3Component,
   Ratio4Component,
+
   
 ];

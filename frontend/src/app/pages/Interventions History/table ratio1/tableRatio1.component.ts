@@ -28,27 +28,27 @@ export class TableRatiosComponent  {
     
       date: {
         title: "Date",
-        type: "number",
+        type: "string",
         filter: false,
       },      
       ratio1: {
         title: "Ratio 1",
-        type: "string",
+        type: "number",
         filter: false,
       },
       ratio2: {
         title: "Ratio 2",
-        type: "string",
+        type: "number",
         filter: false,
       },
       ratio3: {
         title: "Ratio 3",
-        type: "string",
+        type: "number",
         filter: false,
       },      
       ratio4: {
         title: "Ratio 4",
-        type: "string",
+        type: "number",
         filter: false,
       },  
       

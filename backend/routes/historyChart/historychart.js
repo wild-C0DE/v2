@@ -2,11 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
-const RatioTable = require("../../models/ratio table/ratioTable");
+const RatioTable = require("../../models/historyChart/ratiochart");
 
 router.get('/', (req, res) => {
 	RatioTable.find({})
-	.then(data => res.json(data))
+	.then(data =>{
+		let array = []
+		for(let i = 0 ; i<data.length;i++){
+			array.push(data[i].ratio1)
+		}	
+		res.json(array)
+	})
 	.catch(err => res.status(400).json('Error: ' + err));
 });
 
