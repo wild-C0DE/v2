@@ -8,18 +8,18 @@ const Ratio = new Schema({
     // required: true,
   },
   ratio1: {
-    type: String,
+    type: Number,
     // required: true,
   },
   ratio2: {
-    type: String,
+    type: Number,
   },
 
   ratio3: {
-    type: String,
+    type: Number,
   },
   ratio4: {
-    type: String,
+    type: Number,
   },
 });
 

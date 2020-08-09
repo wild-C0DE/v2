@@ -79,9 +79,13 @@ const workerAdd = require("./routes/workers/workerAddRoute")
 
 // interventions History
 const interventionsHistory = require("./routes/interventions History/interventiionsRoute")
-const ratioTable = require("./routes/ratios table/ratioTableRoute")
+const ratioTable = require('./routes/ratioTable/ratioTable')
+
+// charts ratio table
+const historyChart = require("./routes/historyChart/historychart")
 
 //ratio table
+
 
 
 
@@ -160,6 +164,10 @@ app.use("/api/interventionsHistory", interventionsHistory);
 
 //Ratio table 
 app.use("/api/ratioTable", ratioTable )
+
+
+// Ratio charts table
+app.use("/api/historyChart", historyChart )
 
 //MTTR path
 app.use("/api/mttr", mttr);

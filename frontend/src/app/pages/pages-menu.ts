@@ -20,6 +20,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     group: true,
   },
   {
+    title: 'History Interventions Chart',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/chartsHistory',
+  },
+  {
     title: 'Chart1',
     icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
     link: '/pages/charts/echarts',

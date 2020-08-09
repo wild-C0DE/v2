@@ -104,6 +104,11 @@ const routes: Routes = [{
         .then(m => m.TablesModule),
     },
     {
+      path: 'charts',
+      loadChildren: () => import('./chartsHistory/charts.module')
+        .then(m => m.ChartsModule),
+    },
+    {
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),
