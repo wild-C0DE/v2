@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
     <span class="created-by">
       CMMS 2020
     </span>
-    <div class="socials">
-      <a href="#" target="_blank" class="ion ion-social-github"></a>
-      <a href="#" target="_blank" class="ion ion-social-facebook"></a>
-      <a href="#" target="_blank" class="ion ion-social-twitter"></a>
-      <a href="#" target="_blank" class="ion ion-social-linkedin"></a>
+    <div >
+    <span class="created-by">
+    Team Bash
+  </span>
     </div>
   `,
 })
