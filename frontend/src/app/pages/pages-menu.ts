@@ -24,6 +24,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
     link: '/pages/charts/echarts',
   },
+  {
+    title: 'AFNOR Chart',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/echartsAFNOR',
+  },
   
   {
     title: 'FEATURES',
