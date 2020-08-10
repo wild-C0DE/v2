@@ -7,11 +7,13 @@ import { NgxAuthRoutingModule } from './auth-routing.module';
 import { NbAuthModule } from '@nebular/auth';
 import { NgxLoginComponent } from './login/login.component';
 import { NgxRegisterComponent } from './register/register.component';
+import { VerifyComponent } from './verify/verify.component'
 import { 
   NbAlertModule,
   NbButtonModule,
   NbCheckboxModule,
-  NbInputModule
+  NbInputModule,
+  
 } from '@nebular/theme';
 
 
@@ -25,12 +27,14 @@ import {
     NbButtonModule,
     NbCheckboxModule,
     NgxAuthRoutingModule,
-
+    
     NbAuthModule,
   ],
   declarations: [
     NgxLoginComponent,
-    NgxRegisterComponent
+    NgxRegisterComponent,
+
+    VerifyComponent,
   ],
 })
 export class NgxAuthModule {

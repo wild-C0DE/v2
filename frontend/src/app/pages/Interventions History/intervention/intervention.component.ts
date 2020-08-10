@@ -36,7 +36,7 @@ export class InterventionComponent  {
         filter: false,
       },
       nameOfTheIntervention: {
-        title: "Name Of The Intervention",
+        title: "Name Of Intervention",
         type: "string",
         filter: false,
       },
@@ -45,11 +45,11 @@ export class InterventionComponent  {
         type: "string",
         filter: false,
       },
-      state: {
-        title: "State",
-        type: "string",
-        filter: false,
-      },
+      // state: {
+      //   title: "State",
+      //   type: "string",
+      //   filter: false,
+      // },
       machine: {
         title: "Machine",
         type: "string",
@@ -77,7 +77,7 @@ export class InterventionComponent  {
         filter: false,
       },
       equipmentUsed: {
-        title: "Equipment Used",
+        title: "Spare Parts Used",
         type: "number",
         filter: false,
       },

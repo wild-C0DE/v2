@@ -47,6 +47,11 @@ const routes: Routes = [{
         .then(m => m.ChartsModule),
     },
     {
+      path: 'charts',
+      loadChildren: () => import('./charts AFNOR/charts.module')
+        .then(m => m.ChartsModule),
+    },
+    {
       path: 'editors',
       loadChildren: () => import('./editors/editors.module')
         .then(m => m.EditorsModule),
@@ -112,6 +117,11 @@ const routes: Routes = [{
       loadChildren: () => import('./totalSynthesis/totalSynthesis.module')
 
         .then(m => m.TablesModule),
+    },
+    {
+      path: 'charts',
+      loadChildren: () => import('./chartsHistory/charts.module')
+        .then(m => m.ChartsModule),
     },
     {
       path: 'miscellaneous',

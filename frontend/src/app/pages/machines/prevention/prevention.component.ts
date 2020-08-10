@@ -46,12 +46,12 @@ export class PreventionComponent {
         title: 'Duration hours',
         type: 'string',
       },
-      costHours: {
-        title: 'cost hours',
-        type: 'string',
-      },
-      agent: {
-        title: 'Agent',
+      // costHours: {
+      //   title: 'Cost Hours',
+      //   type: 'string',
+      // },
+      agentName: {
+        title: 'Agent Name',
         type: 'string',
       },
       department: {

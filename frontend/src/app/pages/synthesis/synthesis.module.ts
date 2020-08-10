@@ -4,6 +4,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { HttpClientModule } from '@angular/common/http';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './synthesis-routing.module';
+import {   NbButtonModule,} from '@nebular/theme';
 
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
@@ -18,7 +19,8 @@ import { TablesRoutingModule, routedComponents } from './synthesis-routing.modul
     TablesRoutingModule,
     Ng2SmartTableModule,
     NbListModule,
-    HttpClientModule
+    HttpClientModule,
+    NbButtonModule
   ],
   declarations: [
     ...routedComponents,

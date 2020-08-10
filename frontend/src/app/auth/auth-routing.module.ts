@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NbAuthComponent } from '@nebular/auth'; 
 import { NgxLoginComponent } from './login/login.component';
 import { NgxRegisterComponent } from './register/register.component';
-
+import {VerifyComponent} from "./verify/verify.component"
 export const routes: Routes = [
 	{
 	  path: '',
@@ -16,6 +16,10 @@ export const routes: Routes = [
 		{
 			path: 'register',
 			component: NgxRegisterComponent, // <---
+		  },
+		  {
+			path: 'verify-email',
+			component: VerifyComponent, // <---
 		  },
 	  ],
 	},

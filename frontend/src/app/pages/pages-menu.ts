@@ -16,6 +16,26 @@ export const MENU_ITEMS: NbMenuItem[] = [
     
   },
   {
+    title: 'Charts',
+    group: true,
+  },
+  {
+    title: 'History Interventions Chart',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/chartsHistory',
+  },
+  {
+    title: 'Chart1',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/echarts',
+  },
+  {
+    title: 'AFNOR Chart',
+    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    link: '/pages/charts/echartsAFNOR',
+  },
+  
+  {
     title: 'FEATURES',
     group: true,
   },
@@ -162,7 +182,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Enqueue',
         link: '/pages/work-order/enqueue',
       },
-     
+      {
+        title: 'Intervention Form',
+        link: '/pages/work-order/work-download',
+      },
     ],
   },
   {
@@ -241,11 +264,33 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Interventions History',
     icon: "settings-outline",
-    link: '/pages/interventions/intervention',
+    //link: '/pages/interventions/intervention',
+    children: [    
+     
+      {
+        title: 'Actions history',
+        link: '/pages/interventions/actions',
+      },
+      {
+        title: 'Tableau Ratio1',
+        link: '/pages/interventions/ratio1',
+      },
+      // {
+      //   title: 'Tableau Ratio2',
+      //   link: '/pages/interventions/ratio2',
+      // },
+      // {
+      //   title: 'Tableau Ratio3',
+      //   link: '/pages/interventions/ratio3',
+      // },
+      // {
+      //   title: 'Tableau Ratio4',
+      //   link: '/pages/interventions/ratio4',
+      // }
+    ],
         
   },
   {
-
     title: 'OEE',
     icon: "settings-outline",
     children: [
@@ -274,6 +319,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "settings-outline",
     link: '/pages/mttr/mttr-synthesis',    
   },
+
   {
     title: 'MTBF',
     icon: "settings-outline",
@@ -284,8 +330,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: "settings-outline",
     link: '/pages/projects/project',    
   },
+
  {
-    title: 'Total Synthesis',
+    title: 'AFNOR Standard Ratios',
+
     icon: "settings-outline",
     children: [
       {
@@ -304,6 +352,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
       {
         title: 'Ratio4 ',
         link: '/pages/totalSynthesis/ratio4',
+      },
+      {
+        title: 'Charts ',
+        link: '/pages/totalSynthesis/Charts',
       }
     ],
   }

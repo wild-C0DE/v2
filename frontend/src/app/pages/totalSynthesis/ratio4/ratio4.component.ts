@@ -55,7 +55,7 @@ export class Ratio4Component {
         //   type: 'number',
         // },
         ratio5: {
-          title: 'cost of Workers',
+          title: 'Cost Of Workers',
           type: 'number',
         },
         // ratio6: {

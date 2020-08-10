@@ -15,6 +15,7 @@ router.post('/', (req, res) => {
 	const price = req.body.price;
 	const min = req.body.min;
 	const max = req.body.max;
+	const lifetime = req.body.lifetime
 	
 
 	const newStock = new Stock({
@@ -24,7 +25,8 @@ router.post('/', (req, res) => {
 		price,
 		security,	
 		min,
-		max
+		max,
+		lifetime
 	});
 
 	newStock.save()

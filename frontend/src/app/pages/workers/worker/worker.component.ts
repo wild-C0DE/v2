@@ -45,7 +45,7 @@ export class WorkerComponent {
     //     filter: false
     //   },
       agentName: {
-        title: "name",
+        title: "Agent Name",
         type: "string",
         filter: false
       },
