@@ -1,2 +1,8 @@
-<h1> thanks dude </h1>
-<button (click)="onSubmit()">Click Me</button>
+<nb-alert  outline="success" role="alert">
+    <p class="alert-title"><b>Congratulations!</b></p>
+    <ul class="alert-message-list">
+      <li class="alert-message">You have successfully verified your email address. You can now login to your account. </li>
+    </ul>
+  </nb-alert>
+
+<button nbButton status="danger" (click)="onSubmit()" outline>Go to Login Page</button>
