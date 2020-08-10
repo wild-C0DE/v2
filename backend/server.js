@@ -95,6 +95,9 @@ const mttr = require("./routes/mttrRoutes/mttrRouter")
 //MTBF routes
 const mtbf = require("./routes/mtbfRoutes/mtbfRouter")
 
+// workOrderselect:
+const workOrderselect = require("./routes/workOrderSelect/workersListRoute")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -177,6 +180,9 @@ app.use("/api/mttr", mttr);
 
 //MTBF path
 app.use("/api/mtbf", mtbf);
+
+// workOrderSelect
+app.use("/api/workOrderselect", workOrderselect)
 
 
 

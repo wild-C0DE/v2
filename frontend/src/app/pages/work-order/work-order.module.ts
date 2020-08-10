@@ -1,32 +1,42 @@
-import { NgModule } from '@angular/core';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModule } from '@nebular/theme';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { NgModule } from "@angular/core";
+import {
+  NbCardModule,
+  NbIconModule,
+  NbInputModule,
+  NbTreeGridModule,
+  NbListModule,
+} from "@nebular/theme";
+import { Ng2SmartTableModule } from "ng2-smart-table";
+import {
+  NbButtonModule,
+  NbDatepickerModule,
+  NbActionsModule,
+  NbCheckboxModule,
 
-import { ThemeModule } from '../../@theme/theme.module';
-import { TablesRoutingModule, routedComponents } from './work-order-routing.module';
+  NbDatepickerModule, 
+  NbLayoutModule,
+
+  NbRadioModule,
+  NbSelectModule,
+  NbUserModule,
+} from "@nebular/theme";
+import { ThemeModule } from "../../@theme/theme.module";
+import {
+  TablesRoutingModule,
+  routedComponents,
+} from "./work-order-routing.module";
 // import { MultiSelComponent } from './workorder/multi-sel/multi-sel.component';
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
 
-import {
-  NbActionsModule,
-  NbButtonModule,
- 
-  NbCheckboxModule,
-  NbDatepickerModule, 
-  NbLayoutModule,
-  NbRadioModule,
-  NbSelectModule,
-  NbUserModule,
-} from '@nebular/theme';
+import { DatepickerComponent } from "./datepicker/datepicker.component";
 
-import {NgxPrintModule} from 'ngx-print';
-import { FormsModule as ngFormsModule } from '@angular/forms';
-
+import { NgxPrintModule } from "ngx-print";
+import { FormsModule as ngFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
-    NbCardModule, 
+    NbCardModule,
     NbTreeGridModule,
     NbIconModule,
     NbInputModule,
@@ -35,22 +45,13 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     Ng2SmartTableModule,
     NbListModule,
     NgxPrintModule,
-    NbCardModule, 
-    NbTreeGridModule,
-    NbIconModule,
-    NbInputModule,
-    ThemeModule,
-    TablesRoutingModule,
-    Ng2SmartTableModule,
-    NbListModule,
-    ThemeModule,
-    NbInputModule,
-    NbCardModule,
+
     NbRadioModule,
     ngFormsModule,
     NbButtonModule,
- 
+
     NbCheckboxModule,
+
     NbIconModule,
     NbLayoutModule
    
@@ -59,6 +60,21 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
     ...routedComponents,
     // MultiSelComponent,
    
+
+
+    NbButtonModule,
+    NbDatepickerModule,
+    NbActionsModule,
+    NbButtonModule,
+
+    NbCheckboxModule,
+    
+
+    NbRadioModule,
+    NbSelectModule,
+    NbUserModule,
+
   ],
+  declarations: [...routedComponents, DatepickerComponent],
 })
-export class TablesModule { }
+export class TablesModule {}
