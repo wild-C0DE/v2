@@ -7,16 +7,20 @@ import { HttpClient } from '@angular/common/http'
 import {HttpErrorResponse} from '@angular/common/http';
 import { ServerDataSource } from 'ng2-smart-table';
 import { EquipmentModel } from './equipment.model'
+import {DatepickerComponent} from '../datepicker/datepicker.component'
+import * as moment from 'moment';
 
 @Component({
   selector: 'ngx-smart-table',
   templateUrl: './equipement.component.html',
   styleUrls: ['./equipement.component.scss'],
+  
 })
 export class EquipementComponent {
   title = "equipment"
   source:ServerDataSource;
   settings = {
+    
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
@@ -68,7 +72,12 @@ export class EquipementComponent {
       },
       dateOfUse: {
         title: 'Date Of Use',
-        type: 'string'
+        type: 'html',
+        //renderComponent: DatepickerComponent,
+        editor: {
+          type: 'custom',
+          component: DatepickerComponent,
+        },
       },
       isbn: {
         title: 'ISBN',
@@ -76,12 +85,28 @@ export class EquipementComponent {
       },
       department: {
         title: 'Department',
-        type: 'string'
+        placeholder:"Select ...",
+        editor: {
+          type: 'list',
+          config: {
+            selectText: 'Select',
+           
+            list: [
+              {value: 'Maintenance', title:'Maintenance'},
+              {value: 'Production', title:'Production'},
+              {value: 'Quality', title:'Quality'},
+             
+            ],
+          },
+        
+        }
       },
       cost: {
         title: 'Cost',
         type: 'number'
       },
+        
+  
       
     },
   };
@@ -105,12 +130,14 @@ onCreateConfirm(event):void {
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
                 "supplierContact" : event.newData.supplierContact,
-                "dateOfUse" : event.newData.dateOfUse,
+                "dateOfUse" : moment(event.dateOfUse).toDate(),
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
                 "cost" : event.newData.cost,
                 
                 };
+                
+                console.log(typeof data.dateOfUse)
 	this.http.post<EquipmentModel>('http://localhost:8080/api/addEquipment', data).subscribe(
         res => {
           console.log(res);
@@ -136,13 +163,13 @@ onSaveConfirm(event):void {
   "brand" : event.newData.brand,
   "supplierName" : event.newData.supplierName,
   "supplierContact" : event.newData.supplierContact,
-  "dateOfUse" : event.newData.dateOfUse,
+  "dateOfUse" : moment(event.newData.dateOfUse).toDate(),
   "isbn" : event.newData.isbn,
   "department" : event.newData.department,               
   "cost" : event.newData.cost,
   
   };
-  console.log(typeof event.newData.brand)
+  console.log(typeof event.newData.dateOfUse)
  if (event.newData.name === "") {
   window.confirm('please enter the name of the equipment')
   

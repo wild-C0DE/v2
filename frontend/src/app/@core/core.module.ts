@@ -199,11 +199,11 @@ export const NB_CORE_PROVIDERS = [
           // },
           baseEndpoint: 'http://localhost:8080',
           login: {
-            endpoint: '/accounts/login',
+            endpoint: '/auth/login',
             method: 'post',
           },
           register: {
-            endpoint: '/accounts/register',
+            endpoint: '/auth/sign-up',
             method: 'post',
           },
           logout: {
@@ -222,7 +222,7 @@ export const NB_CORE_PROVIDERS = [
       ],
       forms: {
         login: {
-          redirectDelay: 500, // delay before redirect after a successful login, while success message is shown to the user
+          redirectDelay: 0, // delay before redirect after a successful login, while success message is shown to the user
           strategy: 'email',  // strategy id key.
           rememberMe: true,   // whether to show or not the `rememberMe` checkbox
           showMessages: {     // show/not show success/error messages
@@ -231,7 +231,7 @@ export const NB_CORE_PROVIDERS = [
           },
         },
         register: {
-          redirectDelay: 500,
+          redirectDelay: 0,
           strategy: 'email',
           showMessages: {
             success: true,

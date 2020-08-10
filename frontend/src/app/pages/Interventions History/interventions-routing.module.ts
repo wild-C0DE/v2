@@ -5,6 +5,8 @@ import { TablesComponent } from './interventions.component';
 import { InterventionComponent } from './intervention/intervention.component';
 import { TableRatiosComponent  } from './table ratio1/tableRatio1.component'
 
+
+
 const routes: Routes = [{
   path: '', 
   component: TablesComponent,
@@ -16,7 +18,8 @@ const routes: Routes = [{
     {
       path: 'ratio1',
       component: TableRatiosComponent 
-    }
+    },
+   
   ],
 }];
 
@@ -29,6 +32,6 @@ export class TablesRoutingModule { }
 export const routedComponents = [
   TablesComponent,
   InterventionComponent,
-  TableRatiosComponent
+  TableRatiosComponent,
   
 ];
