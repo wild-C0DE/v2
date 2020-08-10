@@ -6,7 +6,7 @@ import { OrdersChart, OrdersChartData } from '../data/orders-chart';
 export class OrdersChartService extends OrdersChartData {
 
   private year = [
-    '2012',
+    '2012', 
     '2013', 
     '2014',
     '2015',

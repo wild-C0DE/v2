@@ -17,10 +17,12 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NbSecurityModule } from '@nebular/security';
 
 import {
+  
   FooterComponent,
   HeaderComponent,
   SearchInputComponent,
   TinyMCEComponent,
+ 
 } from './components';
 import {
   CapitalizePipe,
@@ -61,6 +63,7 @@ const COMPONENTS = [
   OneColumnLayoutComponent,
   ThreeColumnsLayoutComponent,
   TwoColumnsLayoutComponent,
+  
 ];
 const PIPES = [
   CapitalizePipe,

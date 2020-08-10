@@ -5,19 +5,19 @@ const Schema = mongoose.Schema;
 const Equipment = new Schema({
   nameOfEquipment: {
     type: String,
-    required: true,
+  //  required: true,
   },
   nameOfAgent: {
     type: String,
-    required: true,
+    //required: true,
   },
   reference: {
     type: String,
-    required: true,
+  //  required: true,
   },
   quantity: {
     type: Number,
-    required: true,
+   // required: true,
   },
 
   state: {
@@ -38,8 +38,8 @@ const Equipment = new Schema({
   },
  
   dateOfUse: {
-    type: String,
-    required: true,
+    type: Date,
+    required: false,
   },
   isbn: {
     type: String,

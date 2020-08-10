@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule, NbListModule } from '@nebular/theme';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
-import {   NbButtonModule,} from '@nebular/theme';
+import {   NbButtonModule,NbDatepickerModule,  NbActionsModule,
+
+  NbCheckboxModule,
+
+  NbRadioModule,
+  NbSelectModule,
+  NbUserModule} from '@nebular/theme';
 import { ThemeModule } from '../../@theme/theme.module';
 import { TablesRoutingModule, routedComponents } from './equipements-routing.module';
 //import { ExportModule } from '../exports/exports.component';
 //import { FsIconComponent } from './prevention/prevention.component';
+import {DatepickerComponent} from './datepicker/datepicker.component'
 
 @NgModule({
   imports: [
@@ -17,11 +24,23 @@ import { TablesRoutingModule, routedComponents } from './equipements-routing.mod
     TablesRoutingModule,
     Ng2SmartTableModule,
     NbListModule,
-    NbButtonModule
+    NbButtonModule,
+    NbDatepickerModule,
+    NbActionsModule,
+    NbButtonModule,
+    NbCardModule,
+    NbCheckboxModule,
+    NbDatepickerModule, NbIconModule,
+    NbInputModule,
+    NbRadioModule,
+    NbSelectModule,
+    NbUserModule
   ],
   declarations: [
     ...routedComponents,
+    DatepickerComponent
    
   ],
+  
 })
 export class TablesModule { }

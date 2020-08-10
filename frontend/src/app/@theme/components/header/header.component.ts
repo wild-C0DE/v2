@@ -9,14 +9,16 @@ import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { NbSidebarModule, NbLayoutModule } from '@nebular/theme';
 import {HttpClient} from '@angular/common/http';
-
+import { RouterModule, Routes ,Router} from '@angular/router';
 @Component({
   selector: 'ngx-header',
   template: `
 
   <nb-layout-header fixed>
-  <nb-user [name]="this.user.fullName" ></nb-user>
+  <nb-user size="large" status="primary" [name]="user?.fullName[0].toUpperCase()+user?.fullName.slice(1)"></nb-user> <button nbButton status="primary" (click)="logout()"  ghost> <nb-icon icon="log-out-outline"  [options]="{ animation: { type: 'shake' } }"></nb-icon>Logout </button>
 </nb-layout-header>
+
+
   `
 })
 export class HeaderComponent implements OnInit {
@@ -24,7 +26,7 @@ export class HeaderComponent implements OnInit {
  
   user: any = {};
   
-  constructor(private authService: NbAuthService, private http: HttpClient) {
+  constructor(private authService: NbAuthService, private http: HttpClient, private router : Router) {
 
     this.authService.onTokenChange()
       .subscribe((token: NbAuthJWTToken) => {
@@ -32,11 +34,17 @@ export class HeaderComponent implements OnInit {
         if (token.isValid()) {
           this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
         }
-
-      });
+        
+      }) 
   }
-  ngOnInit(): void {
- 
+  ngOnInit() {
+    this.http.post("http://localhost:8080/haha",{id:this.user.id} ).subscribe((res) =>{;
+   this.user=res}
+      )
+        }
+        logout() {
+          localStorage.clear();
+          this.router.navigate(['/auth/login'])
         }
 }
 

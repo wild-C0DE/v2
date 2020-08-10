@@ -159,6 +159,8 @@ function getAll(req, res, next) {
 
 function getById(req, res, next) {
     // users can get their own account and admins can get any account
+    console.log(req.params.id)
+    console.log(req.user.id)
     if (req.params.id !== req.user.id && req.user.role !== Role.Admin) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
