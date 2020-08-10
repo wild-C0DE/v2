@@ -38,21 +38,29 @@ export class ProjectsComponent {
         title: 'Project',
         type: 'string',
       },
+      machine: {
+        title: 'Machine',
+        type: 'string',
+      },
+      runTime: {
+        title: 'Run Time',
+        type: 'number',
+      },
       plannedProdTime: {
         title: 'Planned Production Time',
-        type: 'Number',
+        type: 'number',
       },
       idealCycleTime: {
         title: 'Ideal Cycle Time',
-        type: 'string',
+        type: 'number',
       },
       goodPartsProduced: {
         title: 'Good Parts Produced',
-        type: 'Number',
+        type: 'number',
       },
       totalPartsProduced: {
         title: 'Total Parts Produced',
-        type: 'Number',
+        type: 'number',
       },
       
     },
@@ -70,13 +78,14 @@ export class ProjectsComponent {
 onCreateConfirm(event):void { 
   var data = {
                 "project" : event.newData.project,
+                "machine" : event.newData.machine,
                 "plannedProdTime" : event.newData.plannedProdTime,
                 "idealCycleTime" : event.newData.idealCycleTime,
                 "goodPartsProduced" : event.newData.goodPartsProduced,
                 "totalPartsProduced" : event.newData.totalPartsProduced,
       
                 };
-	this.http.post<ProjectsModel>('http://localhost:8080/api/projects', data).subscribe(
+	this.http.post<ProjectsModel>('http://localhost:8080/api/addProject', data).subscribe(
         res => {
           console.log(res);
           event.confirm.resolve(event.newData);
@@ -94,6 +103,7 @@ onSaveConfirm(event):void {
   var data = {
   "helper" : event.data._id,
   "project" : event.newData.project,
+  "machine" : event.newData.machine,
   "plannedProdTime" : event.newData.plannedProdTime,
   "idealCycleTime" : event.newData.idealCycleTime,
   "goodPartsProduced" : event.newData.goodPartsProduced,
@@ -113,7 +123,7 @@ onSaveConfirm(event):void {
   
   }else {
   if (window.confirm('Do you confirm the changes?')) {
-this.http.post<ProjectsModel>('http://localhost:8080/api/updateProjects', data).subscribe(
+this.http.post<ProjectsModel>('http://localhost:8080/api/updateProject', data).subscribe(
 res => {
 console.log(res);
 event.confirm.resolve(event.newData);
@@ -134,7 +144,7 @@ location.reload()
 }
   onDeleteConfirm(event): void {
     console.log(event.data)
-    this.http.post<ProjectsModel>('http://localhost:8080/api/deleteProjects',event.data).subscribe(
+    this.http.post<ProjectsModel>('http://localhost:8080/api/deleteProject',event.data).subscribe(
       res => {
         console.log(res);
         event.confirm.resolve(event.source.data);
