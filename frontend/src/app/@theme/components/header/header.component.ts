@@ -15,7 +15,9 @@ import { RouterModule, Routes ,Router} from '@angular/router';
   template: `
 
   <nb-layout-header fixed>
-  <nb-user size="large" status="primary" [name]="user?.fullName"></nb-user> <button nbButton status="primary" (click)="logout()"  ghost> <nb-icon icon="log-out-outline"  [options]="{ animation: { type: 'shake' } }"></nb-icon>Logout </button>
+
+  <nb-user size="large" status="primary" [name]="user?.fullName" ></nb-user> <button nbButton status="primary" (click)="logout()"  ghost> <nb-icon icon="log-out-outline"  [options]="{ animation: { type: 'shake' } }"></nb-icon>Logout </button>
+
 </nb-layout-header>
 
 

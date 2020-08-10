@@ -12,6 +12,10 @@ import {
   NbDatepickerModule,
   NbActionsModule,
   NbCheckboxModule,
+
+  NbDatepickerModule, 
+  NbLayoutModule,
+
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
@@ -48,17 +52,28 @@ import { FormsModule as ngFormsModule } from "@angular/forms";
 
     NbCheckboxModule,
 
+    NbIconModule,
+    NbLayoutModule
+   
+  ],
+  declarations: [
+    ...routedComponents,
+    // MultiSelComponent,
+   
+
+
     NbButtonModule,
     NbDatepickerModule,
     NbActionsModule,
     NbButtonModule,
 
     NbCheckboxModule,
-    NbDatepickerModule,
+    
 
     NbRadioModule,
     NbSelectModule,
     NbUserModule,
+
   ],
   declarations: [...routedComponents, DatepickerComponent],
 })

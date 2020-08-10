@@ -1,9 +1,9 @@
 <nb-card>
-  <nb-card-header>
-    Work Order
-  </nb-card-header>
+  
 
   <nb-card-body>
+    <h6>Work Order</h6>
+
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)">
     </ng2-smart-table>
   </nb-card-body>

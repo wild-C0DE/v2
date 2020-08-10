@@ -41,16 +41,6 @@ export class WorkorderComponent {
         type: "number",
         filter: false,
       },
-    //   multiple: {
-    //     title: 'Multi select',
-    //     type: 'html',
-    //      editor: {
-    //       type: 'custom',
-    //       valuePrepareFunction: (cell, row) => row,
-    //       component: MultiSelComponent,
-    //      },
-    //   }
-    //  ,
       date: {
         title: "Date",
         type: 'html',
