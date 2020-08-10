@@ -39,6 +39,12 @@ const Machine = new Schema({
   isbn: {
     type: String,
   },
+  oprationalTimePerDay: {
+    type: Number,
+  },
+  operationalDays: {
+    type: Number,
+  },
   department: {
     type: String,
     required: true,
