@@ -1,11 +1,11 @@
 <div #content>
   <nb-card>
-      <nb-card-header>
-      Cost Preventive Action Over Total Actions Table
-      </nb-card-header>
+      
     
       <nb-card-body>
-      
+        <h6>
+          Cost Preventive Action Over Total Actions Table
+          </h6>
         <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
       <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
         <ng2-smart-table [settings]="settings" [source]="source" id="tab" >

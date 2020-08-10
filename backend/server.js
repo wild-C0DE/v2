@@ -103,6 +103,8 @@ const deleteProject = require("./routes/projects/projectsDeleteRoute");
 
 //OEE routes 
 const availabilityOee = require("./routes/oeeRoutes/availability")
+// workOrderselect:
+const workOrderselect = require("./routes/workOrderSelect/workersListRoute")
 
 //************************************ */
 // ************mongod DB*************
@@ -192,6 +194,9 @@ app.use("/api/addproject", addProject);
 app.use("/api/updateproject", updateProject);
 app.use("/api/projectsList", projectsList);
 app.use("/api/deleteproject", deleteProject);
+// workOrderSelect
+app.use("/api/workOrderselect", workOrderselect)
+
 
 //OEE path
 app.use("/api/availability", availabilityOee);
