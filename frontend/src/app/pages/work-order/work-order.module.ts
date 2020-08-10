@@ -14,7 +14,7 @@ import {
  
   NbCheckboxModule,
   NbDatepickerModule, 
-
+  NbLayoutModule,
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
@@ -52,6 +52,7 @@ import { FormsModule as ngFormsModule } from '@angular/forms';
  
     NbCheckboxModule,
     NbIconModule,
+    NbLayoutModule
    
   ],
   declarations: [
