@@ -6,7 +6,8 @@ import { MachinModel } from "./machin-model.model";
 import * as jsPDF from "jspdf";
 import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
-
+import {DatepickerComponent} from '../datepicker/datepicker.component'
+import * as moment from 'moment';
 @Component({
   selector: "ngx-smart-table",
   templateUrl: "./machine.component.html",
@@ -18,12 +19,13 @@ export class MachineComponent {
   data: any = [];
   fileName = "Machines.xlsx";
   source: ServerDataSource;
-  
+ 
   constructor(private http: HttpClient) {
     
     // this.dataSource = this.source
   }
-  
+ 
+
   settings = {
     
     add: {
@@ -55,15 +57,23 @@ export class MachineComponent {
         type: "string",
         filter: false
       },
-      family: {
-        title: "Family",
-        type: "string",
-        filter: false
-      },
       state: {
         title: "State",
-        type: "string",
-        filter: false
+        placeholder:"Select ...",
+        filter: false,
+        editor: {
+          type: 'list',
+          config: {
+            selectText: 'Select',
+           
+            list: [
+              {value: 'Active', title:'Active'},
+              {value: 'Inactive', title:'Inactive'},             
+             
+            ],
+          },
+        
+        }
       },
       brand: {
         title: "Brand",
@@ -87,7 +97,12 @@ export class MachineComponent {
       },
       dateOfPurchase: {
         title: "Date Of Purchase",
-        type: "number",
+        type: 'html',
+        //renderComponent: DatepickerComponent,
+        editor: {
+          type: 'custom',
+          component: DatepickerComponent,
+        },
         filter: false
       },
       inventory: {
@@ -112,8 +127,24 @@ export class MachineComponent {
       },
       department: {
         title: "Department",
-        type: "string",
-        filter: false
+        placeholder:"Select ...",
+        filter: false,
+        editor: {
+          type: 'list',
+          config: {
+            selectText: 'Select',
+           
+            list: [
+              {value: 'Production', title:'Production'},
+              {value: 'Commercial', title:'Commercial'},  
+              {value: 'Maintenance', title:'Maintenance'},
+              {value: 'Quality', title:'Quality'},          
+             
+            ],
+          },
+        
+        }
+        
       },
       cost: {
         title: "Cost",
@@ -133,20 +164,20 @@ export class MachineComponent {
     this.source = new ServerDataSource(this.http, {
       endPoint: "http://localhost:8080/api/machineList",
     });
-    console.log(this.source);
+    
   }
 
   onCreateConfirm(event): void {
     var data = {
       name: event.newData.name,
       reference: event.newData.reference,
-      family: event.newData.family,
+      // family: event.newData.family,
       state: event.newData.state,
       brand: event.newData.brand,
       supplierName: event.newData.supplierName,
       supplierContact: event.newData.supplierContact,
       serialNumber: event.newData.serialNumber,
-      dateOfPurchase: event.newData.dateOfPurchase,
+      dateOfPurchase: moment(event.dateOfPurchase).toDate(),
       inventory: event.newData.inventory,
       isbn: event.newData.isbn,
       oprationalTimePerDay: event.newData.oprationalTimePerDay,
@@ -186,13 +217,13 @@ export class MachineComponent {
       helper: event.data._id,
       name: event.newData.name,
       reference: event.newData.reference,
-      family: event.newData.family,
+      // family: event.newData.family,
       state: event.newData.state,
       brand: event.newData.brand,
       supplierName: event.newData.supplierName,
       supplierContact: event.newData.supplierContact,
       serialNumber: event.newData.serialNumber,
-      dateOfPurchase: event.newData.dateOfPurchase,
+      dateOfPurchase: moment(event.dateOfPurchase).toDate(),
       inventory: event.newData.inventory,
       isbn: event.newData.isbn,
       oprationalTimePerDay: event.data.oprationalTimePerDay,
