@@ -5,21 +5,19 @@ import { ServerDataSource } from 'ng2-smart-table';
 import * as jsPDF from "jspdf";
 import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
-// import { SmartTableDatepickerComponent, SmartTableDatepickerRenderComponent } from '../smart-table-datepicker/smart-table-datepicker.component'
 
 @Component({
-  selector: 'ngx-mttr',
-  templateUrl: './mttr.component.html',
-  styleUrls: ['./mttr.component.scss']
+  selector: 'ngx-mtbf',
+  templateUrl: './mtbf.component.html',
+  styleUrls: ['./mtbf.component.scss']
 })
-export class MTTRComponent  {
-  title = "mttr-synthesis"
+export class MTBFComponent  {
+  title = "mtbf-synthesis"
   data: any = [];
-  fileName = "MTTR.xlsx";
+  fileName = "MTBF.xlsx";
   source:ServerDataSource;
   
     settings = {
-      hideSubHeader: true,
       actions: {
         delete: false,
         add: false,
@@ -27,24 +25,23 @@ export class MTTRComponent  {
 
       },      
       columns: {
-        _id :  {
+        name :  {
           title: 'Machine',
           type: 'number',
         },
-        totalMaintenanceTime :  {
-          title: 'Total Maintenance Time',
+        totalOperationalTime :  {
+          title: 'Total Operational Time',
           type: 'number',
         },
         same_machine: {
-          title: 'Total Number Of Repair',
+          title: 'Total Number Of Failure',
           type: 'number',
         },
-        MTTR: {
-          title: 'MTTR',
-          type: 'number',
-        },
-        
        
+        MTBF: {
+          title: 'MTBF',
+          type: 'number',
+        },
       },
     };
   
@@ -53,7 +50,7 @@ export class MTTRComponent  {
     }
     ngOnInit(): void {
       console.log('il = m here+')
-      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/mttr' })
+      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/mtbf' })
       console.log(this.source);   
   }
   @ViewChild("content") content: ElementRef;
@@ -84,7 +81,7 @@ export class MTTRComponent  {
       elementHandlers: specialElementHandler,
     });
     doc.output("dataurlnewwindow");
-    doc.save("MTTR.pdf");
+    doc.save("MTBF.pdf");
   }
 
   exportexcel(): void {

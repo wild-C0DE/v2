@@ -98,6 +98,16 @@ const routes: Routes = [{
       .then(m => m.TablesModule),
     },
     {
+      path: 'mtbf',
+      loadChildren: () => import('./mtbfComponent/mtbf-synthesis.module')
+      .then(m => m.TablesModule),
+    },
+    {
+      path: 'projects',
+      loadChildren: () => import('./projects/projects.module')
+      .then(m => m.TablesModule),
+    },
+    {
       path: 'interventions',
       loadChildren: () => import('./Interventions History/interventions.module')
         .then(m => m.TablesModule),

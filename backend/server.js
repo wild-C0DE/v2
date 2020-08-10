@@ -92,6 +92,9 @@ const historyChart = require("./routes/historyChart/historychart")
 //MTTR routes
 const mttr = require("./routes/mttrRoutes/mttrRouter")
 
+//MTBF routes
+const mtbf = require("./routes/mtbfRoutes/mtbfRouter")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -171,6 +174,9 @@ app.use("/api/historyChart", historyChart )
 
 //MTTR path
 app.use("/api/mttr", mttr);
+
+//MTBF path
+app.use("/api/mtbf", mtbf);
 
 
 

@@ -10,6 +10,8 @@ export class MachinModel {
   dateOfPurchase: string;
   inventory: string;
   isbn: string;
+  oprationalTimePerDay: string;
+  operationalDays: string;
   department: string;
   cost: number;
   comment: string;

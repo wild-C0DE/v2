@@ -293,12 +293,42 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'OEE',
     icon: "settings-outline",
-    link: '/pages/oee/oee-synthese',    
+    children: [
+      {
+        title: 'OEE Synthesis',
+        link: '/pages/oee/oee-synthesis',
+      },
+      {
+        title: 'Availability',
+        link: '/pages/oee/availability',
+      },
+      {
+        title: 'Performance',
+        link: '/pages/oee/performance',
+      },
+      {
+        title: 'Quality',
+        link: '/pages/oee/quality',
+      },
+      
+    ],
+        
   },
   {
     title: 'MTTR',
     icon: "settings-outline",
     link: '/pages/mttr/mttr-synthesis',    
+  },
+
+  {
+    title: 'MTBF',
+    icon: "settings-outline",
+    link: '/pages/mtbf/mtbf-synthesis',    
+  },
+  {
+    title: 'Projects',
+    icon: "settings-outline",
+    link: '/pages/projects/project',    
   },
 
  {

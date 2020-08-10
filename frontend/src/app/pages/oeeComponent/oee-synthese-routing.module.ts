@@ -12,7 +12,7 @@ const routes: Routes = [{
   component: TablesComponent,
   children: [
     {
-      path: 'oee',
+      path: 'oee-synthesis',
       component: OEEComponent,
     },
     {
