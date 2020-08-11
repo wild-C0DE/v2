@@ -38,7 +38,7 @@ export class AssignComponent {
         filter: false
       },
       referenceOfAgent:  {
-        title: 'Agent Reference',
+        title: 'Social Security',
         type: 'string',
         filter: false
       },

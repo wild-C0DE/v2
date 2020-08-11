@@ -43,11 +43,7 @@ export class EquipementComponent {
         type: 'string',
         filter: false
       },
-      nameOfAgent: {
-        title: 'Agent Name',
-        type: 'string',
-        filter: false
-      },
+      
       reference: {
         title: 'Reference',
         type: 'string',
@@ -136,14 +132,13 @@ onCreateConfirm(event) {
   console.log(event.newData)
   var data = {
                 "nameOfEquipment" : event.newData.nameOfEquipment,
-                "nameOfAgent" : event.newData.nameOfAgent,
                 "reference" : event.newData.reference,
                 "quantity" : event.newData.quantity,
                 "state" : event.newData.state,
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
                 "supplierContact" : event.newData.supplierContact,
-                "dateOfUse" : moment(event.newData.dateOfUse).format('LL'),
+                "dateOfUse" : moment("2018-05-25").format("YYYY-MM-DD"),
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
                 "cost" : event.newData.cost,
@@ -169,7 +164,6 @@ onSaveConfirm(event):void {
   var data = {
   "helper" : event.data._id,
   "nameOfEquipment" : event.newData.nameOfEquipment,
-  "nameOfAgent" : event.newData.nameOfAgent,
   "reference" : event.newData.reference,
   "quantity" : event.newData.quantity,
   "state" : event.newData.state,
