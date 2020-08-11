@@ -7,12 +7,4 @@ import { NbDateService } from '@nebular/theme';
   styleUrls: ['datepicker.component.scss'],
 })
 export class DatepickerComponent {
-
-  min: Date;
-  max: Date;
-
-  constructor(protected dateService: NbDateService<Date>) {
-    this.min = this.dateService.addDay(this.dateService.today(), -5);
-    this.max = this.dateService.addDay(this.dateService.today(), 5);
-  }
 }

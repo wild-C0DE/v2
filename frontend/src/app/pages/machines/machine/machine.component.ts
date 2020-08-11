@@ -116,12 +116,12 @@ export class MachineComponent {
         filter: false
       },
       oprationalTimePerDay: {
-        title: "Total Number Of Failure",
+        title: "Operational Time Per Day",
         type: "string",
         filter: false
       },
       operationalDays: {
-        title: "Operational Time Per Day",
+        title: "Operational Days Per Month",
         type: "string",
         filter: false
       },
@@ -177,7 +177,7 @@ export class MachineComponent {
       supplierName: event.newData.supplierName,
       supplierContact: event.newData.supplierContact,
       serialNumber: event.newData.serialNumber,
-      dateOfPurchase: moment(event.dateOfPurchase).toDate(),
+      dateOfPurchase: moment("2016-05-12").format("YYYY-MM-DD"),
       inventory: event.newData.inventory,
       isbn: event.newData.isbn,
       oprationalTimePerDay: event.newData.oprationalTimePerDay,
@@ -223,11 +223,11 @@ export class MachineComponent {
       supplierName: event.newData.supplierName,
       supplierContact: event.newData.supplierContact,
       serialNumber: event.newData.serialNumber,
-      dateOfPurchase: moment(event.dateOfPurchase).toDate(),
+      dateOfPurchase: moment("2020-11-08  ").format("YYYY-MM-DD"),
       inventory: event.newData.inventory,
       isbn: event.newData.isbn,
-      oprationalTimePerDay: event.data.oprationalTimePerDay,
-      operationalDays:event.data.operationalDays,
+      oprationalTimePerDay: event.newData.oprationalTimePerDay,
+      operationalDays:event.newData.operationalDays,
       department: event.newData.department,
       cost: event.newData.cost,
       // "image" : event.newData.image,
