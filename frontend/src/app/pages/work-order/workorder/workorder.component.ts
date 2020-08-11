@@ -16,7 +16,7 @@ export class WorkorderComponent {
   source: ServerDataSource;
   source1  :any ;
 
-  settings = {
+  settings : object = {
     // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -96,24 +96,24 @@ export class WorkorderComponent {
         type: "number",
         filter: false,
       },
-      agentName: {
-        title: "Agent Name",
-        placeholder:"Select ...",
-        filter: false,
-        editor: {
-          type: 'list',
-          config: {
-            selectText: 'Select',
+      // agentName: {
+      //   title: "Agent Name",
+      //   placeholder:"Select ...",
+      //   filter: false,
+      //   editor: {
+      //     type: 'list',
+      //     config: {
+      //       selectText: 'Select',
            
-            list: [
-              {value: this.source1[0], title:this.source1[0]},
-              {value: this.source1[1], title:this.source1[1]},         
+      //       list: [
+      //         {value: this.source1[0], title:this.source1[0]},
+      //         {value: this.source1[1], title:this.source1[1]},         
              
-            ],
-          },
+      //       ],
+      //     },
         
-        }
-      },
+      //   }
+      // },
      
       department: {
         title: "Department",
@@ -169,16 +169,7 @@ export class WorkorderComponent {
             type: "number",
             filter: false,
           },
-        //   multiple: {
-        //     title: 'Multi select',
-        //     type: 'html',
-        //      editor: {
-        //       type: 'custom',
-        //       valuePrepareFunction: (cell, row) => row,
-        //       component: MultiSelComponent,
-        //      },
-        //   }
-        //  ,
+       
           date: {
             title: "Date",
             type: 'html',
@@ -196,13 +187,41 @@ export class WorkorderComponent {
           },
           typeOfIntervention: {
             title: "Type Of Intervention",
-            type: "string",
+            placeholder:"Select ...",
             filter: false,
+            editor: {
+              type: 'list',
+              config: {
+                selectText: 'Select',
+               
+                list: [
+                  {value: "Prevention", title:"Prevention"},
+                  {value: "Correction", title:"Correction"},
+                       
+                 
+                ],
+              },
+            
+            }
           },
           state: {
             title: "State",
-            type: "string",
-            filter: false,
+              placeholder:"Select ...",
+        filter: false,
+        editor: {
+          type: 'list',
+          config: {
+            selectText: 'Select',
+           
+            list: [
+              {value: "Enqueue", title:"Enqueue"},
+              {value: "Completed", title:"Completed"},
+                   
+             
+            ],
+          },
+        
+        }
           },
           machine: {
             title: "Machine",
@@ -241,8 +260,24 @@ export class WorkorderComponent {
          
           department: {
             title: "Department",
-            type: "string",
+            placeholder:"Select ...",
             filter: false,
+            editor: {
+              type: 'list',
+              config: {
+                selectText: 'Select',
+               
+                list: [
+                  {value: 'Production', title:'Production'},
+                  {value: 'Commercial', title:'Commercial'},  
+                  {value: 'Maintenance', title:'Maintenance'},
+                  {value: 'Quality', title:'Quality'},          
+                 
+                ],
+              },
+            
+            }
+            
           },
           equipmentUsed: {
             title: "Equipment Used",
@@ -264,7 +299,7 @@ export class WorkorderComponent {
   }
   onCreateConfirm(event): void {
     var data = {
-      date: moment(event.date).toDate() ,
+      date: moment("2020-08-12").format("YYYY-MM-DD"),
       nameOfTheIntervention: event.newData.nameOfTheIntervention,
       typeOfIntervention: event.newData.typeOfIntervention,
       family: event.newData.family,
@@ -281,9 +316,9 @@ export class WorkorderComponent {
     };
 
 
-    if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
+    if (event.newData.state === "Enqueue" && event.newData.effectiveDuration !== "") {
       window.confirm("the intervention is still ongoing");
-    } else  if (event.newData.state === "done" && event.newData.effectiveDuration === "") {
+    } else  if (event.newData.state === "Completed" && event.newData.effectiveDuration === "") {
       window.confirm("please fill the Effective Duration row");
     } else {
     this.http
@@ -304,10 +339,12 @@ export class WorkorderComponent {
     }
   }
   onSaveConfirm(event): void {
+    
     var data = {
       helper: event.data._id,
-      date: moment(event.date).toDate() ,
+      date: moment("2020-11-28").format("YYYY-MM-DD"),
       typeOfIntervention: event.newData.typeOfIntervention,
+      nameOfTheIntervention: event.newData.nameOfTheIntervention,
       family: event.newData.family,
       machine: event.newData.machine,
       state: event.newData.state,
@@ -320,12 +357,13 @@ export class WorkorderComponent {
       equipmentUsed: event.newData.equipmentUsed,
     };
    
-    if (event.newData.state === "ongoing" && event.newData.effectiveDuration !== "") {
+    if (event.newData.state === "Enqueue" && event.newData.effectiveDuration !== "") {
       window.confirm("the intervention is still ongoing");
-    } else  if (event.newData.state === "done" && event.newData.effectiveDuration === "") {
+    } else  if (event.newData.state === "Completed" && event.newData.effectiveDuration === "") {
       window.confirm("please fill the Effective Duration row");
     } else {
       if (window.confirm("Do you confirm the changes?")) {
+        
         this.http
           .post<Addwork>(
             "http://localhost:8080/api/workorderList/updateWork",
