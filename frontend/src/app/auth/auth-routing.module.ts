@@ -5,7 +5,7 @@ import { NgxLoginComponent } from './login/login.component';
 import { NgxRegisterComponent } from './register/register.component';
 import { NgxRequestPasswordComponent } from './request-password/request-password.component';
 import { NgxResetPasswordComponent } from './reset-password/reset-password.component';
-
+import {CheckComponent} from "./check-email/check.component"
 import {VerifyComponent} from "./verify/verify.component"
 export const routes: Routes = [
 	{
@@ -19,6 +19,10 @@ export const routes: Routes = [
 		{
 			path: 'register',
 			component: NgxRegisterComponent, // <---
+		  },
+		  {
+			path: 'check-email',
+			component: CheckComponent, // <---
 		  },
 		  {
 			path: 'verify-email',

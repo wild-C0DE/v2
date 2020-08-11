@@ -16,7 +16,7 @@ import {
   NbInputModule,
   
 } from '@nebular/theme';
-
+import {CheckComponent} from "./check-email/check.component"
 
 @NgModule({
   imports: [
@@ -28,7 +28,6 @@ import {
     NbButtonModule,
     NbCheckboxModule,
     NgxAuthRoutingModule,
-    
     NbAuthModule,
   ],
   declarations: [
@@ -36,7 +35,8 @@ import {
     NgxRegisterComponent,
     NgxRequestPasswordComponent,
     VerifyComponent,
-    NgxResetPasswordComponent
+    NgxResetPasswordComponent,
+    CheckComponent
   ],
 })
 export class NgxAuthModule {

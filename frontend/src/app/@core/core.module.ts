@@ -115,7 +115,7 @@ export const NB_CORE_PROVIDERS = [
 
           requireValidToken:false,
           redirect: {
-            success: '/auth/login',
+            success: '/auth/check-email',
             failure: null,
           },
         },
@@ -141,6 +141,7 @@ export const NB_CORE_PROVIDERS = [
           alwaysFail: false,
 
           requireValidToken:false,
+          resetPasswordTokenKey: 'token',
           redirect: {
             success: '/auth/login',
             failure: null,

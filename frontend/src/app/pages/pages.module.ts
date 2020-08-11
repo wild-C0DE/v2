@@ -7,7 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
-
+import { NbIconLibraries } from '@nebular/theme';
 
 @NgModule({
   imports: [
@@ -25,4 +25,8 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
   ],
 })
 export class PagesModule {
+  constructor(private iconLibraries: NbIconLibraries) {
+    this.iconLibraries.registerFontPack('icon-8', { iconClassPrefix: 'i8' });
+   
+  }
 }
