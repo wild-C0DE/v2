@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
 
     ]).then (result => {
          for (var i =0; i < result.length; i++){
-             result[i].quality = result[i].goodPartsProduced / result[i].totalPartsProduced
+             result[i].quality = (result[i].goodPartsProduced / result[i].totalPartsProduced).toFixed(2)
          }
          return result
      }).then (result => {

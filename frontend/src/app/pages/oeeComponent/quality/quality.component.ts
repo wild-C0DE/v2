@@ -46,7 +46,7 @@ export class QualityComponent  {
           filter: false
         },
         quality: {
-          title: 'Quality',
+          title: 'Quality In (%)',
           type: 'number',
           filter: false
         },

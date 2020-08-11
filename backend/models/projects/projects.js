@@ -11,9 +11,9 @@ const Projects = new Schema({
     type: String,
     //required: true,
   },
-  runTime: {
-    type: String,
-  },
+  // runTime: {
+  //   type: String,
+  // },
   plannedProdTime: {
     type: Number,
   //  required: true,

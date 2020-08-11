@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
         //   })
           .then(result => {
             for (var i = 0; i < result.length; i++){
-                result[i]["plannedProdTime"] = (result[i].idealCycleTime * result[i].goodPartsProduced) / result[i].runTime
+                result[i]["plannedProdTime"] = ((result[i].idealCycleTime * result[i].goodPartsProduced) / result[i].runTime).toFixed(2)
             }
             return result
             }).then(result => {
