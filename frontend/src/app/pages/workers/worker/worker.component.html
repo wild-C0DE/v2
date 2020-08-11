@@ -1,10 +1,11 @@
 <div #content>
 <nb-card>
-  <nb-card-header>
-    Workers
-  </nb-card-header>
+  
 
   <nb-card-body>
+    <h6>
+      Workers
+    </h6>
     <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
     <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)" (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)" id="tab" >

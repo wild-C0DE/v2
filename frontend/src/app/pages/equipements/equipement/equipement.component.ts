@@ -41,38 +41,47 @@ export class EquipementComponent {
       nameOfEquipment: {
         title: 'Name',
         type: 'string',
+        filter: false
       },
       nameOfAgent: {
         title: 'Agent Name',
         type: 'string',
+        filter: false
       },
       reference: {
         title: 'Reference',
         type: 'string',
+        filter: false
       },
       quantity: {
         title: 'Quantity',
         type: 'Number',
+        filter: false
       },
       state: {
         title: 'Min',
         type: 'Number',
+        filter: false
       },
       brand: {
         title: 'Brand',
         type: 'number',
+        filter: false
       },
       supplierName: {
         title: 'Supplier Name',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       supplierContact: {
         title: 'Supplier Contact',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       dateOfUse: {
         title: 'Date Of Use',
         type: 'html',
+        filter: false,
         //renderComponent: DatepickerComponent,
         editor: {
           type: 'custom',
@@ -81,11 +90,13 @@ export class EquipementComponent {
       },
       isbn: {
         title: 'ISBN',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       department: {
         title: 'Department',
         placeholder:"Select ...",
+        filter: false,
         editor: {
           type: 'list',
           config: {
@@ -103,7 +114,8 @@ export class EquipementComponent {
       },
       cost: {
         title: 'Cost',
-        type: 'number'
+        type: 'number',
+        filter: false
       },
         
   
