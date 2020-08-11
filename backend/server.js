@@ -225,4 +225,7 @@ app.post('/haha', (req, res) => {
   console.log(id)
  haha.find({'_id':id}).then(result=>res.send({fullName :result[0].fullName}))
 })
+
+
+
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { NbAuthComponent } from '@nebular/auth'; 
 import { NgxLoginComponent } from './login/login.component';
 import { NgxRegisterComponent } from './register/register.component';
+import { NgxRequestPasswordComponent } from './request-password/request-password.component';
+import { NgxResetPasswordComponent } from './reset-password/reset-password.component';
+
 import {VerifyComponent} from "./verify/verify.component"
 export const routes: Routes = [
 	{
@@ -20,6 +23,14 @@ export const routes: Routes = [
 		  {
 			path: 'verify-email',
 			component: VerifyComponent, // <---
+		  },
+		  {
+			path: 'request-password',
+			component: NgxRequestPasswordComponent, // <---
+		  },
+		  {
+			path: 'reset-password',
+			component: NgxResetPasswordComponent, // <---
 		  },
 	  ],
 	},
