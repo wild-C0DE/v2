@@ -1,6 +1,5 @@
 export class EquipmentModel {
   nameOfEquipment: string;
-  nameOfAgent: string;
   reference: string;
   quantity: number;
   state: string;

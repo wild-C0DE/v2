@@ -7,10 +7,7 @@ const Equipment = new Schema({
     type: String,
   //  required: true,
   },
-  nameOfAgent: {
-    type: String,
-    //required: true,
-  },
+
   reference: {
     type: String,
   //  required: true,

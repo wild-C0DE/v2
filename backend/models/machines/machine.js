@@ -59,6 +59,7 @@ const Machine = new Schema({
   // },
   comment: {
     type: String,
+    default: "no comment",
   },
 });
 

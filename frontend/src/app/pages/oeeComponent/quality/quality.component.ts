@@ -25,17 +25,30 @@ export class QualityComponent  {
 
       },      
       columns: {
+        project: {
+          title: 'Project',
+          type: 'string',
+          filter: false
+        },
+        machine: {
+          title: 'Machine',
+          type: 'string',
+          filter: false
+        },
         goodPartsProduced :  {
           title: 'Good Parts Produced',
           type: 'number',
+          filter: false
         },
         totalPartsProduced: {
           title: 'Total Parts Produced',
           type: 'number',
+          filter: false
         },
         quality: {
           title: 'Quality',
           type: 'number',
+          filter: false
         },
        
       },

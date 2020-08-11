@@ -1,9 +1,10 @@
 <nb-card>
-  <nb-card-header>
-    Equipements Table
-  </nb-card-header>
+  
 
   <nb-card-body>
+    <h6>
+      Project Table
+    </h6>
     <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
     <button nbButton status="danger" (click)="downloadCSV()" ghost>CSV</button>
     <button nbButton status="primary" printSectionId="print-section" ngxPrint  ghost>Print</button>

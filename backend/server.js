@@ -95,6 +95,25 @@ const mttr = require("./routes/mttrRoutes/mttrRouter")
 //MTBF routes
 const mtbf = require("./routes/mtbfRoutes/mtbfRouter")
 
+//Projects routes
+const addProject = require("./routes/projects/projectsRoute")
+const updateProject = require("./routes/projects/projectsUpdateRoute");
+const projectsList = require("./routes/projects/projectsListList");
+const deleteProject = require("./routes/projects/projectsDeleteRoute");
+
+//OEE routes 
+//Availability route
+const availabilityOee = require("./routes/oeeRoutes/availability")
+
+//Quality route
+const qualityOee = require("./routes/oeeRoutes/quality")
+
+//performance route
+const performanceOee = require("./routes/oeeRoutes/performance")
+
+// workOrderselect:
+const workOrderselect = require("./routes/workOrderSelect/workersListRoute")
+
 //************************************ */
 // ************mongod DB*************
 mongoose.connect(db, {
@@ -178,7 +197,23 @@ app.use("/api/mttr", mttr);
 //MTBF path
 app.use("/api/mtbf", mtbf);
 
+//Projects path
+app.use("/api/addproject", addProject);
+app.use("/api/updateproject", updateProject);
+app.use("/api/projectsList", projectsList);
+app.use("/api/deleteproject", deleteProject);
+// workOrderSelect
+app.use("/api/workOrderselect", workOrderselect)
 
+ 
+//OEE path
+app.use("/api/availability", availabilityOee);
+
+//QUALITY PATH
+app.use("/api/quality", qualityOee);
+
+//Performance path
+app.use("/api/performance", performanceOee)
 
 
 

@@ -30,18 +30,22 @@ export class MTTRComponent  {
         _id :  {
           title: 'Machine',
           type: 'number',
+          filter: false
         },
         totalMaintenanceTime :  {
           title: 'Total Maintenance Time',
           type: 'number',
+          filter: false
         },
         same_machine: {
           title: 'Total Number Of Repair',
           type: 'number',
+          filter: false
         },
         MTTR: {
           title: 'MTTR',
           type: 'number',
+          filter: false
         },
         
        

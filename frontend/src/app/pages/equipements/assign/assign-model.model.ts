@@ -3,7 +3,6 @@ export class AssignModel {
     referenceOfAgent: string;
     listOfEquipment: string;
     referenceOfEquipment: number;
-    state: string;
     date: string;
     isbn: string;
     supplierContact: string;

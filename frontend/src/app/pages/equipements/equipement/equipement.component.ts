@@ -41,38 +41,43 @@ export class EquipementComponent {
       nameOfEquipment: {
         title: 'Name',
         type: 'string',
+        filter: false
       },
-      nameOfAgent: {
-        title: 'Agent Name',
-        type: 'string',
-      },
+      
       reference: {
         title: 'Reference',
         type: 'string',
+        filter: false
       },
       quantity: {
         title: 'Quantity',
         type: 'Number',
+        filter: false
       },
       state: {
         title: 'Min',
         type: 'Number',
+        filter: false
       },
       brand: {
         title: 'Brand',
         type: 'number',
+        filter: false
       },
       supplierName: {
         title: 'Supplier Name',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       supplierContact: {
         title: 'Supplier Contact',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       dateOfUse: {
         title: 'Date Of Use',
         type: 'html',
+        filter: false,
         //renderComponent: DatepickerComponent,
         editor: {
           type: 'custom',
@@ -81,11 +86,13 @@ export class EquipementComponent {
       },
       isbn: {
         title: 'ISBN',
-        type: 'string'
+        type: 'string',
+        filter: false
       },
       department: {
         title: 'Department',
         placeholder:"Select ...",
+        filter: false,
         editor: {
           type: 'list',
           config: {
@@ -103,7 +110,8 @@ export class EquipementComponent {
       },
       cost: {
         title: 'Cost',
-        type: 'number'
+        type: 'number',
+        filter: false
       },
         
   
@@ -120,17 +128,17 @@ export class EquipementComponent {
     console.log(this.source);
 
 }
-onCreateConfirm(event):void { 
+onCreateConfirm(event) { 
+  console.log(event.newData)
   var data = {
                 "nameOfEquipment" : event.newData.nameOfEquipment,
-                "nameOfAgent" : event.newData.nameOfAgent,
                 "reference" : event.newData.reference,
                 "quantity" : event.newData.quantity,
                 "state" : event.newData.state,
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
                 "supplierContact" : event.newData.supplierContact,
-                "dateOfUse" : moment(event.dateOfUse).toDate(),
+                "dateOfUse" : moment("2018-05-25").format("YYYY-MM-DD"),
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
                 "cost" : event.newData.cost,
@@ -156,7 +164,6 @@ onSaveConfirm(event):void {
   var data = {
   "helper" : event.data._id,
   "nameOfEquipment" : event.newData.nameOfEquipment,
-  "nameOfAgent" : event.newData.nameOfAgent,
   "reference" : event.newData.reference,
   "quantity" : event.newData.quantity,
   "state" : event.newData.state,

@@ -33,46 +33,57 @@ export class EnqueueComponent {
       numberOrder: {
         title: 'Number Order',
         type: 'number',
+        filter: false
       },
       date: {
         title: 'Date',
         type: 'number',
+        filter: false
       },
       nameOfTheIntervention: {
         title: 'Name Of The Intervention',
         type: 'string',
+        filter: false
       },
       typeOfIntervention: {
         title: 'Type Of Intervention',
         type: 'string',
+        filter: false
       },
       state: {
         title: 'State',
         type: 'string',
+        filter: false
       },
       machine: {
         title: 'Machine',
         type: 'string',
+        filter: false
       },
       manager: {
         title: 'Manager',
         type: 'string',
+        filter: false
       },
       duration: {
         title: 'Duration',
         type: 'string',
+        filter: false
       },
-      agent: {
+      agentName: {
         title: 'Agent',
         type: 'string',
+        filter: false
       },
-      depertment: {
+      department: {
         title: 'Department',
         type: 'number',
+        filter: false
       },
       equipmentUsed: {
         title: 'Equipment Used',
         type: 'number',
+        filter: false
       },
     },
   };

@@ -17,17 +17,12 @@ router.get('/', (req, res) => {
         localField: "name",
         foreignField: "machine",
         as: "mtbf_synthesis",
-        
       },
-      
     },
-    
 
     // {$group: {_id: "$machine"}}
  ])
-
  .then(result => {
-  
    let helper = []
   // console.log(result)
   for(let i =0;i<result.length;i++){
@@ -38,7 +33,7 @@ router.get('/', (req, res) => {
   
   return helper;
 }).then(result => {
-  
+  console.log(result)
   for (var i = 0; i < result.length; i++){
     for (var key in result[i]){
       result[i]["totalOperationalTime"] = (result[i]["operationalDays"] * result[i]["oprationalTimePerDay"])
@@ -55,7 +50,8 @@ router.get('/', (req, res) => {
 
     // {$group: {_id: "$machine"}}
  ]).then(
-   result => {haddna = result
+   result => {
+    haddna = result
     let  hamza = haddna.concat(helper)
     myFriend = []
      for(var i = 0;i<hamza.length;i++){

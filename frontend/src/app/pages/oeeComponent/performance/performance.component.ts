@@ -25,21 +25,35 @@ export class PerformanceComponent  {
 
       },      
       columns: {
+        project: {
+          title: 'Project',
+          type: 'string',
+          filter: false
+        },
+        machine: {
+          title: 'Machine',
+          type: 'number',
+          filter: false
+        },
         idealCycleTime :  {
           title: 'Ideal Cycle Time',
           type: 'number',
+          filter: false
         },
-        partsProduced: {
-          title: 'Parts Produced',
+        goodPartsProduced: {
+          title: 'Good Parts Produced',
           type: 'number',
+          filter: false
         },
-        runTime: {
+         runTime: {
           title: 'Run Time',
           type: 'number',
+          filter: false
         },
-        performance: {
+        plannedProdTime: {
           title: 'Performance',
           type: 'number',
+          filter: false
         },
        
       },

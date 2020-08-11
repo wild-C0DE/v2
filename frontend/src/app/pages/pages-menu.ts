@@ -9,12 +9,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
     
   },
-  {
-    title: 'E-commerce',
-    icon: {icon:'shopping-cart-outline',options: {animation:{ type: 'shake' }, }},
-    link: '/pages/dashboard',
-    
-  },
+ 
   {
     title: 'Charts',
     group: true,
@@ -24,11 +19,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
     link: '/pages/charts/chartsHistory',
   },
-  {
-    title: 'Chart1',
-    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
-    link: '/pages/charts/echarts',
-  },
+  // {
+  //   title: 'Chart1',
+  //   icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+  //   link: '/pages/charts/echarts',
+  // },
   {
     title: 'AFNOR Chart',
     icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
@@ -36,103 +31,103 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   
   {
-    title: 'FEATURES',
+    title: 'General',
     group: true,
   },
-  {
-    title: 'Forms',
-    icon: 'edit-2-outline',
-    children: [
-      {
-        title: 'Form Inputs',
-        link: '/pages/forms/inputs',
-      },
-      {
-        title: 'Form Layouts',
-        link: '/pages/forms/layouts',
-      },
-      {
-        title: 'Buttons',
-        link: '/pages/forms/buttons',
-      },
-      {
-        title: 'Datepicker',
-        link: '/pages/forms/datepicker',
-      },
-    ],
-  },
+  //{
+  //   title: 'Forms',
+  //   icon: 'edit-2-outline',
+  //   children: [
+  //     {
+  //       title: 'Form Inputs',
+  //       link: '/pages/forms/inputs',
+  //     },
+  //     {
+  //       title: 'Form Layouts',
+  //       link: '/pages/forms/layouts',
+  //     },
+  //     {
+  //       title: 'Buttons',
+  //       link: '/pages/forms/buttons',
+  //     },
+  //     {
+  //       title: 'Datepicker',
+  //       link: '/pages/forms/datepicker',
+  //     },
+  //   ],
+  // },
   
-  {
-    title: 'Modal & Overlays',
-    icon: 'browser-outline',
-    children: [
-      {
-        title: 'Dialog',
-        link: '/pages/modal-overlays/dialog',
-      },
-      {
-        title: 'Window',
-        link: '/pages/modal-overlays/window',
-      },
-      {
-        title: 'Popover',
-        link: '/pages/modal-overlays/popover',
-      },
-      {
-        title: 'Toastr',
-        link: '/pages/modal-overlays/toastr',
-      },
-      {
-        title: 'Tooltip',
-        link: '/pages/modal-overlays/tooltip',
-      },
-    ],
-  },
-  {
-    title: 'Extra Components',
-    icon: 'message-circle-outline',
-    children: [
-      {
-        title: 'Calendar',
-        link: '/pages/extra-components/calendar',
-      },
-      {
-        title: 'Progress Bar',
-        link: '/pages/extra-components/progress-bar',
-      },
-      {
-        title: 'Spinner',
-        link: '/pages/extra-components/spinner',
-      },
-      {
-        title: 'Alert',
-        link: '/pages/extra-components/alert',
-      },
-      {
-        title: 'Calendar Kit',
-        link: '/pages/extra-components/calendar-kit',
-      },
-      {
-        title: 'Chat',
-        link: '/pages/extra-components/chat',
-      },
-    ],
-  },
+  // {
+  //   title: 'Modal & Overlays',
+  //   icon: 'browser-outline',
+  //   children: [
+  //     {
+  //       title: 'Dialog',
+  //       link: '/pages/modal-overlays/dialog',
+  //     },
+  //     {
+  //       title: 'Window',
+  //       link: '/pages/modal-overlays/window',
+  //     },
+  //     {
+  //       title: 'Popover',
+  //       link: '/pages/modal-overlays/popover',
+  //     },
+  //     {
+  //       title: 'Toastr',
+  //       link: '/pages/modal-overlays/toastr',
+  //     },
+  //     {
+  //       title: 'Tooltip',
+  //       link: '/pages/modal-overlays/tooltip',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'Extra Components',
+  //   icon: 'message-circle-outline',
+  //   children: [
+  //     {
+  //       title: 'Calendar',
+  //       link: '/pages/extra-components/calendar',
+  //     },
+  //     {
+  //       title: 'Progress Bar',
+  //       link: '/pages/extra-components/progress-bar',
+  //     },
+  //     {
+  //       title: 'Spinner',
+  //       link: '/pages/extra-components/spinner',
+  //     },
+  //     {
+  //       title: 'Alert',
+  //       link: '/pages/extra-components/alert',
+  //     },
+  //     {
+  //       title: 'Calendar Kit',
+  //       link: '/pages/extra-components/calendar-kit',
+  //     },
+  //     {
+  //       title: 'Chat',
+  //       link: '/pages/extra-components/chat',
+  //     },
+  //   ],
+  // },
   
-  {
-    title: 'Editors',
-    icon: 'text-outline',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
-  },
+  // {
+  //   title: 'Editors',
+  //   icon: 'text-outline',
+  //   children: [
+  //     {
+  //       title: 'TinyMCE',
+  //       link: '/pages/editors/tinymce',
+  //     },
+  //     {
+  //       title: 'CKEditor',
+  //       link: '/pages/editors/ckeditor',
+  //     },
+  //   ],
+  // },
   {
     title: 'Stock',
     icon: 'shopping-cart-outline',
@@ -203,39 +198,39 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
-  {
+  // {
 
-    title: 'Miscellaneous',
-    icon: 'shuffle-2-outline',
-    children: [
-      {
-        title: '404',
-        link: '/pages/miscellaneous/404',
-      },
-    ],
-  },
-  {
-    title: 'Auth',
-    icon: 'lock-outline',
-    children: [
-      {
-        title: 'Login',
-        link: '/auth/login',
-      },
-      {
-        title: 'Register',
-        link: '/auth/register',
-      },
-      {
-        title: 'Request Password',
-        link: '/auth/request-password',
-      },
-      {
-        title: 'Reset Password',
-        link: '/auth/reset-password',
-      },
-    ],
-  },
+  //   title: 'Miscellaneous',
+  //   icon: 'shuffle-2-outline',
+  //   children: [
+  //     {
+  //       title: '404',
+  //       link: '/pages/miscellaneous/404',
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: 'Auth',
+  //   icon: 'lock-outline',
+  //   children: [
+  //     {
+  //       title: 'Login',
+  //       link: '/auth/login',
+  //     },
+  //     {
+  //       title: 'Register',
+  //       link: '/auth/register',
+  //     },
+  //     {
+  //       title: 'Request Password',
+  //       link: '/auth/request-password',
+  //     },
+  //     {
+  //       title: 'Reset Password',
+  //       link: '/auth/reset-password',
+  //     },
+  //   ],
+  // },
 
 {
 
@@ -294,22 +289,20 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'OEE',
     icon: "settings-outline",
     children: [
-      {
-        title: 'OEE Synthesis',
-        link: '/pages/oee/oee-synthesis',
-      },
+      
       {
         title: 'Availability',
         link: '/pages/oee/availability',
       },
       {
-        title: 'Performance',
-        link: '/pages/oee/performance',
-      },
-      {
         title: 'Quality',
         link: '/pages/oee/quality',
       },
+      {
+        title: 'Performance',
+        link: '/pages/oee/performance',
+      },
+   
       
     ],
         
@@ -353,10 +346,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Ratio4 ',
         link: '/pages/totalSynthesis/ratio4',
       },
-      {
-        title: 'Charts ',
-        link: '/pages/totalSynthesis/Charts',
-      }
+     
     ],
   }
 

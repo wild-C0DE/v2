@@ -25,21 +25,35 @@ export class AvailabilityComponent  {
 
       },      
       columns: {
-        plannedProductionTime :  {
+        project: {
+          title: 'Project',
+          type: 'string',
+          filter: false
+        },
+        machine: {
+          title: 'Machine',
+          type: 'number',
+          filter: false
+        },
+        plannedProdTime :  {
           title: 'Planned Production Time',
           type: 'number',
-        },
-        stopTime: {
-          title: 'Stop Time',
-          type: 'number',
+          filter: false
         },
         runTime: {
+          title: 'Stop Time',
+          type: 'number',
+          filter: false
+        },
+        goodPartsProduced: {
           title: 'Run Time',
           type: 'number',
+          filter: false
         },
-        availability: {
+        totalPartsProduced: {
           title: 'Availability',
           type: 'number',
+          filter: false
         },
        
       },

@@ -35,39 +35,43 @@ export class AssignComponent {
       nameOfAgent: {
         title: 'Agent Name',
         type: 'string',
+        filter: false
       },
       referenceOfAgent:  {
-        title: 'Agent Reference',
+        title: 'Social Security',
         type: 'string',
+        filter: false
       },
       listOfEquipment: {
         title: 'Equipments List',
         type: 'string',
+        filter: false
       },
       referenceOfEquipment: {
         title: 'Equipment Reference',
         type: 'string',
+        filter: false
       },
-      state: {
-        title: 'State',
-        type: 'string',
-      },
-      
+     
       date: {
         title: 'Date Of Assignment',
         type: 'number',
+        filter: false
       },
       isbn: {
         title: 'ISBN',
         type: 'string',
+        filter: false
       },
       department: {
         title: 'Department',
         type: 'string',
+        filter: false
       },
       comment: {
         title: 'Comment',
         type: 'string',
+        filter: false
       },
     },
   };
@@ -87,7 +91,6 @@ onCreateConfirm(event):void {
                 "referenceOfAgent" : event.newData.referenceOfAgent,
                 "listOfEquipment" : event.newData.listOfEquipment,
                 "referenceOfEquipment" : event.newData.referenceOfEquipment,
-                "state" : event.newData.state,
                 "date" : event.newData.date,
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
@@ -115,7 +118,6 @@ onSaveConfirm(event):void {
   "referenceOfAgent" : event.newData.referenceOfAgent,
   "listOfEquipment" : event.newData.listOfEquipment,
   "referenceOfEquipment" : event.newData.referenceOfEquipment,
-  "state" : event.newData.state,
   "date" : event.newData.date,
   "isbn" : event.newData.isbn,
   "department" : event.newData.department,
