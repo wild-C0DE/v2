@@ -12,15 +12,29 @@ router.post('/refresh-token', refreshToken);
 router.post('/revoke-token', authorize(), revokeTokenSchema, revokeToken);
 router.post('/sign-up', registerSchema, register);
 router.post('/verify-email', verifyEmailSchema, verifyEmail);
-router.post('/request-pass', forgotPasswordSchema, forgotPassword);
+router.post('/request-password', forgotPasswordSchema, forgotPassword);
 router.post('/validate-reset-token', validateResetTokenSchema, validateResetToken);
-router.post('/reset-pass', resetPasswordSchema, resetPassword);
+router.post('/reset-password', resetPasswordSchema, resetPassword);
 router.get('/', authorize(Role.Admin), getAll);
 router.get('/:id', authorize(), getById);
 router.post('/', authorize(Role.Admin), createSchema, create);
 router.put('/:id', authorize(), updateSchema, update);
 router.delete('/:id', authorize(), _delete);
 
+
+
+
+
+ 
+
+
+// router.post('/request-password', (req, res) => {
+//     const { email } = req.body;
+//     console.log(email)
+//     authService
+//       .requestPassword(email)
+//       .then(() => res.send({ message: `Email with reset password instructions was sent to email ${email}.` }));
+//   });
 module.exports = router;
 
 function authenticateSchema(req, res, next) {
@@ -139,7 +153,7 @@ function validateResetToken(req, res, next) {
 function resetPasswordSchema(req, res, next) {
     const schema = Joi.object({
         token: Joi.string().required(),
-        password: Joi.string().min(6).required(),
+        password: Joi.string().min(4).required(),
         confirmPassword: Joi.string().valid(Joi.ref('password')).required()
     });
     validateRequest(req, next, schema);

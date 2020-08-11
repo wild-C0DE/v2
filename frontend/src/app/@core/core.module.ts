@@ -53,23 +53,7 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 import { NbPasswordAuthStrategy,NbAuthJWTToken  } from '@nebular/auth';
-const socialLinks = [
-  {
-    url: 'https://github.com/akveo/nebular',
-    target: '_blank',
-    icon: 'github',
-  },
-  {
-    url: 'https://www.facebook.com/akveo/',
-    target: '_blank',
-    icon: 'facebook',
-  },
-  {
-    url: 'https://twitter.com/akveo_inc',
-    target: '_blank',
-    icon: 'twitter',
-  },
-];
+
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UserService },
@@ -140,22 +124,89 @@ export const NB_CORE_PROVIDERS = [
           method: 'post',
         },
         requestPass: {
-          endpoint: '/auth/request-pass',
+          endpoint: '/auth/request-password',
           method: 'post',
+          alwaysFail: false,
+
+          requireValidToken:false,
+          redirect: {
+            success: '/auth/reset-password',
+            failure: null,
+          },
+
         },
         resetPass: {
-          endpoint: '/auth/reset-pass',
+          endpoint: '/auth/reset-password',
           method: 'post',
+          alwaysFail: false,
+
+          requireValidToken:false,
+          redirect: {
+            success: '/auth/login',
+            failure: null,
+          },
+
         },
       }),
     ],
     forms: {
       login: {
-        socialLinks: socialLinks,
+        redirectDelay: 0, // delay before redirect after a successful login, while success message is shown to the user
+        strategy: 'email',  // strategy id key.
+        rememberMe: false,   // whether to show or not the `rememberMe` checkbox
+        showMessages: {     // show/not show success/error messages
+          success: true,
+          error: true,
+        },
       },
       register: {
-        socialLinks: socialLinks,
+        redirectDelay: 0,
+        strategy: 'email',
+        showMessages: {
+          success: true,
+          error: true,
+        },
+        terms: false,
+    
       },
+      requestPassword: {
+        redirectDelay: 0,
+        strategy: 'email',
+        showMessages: {
+          success: true,
+          error: true,
+        },
+    
+      },
+      resetPassword: {
+        redirectDelay: 0,
+        strategy: 'email',
+        showMessages: {
+          success: true,
+          error: true,
+        },
+    
+      },
+      logout: {
+        redirectDelay: 0,
+        strategy: 'email',
+      },
+      validation: {
+        password: {
+          required: true,
+          minLength: 4,
+          maxLength: 50,
+        },
+        email: {
+          required: true,
+        },
+        fullName: {
+          required: false,
+          minLength: 4,
+          maxLength: 50,
+        },
+      },
+    
     },
   }).providers,
 
@@ -188,99 +239,99 @@ export const NB_CORE_PROVIDERS = [
 @NgModule({
   imports: [
     CommonModule,
-    NbAuthModule.forRoot({
-      strategies: [
-        NbPasswordAuthStrategy.setup({
-          name: 'email',
-          // token: {
-          //   class: NbAuthJWTToken,
-          //   key: 'token', // this parameter tells where to look for the token
+  //   NbAuthModule.forRoot({
+  //     strategies: [
+  //       NbPasswordAuthStrategy.setup({
+  //         name: 'email',
+  //         // token: {
+  //         //   class: NbAuthJWTToken,
+  //         //   key: 'token', // this parameter tells where to look for the token
 
-          // },
-          baseEndpoint: 'http://localhost:8080',
-          login: {
-            endpoint: '/auth/login',
-            method: 'post',
-          },
-          register: {
-            endpoint: '/auth/sign-up',
-            method: 'post',
-          },
-          logout: {
-            endpoint: '/auth/logout',
-            method: 'post',
-          },
-          requestPass: {
-            endpoint: '/auth/request-pass',
-            method: 'post',
-          },
-          resetPass: {
-            endpoint: '/auth/reset-pass',
-            method: 'post',
-          },
-        }),
-      ],
-      forms: {
-        login: {
-          redirectDelay: 0, // delay before redirect after a successful login, while success message is shown to the user
-          strategy: 'email',  // strategy id key.
-          rememberMe: true,   // whether to show or not the `rememberMe` checkbox
-          showMessages: {     // show/not show success/error messages
-            success: true,
-            error: true,
-          },
-        },
-        register: {
-          redirectDelay: 0,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
-          terms: true,
+  //         // },
+  //         baseEndpoint: 'http://localhost:8080',
+  //         login: {
+  //           endpoint: '/auth/login',
+  //           method: 'post',
+  //         },
+  //         register: {
+  //           endpoint: '/auth/sign-up',
+  //           method: 'post',
+  //         },
+  //         logout: {
+  //           endpoint: '/auth/logout',
+  //           method: 'post',
+  //         },
+  //         requestPass: {
+  //           endpoint: '/auth/request-pass',
+  //           method: 'post',
+  //         },
+  //         resetPass: {
+  //           endpoint: '/auth/reset-pass',
+  //           method: 'post',
+  //         },
+  //       }),
+  //     ],
+  //     forms: {
+  //       login: {
+  //         redirectDelay: 0, // delay before redirect after a successful login, while success message is shown to the user
+  //         strategy: 'email',  // strategy id key.
+  //         rememberMe: false,   // whether to show or not the `rememberMe` checkbox
+  //         showMessages: {     // show/not show success/error messages
+  //           success: true,
+  //           error: true,
+  //         },
+  //       },
+  //       register: {
+  //         redirectDelay: 0,
+  //         strategy: 'email',
+  //         showMessages: {
+  //           success: true,
+  //           error: true,
+  //         },
+  //         terms: false,
       
-        },
-        requestPassword: {
-          redirectDelay: 500,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
+  //       },
+  //       requestPassword: {
+  //         redirectDelay: 0,
+  //         strategy: 'email',
+  //         showMessages: {
+  //           success: true,
+  //           error: true,
+  //         },
       
-        },
-        resetPassword: {
-          redirectDelay: 500,
-          strategy: 'email',
-          showMessages: {
-            success: true,
-            error: true,
-          },
+  //       },
+  //       resetPassword: {
+  //         redirectDelay: 0,
+  //         strategy: 'email',
+  //         showMessages: {
+  //           success: true,
+  //           error: true,
+  //         },
       
-        },
-        logout: {
-          redirectDelay: 500,
-          strategy: 'email',
-        },
-        validation: {
-          password: {
-            required: true,
-            minLength: 4,
-            maxLength: 50,
-          },
-          email: {
-            required: true,
-          },
-          fullName: {
-            required: false,
-            minLength: 4,
-            maxLength: 50,
-          },
-        },
-      },
+  //       },
+  //       logout: {
+  //         redirectDelay: 0,
+  //         strategy: 'email',
+  //       },
+  //       validation: {
+  //         password: {
+  //           required: true,
+  //           minLength: 4,
+  //           maxLength: 50,
+  //         },
+  //         email: {
+  //           required: true,
+  //         },
+  //         fullName: {
+  //           required: false,
+  //           minLength: 4,
+  //           maxLength: 50,
+  //         },
+  //       },
+  //     },
       
-    }), 
-  ],
+  //   }), 
+   ],
   exports: [
     NbAuthModule,
   ],
