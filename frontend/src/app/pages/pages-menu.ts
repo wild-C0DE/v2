@@ -299,6 +299,14 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Availability',
         link: '/pages/oee/availability',
       },
+      {
+        title: 'Quality',
+        link: '/pages/oee/quality',
+      },
+      {
+        title: 'Performance',
+        link: '/pages/oee/performance',
+      },
    
       
     ],

@@ -3,6 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TablesComponent } from './oee-synthese.component';
 import { AvailabilityComponent } from './availability/availability.component'
+import { QualityComponent } from './quality/quality.component'
+import { PerformanceComponent } from './performance/performance.component'
+
 
 const routes: Routes = [{
   path: '', 
@@ -12,6 +15,14 @@ const routes: Routes = [{
     {
       path: 'availability',
       component: AvailabilityComponent,
+    },
+    {
+      path: 'quality',
+      component: QualityComponent,
+    },
+    {
+      path: 'performance',
+      component: PerformanceComponent,
     },
   
   ],
@@ -26,6 +37,8 @@ export class TablesRoutingModule { }
 export const routedComponents = [
   TablesComponent,
   AvailabilityComponent,
+  QualityComponent,
+  PerformanceComponent
   
   
 ];
