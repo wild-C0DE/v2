@@ -28,26 +28,32 @@ export class PerformanceComponent  {
         project: {
           title: 'Project',
           type: 'string',
+          filter: false
         },
         machine: {
           title: 'Machine',
           type: 'number',
+          filter: false
         },
         idealCycleTime :  {
           title: 'Ideal Cycle Time',
           type: 'number',
+          filter: false
         },
         goodPartsProduced: {
           title: 'Good Parts Produced',
           type: 'number',
+          filter: false
         },
          runTime: {
           title: 'Run Time',
           type: 'number',
+          filter: false
         },
         plannedProdTime: {
           title: 'Performance',
           type: 'number',
+          filter: false
         },
        
       },

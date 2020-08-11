@@ -28,19 +28,23 @@ export class MTBFComponent  {
         name :  {
           title: 'Machine',
           type: 'number',
+          filter: false
         },
         totalOperationalTime :  {
           title: 'Total Operational Time',
           type: 'number',
+          filter: false
         },
         same_machine: {
           title: 'Total Number Of Failure',
           type: 'number',
+          filter: false
         },
        
         MTBF: {
           title: 'MTBF',
           type: 'number',
+          filter: false
         },
       },
     };

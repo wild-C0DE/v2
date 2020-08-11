@@ -5,7 +5,7 @@ const router = express.Router();
 const WorkOrder = require("../../models/work-order/work-order");
 
 router.get("/", (req, res) => {
-    WorkOrder.find({state: "done"})
+    WorkOrder.find({state: "Completed"})
       .populate("agentId")
       .then((data) => {
         // for(var i = 0; i < data.length; i++){

@@ -16,6 +16,7 @@ router.post("/updateWork", (req, res) => {
         msg: "server error",
       });
     } else {
+      console.log(req.body)
       res.json({
         msg: "data saved succefully",
       });
@@ -38,7 +39,7 @@ router.get("/", (req, res) => {
     });
 });
 router.get("/enqueue", (req, res) => {
-  WorkOrder.find({ state: false })
+  WorkOrder.find({ state: 'Enqueue' })
     .then((data) => {
       res.send(data);
     })

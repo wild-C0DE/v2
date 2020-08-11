@@ -9,7 +9,7 @@ const Stock = require("../../models/Stock.module");
 router.get("/", (req, res) => {
   var result = 0;
 
-  WorkOrder.find({ typeOfIntervention: "correction" })
+  WorkOrder.find({ typeOfIntervention: "Correction" })
     .populate("agentId")
     .then((data) => {
       let resultCorrection = 0;
@@ -35,7 +35,7 @@ router.get("/", (req, res) => {
           let resultRatio1 =
             Math.round((resultCorrection / resultTotal) * 100) + "%";
 
-          WorkOrder.find({ typeOfIntervention: "prevention" })
+          WorkOrder.find({ typeOfIntervention: "Prevention" })
             .populate("agentId")
             .then((data) => {
               var resultPrevention = 0;

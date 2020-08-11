@@ -6,6 +6,11 @@
       <h6>
         Availability Table
       </h6>
+      <p>0 < Availability < 0.5 : Very bad Availability of the machine</p>
+      <p>0.5 < Availability < 0.7 : Bad Availability of the machine. The machine need a prevention program</p>
+      <p>0.7 < Availability < 0.8  : Good Availability of the machine</p>
+      <p>0.8 < Availability < 1 : Very good Availability of the machine</p>
+      <br>
       <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
     <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
       <ng2-smart-table [settings]="settings" [source]="source" id="tab" >

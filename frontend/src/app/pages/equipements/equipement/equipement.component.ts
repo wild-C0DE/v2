@@ -132,7 +132,8 @@ export class EquipementComponent {
     console.log(this.source);
 
 }
-onCreateConfirm(event):void { 
+onCreateConfirm(event) { 
+  console.log(event.newData)
   var data = {
                 "nameOfEquipment" : event.newData.nameOfEquipment,
                 "nameOfAgent" : event.newData.nameOfAgent,
@@ -142,7 +143,7 @@ onCreateConfirm(event):void {
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
                 "supplierContact" : event.newData.supplierContact,
-                "dateOfUse" : moment(event.dateOfUse).toDate(),
+                "dateOfUse" : moment(event.newData.dateOfUse).format('LL'),
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
                 "cost" : event.newData.cost,
