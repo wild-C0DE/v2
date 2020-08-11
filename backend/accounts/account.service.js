@@ -138,7 +138,7 @@ async function validateResetToken({ token }) {
 }
 
 async function resetPassword({ token, password }) {
-    console.log('account')
+   
     const account = await db.Account.findOne({
         'resetToken.token': token,
         'resetToken.expires': { $gt: Date.now() }

@@ -8,6 +8,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+	const tool = req.body.tool
 	const name = req.body.name
 	const reference = req.body.reference;
 	const quantity = req.body.quantity;
@@ -19,6 +20,7 @@ router.post('/', (req, res) => {
 	
 
 	const newStock = new Stock({
+		tool,
 		name,
 		reference,
 		quantity,
@@ -28,11 +30,11 @@ router.post('/', (req, res) => {
 		max,
 		lifetime
 	});
-
 	newStock.save()
 	.then(() => res.json('stock added!!'))
 	.catch(err => res.status(400).json('Error: ' + err));
 });
+
 
 
 module.exports = router;

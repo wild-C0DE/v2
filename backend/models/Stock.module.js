@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const stockSchema = new Schema({
+	tool:  {type: String },
 	name : {type: String, required: true, trim: true}, 
 	reference : {type: String, required: true, trim: true}, 
 	quantity : {type: Number, required: true, trim: true}, 

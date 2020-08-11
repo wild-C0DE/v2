@@ -5,8 +5,6 @@ import { SmartTableData } from '../../../@core/data/smart-table';
 import {HttpClient} from '@angular/common/http';
 import * as jsPDF from 'jspdf'
 import { ngxCsv } from 'ngx-csv/ngx-csv';
-import autoTable from 'jspdf-autotable'
-import { takeWhile } from 'rxjs/operators';
 import * as XLSX from 'xlsx';
 
 
@@ -17,6 +15,7 @@ import * as XLSX from 'xlsx';
 })
 export class StockTableComponent {
   data:any = [];
+  too: any = "";
   fileName= 'ExcelSheet.xlsx';
    
   source: ServerDataSource; 
@@ -28,11 +27,15 @@ export class StockTableComponent {
       edit: false
       },
     columns: {
-     
+      tool: {
+        title: 'Tool',
+        type: 'html',
+        
+      },
       name: {
         title: 'Name',
         type: 'string',
-        filter: true
+        filter: false,
       },
       reference: {
         title: 'Reference',
@@ -46,29 +49,29 @@ export class StockTableComponent {
       price: {
         title: 'Price',
         type: 'Number',
-        filter: true
+        filter: false,
       },
       lifetime :{
         title: 'Lifetime In Hours',
         type: 'Number',
-        filter: true
+        filter: false,
       }, 
       security: {
         title: 'Security Stock',
         type: 'Number',
-        filter: true
+        filter: false,
       },
       
       
       min: {
         title: 'Min',
         type: 'Number',
-        filter: true
+        filter: false,
       },
       max: {
         title: 'Max',
         type: 'number',
-        filter: true
+        filter: false,
       },
     },
   };
@@ -80,8 +83,8 @@ export class StockTableComponent {
 
   ngOnInit(): void {
     this.source = new ServerDataSource(this.http, { endPoint: "http://localhost:8080/stock", });
-          console.log('this.source: ', this.source);
-        }
+
+  }
  
 
   constructor(private http: HttpClient) {
