@@ -1,11 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { NbResetPasswordComponent } from '@nebular/auth';
-import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/filter';
 import { HttpClient } from "@angular/common/http"
-import { RouterModule, Routes ,Router} from '@angular/router';
-import { log } from 'console';
-import { NbAuthResult, NbAuthService } from '@nebular/auth';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,6 +9,15 @@ import { NbAuthResult, NbAuthService } from '@nebular/auth';
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
 })
-export class NgxResetPasswordComponent extends NbResetPasswordComponent {
+export class NgxResetPasswordComponent extends NbResetPasswordComponent{
+
   
+  ngOnInit() {
+    this.user.token="bcd4ea2ca8b78c35d3829394b6e109e2969cbd8ccbea11a8abda0b036558b7566b201fa46d700baa"
+      }
+    
+  
+  
+  
+ 
 }
