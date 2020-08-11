@@ -14,4 +14,5 @@ import { NbAuthResult, NbAuthService } from '@nebular/auth';
   styleUrls: ['./reset-password.component.scss']
 })
 export class NgxResetPasswordComponent extends NbResetPasswordComponent {
+  
 }
