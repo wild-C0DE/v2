@@ -13,7 +13,7 @@ import {
   NbActionsModule,
   NbCheckboxModule,
 
-  NbDatepickerModule, 
+   
   NbLayoutModule,
 
   NbRadioModule,
@@ -53,7 +53,19 @@ import { FormsModule as ngFormsModule } from "@angular/forms";
     NbCheckboxModule,
 
     NbIconModule,
-    NbLayoutModule
+    NbLayoutModule,
+    
+    NbButtonModule,
+    NbDatepickerModule,
+    NbActionsModule,
+  
+
+    NbCheckboxModule,
+    
+
+    NbRadioModule,
+    NbSelectModule,
+    NbUserModule,
    
   ],
   declarations: [
@@ -62,19 +74,8 @@ import { FormsModule as ngFormsModule } from "@angular/forms";
    
 
 
-    NbButtonModule,
-    NbDatepickerModule,
-    NbActionsModule,
-    NbButtonModule,
-
-    NbCheckboxModule,
-    
-
-    NbRadioModule,
-    NbSelectModule,
-    NbUserModule,
-
+    DatepickerComponent,
   ],
-  declarations: [...routedComponents, DatepickerComponent],
+  
 })
 export class TablesModule {}

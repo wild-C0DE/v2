@@ -16,7 +16,7 @@ export class WorkorderComponent {
   source: ServerDataSource;
   source1  :any ;
 
-  settings = {
+  settings :object= {
     // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',

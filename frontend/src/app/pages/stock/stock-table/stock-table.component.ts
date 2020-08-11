@@ -6,7 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import * as jsPDF from 'jspdf'
 import { ngxCsv } from 'ngx-csv/ngx-csv';
 import autoTable from 'jspdf-autotable'
-
+import { takeWhile } from 'rxjs/operators';
 import * as XLSX from 'xlsx';
 
 
