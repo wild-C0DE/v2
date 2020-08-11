@@ -16,7 +16,7 @@ export class WorkorderComponent {
   source: ServerDataSource;
   source1  :any ;
 
-  settings = {
+  settings :object= {
     // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -86,24 +86,24 @@ export class WorkorderComponent {
         type: "number",
         filter: false,
       },
-      agentName: {
-        title: "Agent Name",
-        placeholder:"Select ...",
-        filter: false,
-        editor: {
-          type: 'list',
-          config: {
-            selectText: 'Select',
+      // agentName: {
+      //   title: "Agent Name",
+      //   placeholder:"Select ...",
+      //   filter: false,
+      //   editor: {
+      //     type: 'list',
+      //     config: {
+      //       selectText: 'Select',
            
-            list: [
-              {value: this.source1[0], title:this.source1[0]},
-              {value: this.source1[1], title:this.source1[1]},         
+      //       list: [
+      //         {value: this.source1[0], title:this.source1[0]},
+      //         {value: this.source1[1], title:this.source1[1]},         
              
-            ],
-          },
+      //       ],
+      //     },
         
-        }
-      },
+      //   }
+      // },
      
       department: {
         title: "Department",
