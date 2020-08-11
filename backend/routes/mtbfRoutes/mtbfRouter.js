@@ -17,11 +17,8 @@ router.get('/', (req, res) => {
         localField: "name",
         foreignField: "machine",
         as: "mtbf_synthesis",
-        
       },
-      
     },
-    
 
     // {$group: {_id: "$machine"}}
  ])
@@ -36,7 +33,7 @@ router.get('/', (req, res) => {
   
   return helper;
 }).then(result => {
-  
+  console.log(result)
   for (var i = 0; i < result.length; i++){
     for (var key in result[i]){
       result[i]["totalOperationalTime"] = (result[i]["operationalDays"] * result[i]["oprationalTimePerDay"])
