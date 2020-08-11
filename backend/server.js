@@ -102,7 +102,15 @@ const projectsList = require("./routes/projects/projectsListList");
 const deleteProject = require("./routes/projects/projectsDeleteRoute");
 
 //OEE routes 
+//Availability route
 const availabilityOee = require("./routes/oeeRoutes/availability")
+
+//Quality route
+const qualityOee = require("./routes/oeeRoutes/quality")
+
+//performance route
+const performanceOee = require("./routes/oeeRoutes/performance")
+
 // workOrderselect:
 const workOrderselect = require("./routes/workOrderSelect/workersListRoute")
 
@@ -197,9 +205,15 @@ app.use("/api/deleteproject", deleteProject);
 // workOrderSelect
 app.use("/api/workOrderselect", workOrderselect)
 
-
+ 
 //OEE path
 app.use("/api/availability", availabilityOee);
+
+//QUALITY PATH
+app.use("/api/quality", qualityOee);
+
+//Performance path
+app.use("/api/performance", performanceOee)
 
 
 

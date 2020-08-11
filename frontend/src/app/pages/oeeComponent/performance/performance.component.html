@@ -1,0 +1,20 @@
+<div #content>
+<nb-card>
+    
+  
+    <nb-card-body>
+      <h6>
+        Performance Table
+      </h6>
+      <p>0 < Performance < 0.5 : Very bad Availability of the machine</p>
+      <p>0.5 < Performance < 0.7 : Bad Performance of the machine, and the machine need a prevention program</p>
+      <p>0.7 < Performance < 0.9  : Good Performance of the machine, and it needs to be controled by the maintenance service</p>
+      <p>0.9 < Performance < 1 : Very good Performance of the machine</p>
+      <br>
+      <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
+    <button nbButton status="danger" (click)="exportexcel()" ghost>Excel</button>
+      <ng2-smart-table [settings]="settings" [source]="source" id="tab" >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+</div>

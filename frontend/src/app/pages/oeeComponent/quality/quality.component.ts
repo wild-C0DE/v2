@@ -7,14 +7,14 @@ import { ngxCsv } from "ngx-csv/ngx-csv";
 import * as XLSX from "xlsx";
 
 @Component({
-  selector: 'ngx-availability',
-  templateUrl: './availability.component.html',
-  styleUrls: ['./availability.component.scss']
+  selector: 'ngx-quality',
+  templateUrl: './quality.component.html',
+  styleUrls: ['./quality.component.scss']
 })
-export class AvailabilityComponent  {
-  title = "availability"
+export class QualityComponent  {
+  title = "quality"
   data: any = [];
-  fileName = "availability.xlsx";
+  fileName = "quality.xlsx";
   source:ServerDataSource;
   
     settings = {
@@ -32,26 +32,21 @@ export class AvailabilityComponent  {
         },
         machine: {
           title: 'Machine',
-          type: 'number',
+          type: 'string',
           filter: false
         },
-        plannedProdTime :  {
-          title: 'Planned Production Time',
-          type: 'number',
-          filter: false
-        },
-        runTime: {
-          title: 'Stop Time',
-          type: 'number',
-          filter: false
-        },
-        goodPartsProduced: {
-          title: 'Run Time',
+        goodPartsProduced :  {
+          title: 'Good Parts Produced',
           type: 'number',
           filter: false
         },
         totalPartsProduced: {
-          title: 'Availability',
+          title: 'Total Parts Produced',
+          type: 'number',
+          filter: false
+        },
+        quality: {
+          title: 'Quality',
           type: 'number',
           filter: false
         },
@@ -63,7 +58,7 @@ export class AvailabilityComponent  {
       //this.source ='data
     }
     ngOnInit(): void {
-      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/availability' })
+      this.source = new ServerDataSource(this.http, {endPoint : 'http://localhost:8080/api/quality' })
       console.log(this.source);   
   }
   @ViewChild("content") content: ElementRef;
@@ -94,7 +89,7 @@ export class AvailabilityComponent  {
       elementHandlers: specialElementHandler,
     });
     doc.output("dataurlnewwindow");
-    doc.save("oee.pdf");
+    doc.save("quality.pdf");
   }
 
   exportexcel(): void {
