@@ -44,11 +44,11 @@ export class ProjectsComponent {
         type: 'string',
         filter: false
       },
-      runTime: {
-        title: 'Run Time',
-        type: 'number',
-        filter: false
-      },
+      // runTime: {
+      //   title: 'Run Time',
+      //   type: 'number',
+      //   filter: false
+      // },
       plannedProdTime: {
         title: 'Planned Production Time',
         type: 'number',

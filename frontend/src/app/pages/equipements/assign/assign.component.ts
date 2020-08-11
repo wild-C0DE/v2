@@ -58,11 +58,7 @@ export class AssignComponent {
         type: 'number',
         filter: false
       },
-      isbn: {
-        title: 'ISBN',
-        type: 'string',
-        filter: false
-      },
+     
       department: {
         title: 'Department',
         type: 'string',

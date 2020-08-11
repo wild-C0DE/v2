@@ -27,11 +27,7 @@ import {DatepickerComponent} from './datepicker/datepicker.component'
     NbButtonModule,
     NbDatepickerModule,
     NbActionsModule,
-    NbButtonModule,
-    NbCardModule,
     NbCheckboxModule,
-    NbDatepickerModule, NbIconModule,
-    NbInputModule,
     NbRadioModule,
     NbSelectModule,
     NbUserModule

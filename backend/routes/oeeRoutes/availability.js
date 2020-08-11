@@ -30,16 +30,27 @@ router.get('/', (req, res) => {
               return total
 
           }).then(result => {
-              console.log(result)
+            //   console.log(result)
                  for(var i =0;i<result.length;i++){
                      result[i]["goodPartsProduced"] = result[i].plannedProdTime- result[i].runTime
-                     result[i]["totalPartsProduced"] = ((result[i].plannedProdTime/result[i].goodPartsProduced)*100) 
+                     result[i]["totalPartsProduced"] = ((result[i].goodPartsProduced/result[i].plannedProdTime)*100)
                  }
+                 
              return result
-          }).then(result =>{res.send(result)})
+          }).then(result =>{
+            //   console.log(result)
+            for(var i = 0; i < result.length; i++){
+                result[i]["totalPartsProduced"]= ((result[i]["totalPartsProduced"]).toFixed(2)) 
+            }  
+            
+            return result
+        }).then (result => {
+
+            res.send(result)})
+        })
 
 
      })
-})
+
 
 module.exports = router;

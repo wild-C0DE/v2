@@ -77,12 +77,12 @@ export class EquipementComponent {
       dateOfUse: {
         title: 'Date Of Use',
         type: 'html',
-        filter: false,
         //renderComponent: DatepickerComponent,
         editor: {
           type: 'custom',
           component: DatepickerComponent,
         },
+        filter: false,
       },
       isbn: {
         title: 'ISBN',
@@ -138,7 +138,7 @@ onCreateConfirm(event) {
                 "brand" : event.newData.brand,
                 "supplierName" : event.newData.supplierName,
                 "supplierContact" : event.newData.supplierContact,
-                "dateOfUse" : moment("2018-05-25").format("YYYY-MM-DD"),
+                "dateOfUse" : moment("2019-05-25").format("YYYY-MM-DD"),
                 "isbn" : event.newData.isbn,
                 "department" : event.newData.department,               
                 "cost" : event.newData.cost,

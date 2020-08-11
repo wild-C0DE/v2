@@ -51,7 +51,7 @@ export class AvailabilityComponent  {
           filter: false
         },
         totalPartsProduced: {
-          title: 'Availability',
+          title: 'Availability In (%)',
           type: 'number',
           filter: false
         },
