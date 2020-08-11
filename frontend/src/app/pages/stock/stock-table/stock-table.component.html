@@ -1,12 +1,12 @@
 <div #content>
 
 <nb-card >
-  <nb-card-header>
-    Spare Parts Inventory Table
-  </nb-card-header>
+  
 
   <nb-card-body>
-
+    <h6>
+      Spare Parts Inventory Table
+    </h6>
         <button nbButton status="danger" (click)="downloadPDF()" ghost>Pdf</button>
         <button nbButton status="danger" (click)="downloadCSV()" ghost>CSV</button>
         <button nbButton status="primary" printSectionId="print-section" ngxPrint  [useExistingCss]="true" ghost>Print</button>

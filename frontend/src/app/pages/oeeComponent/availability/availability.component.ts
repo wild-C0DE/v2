@@ -25,19 +25,27 @@ export class AvailabilityComponent  {
 
       },      
       columns: {
-        plannedProductionTime :  {
+        project: {
+          title: 'Project',
+          type: 'string',
+        },
+        machine: {
+          title: 'Machine',
+          type: 'number',
+        },
+        plannedProdTime :  {
           title: 'Planned Production Time',
           type: 'number',
         },
-        stopTime: {
+        runTime: {
           title: 'Stop Time',
           type: 'number',
         },
-        runTime: {
+        goodPartsProduced: {
           title: 'Run Time',
           type: 'number',
         },
-        availability: {
+        totalPartsProduced: {
           title: 'Availability',
           type: 'number',
         },

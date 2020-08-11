@@ -16,7 +16,8 @@ export class WorkorderComponent {
   source: ServerDataSource;
   source1  :any ;
 
-  settings : object = {
+  settings :object= {
+
     // hideSubHeader: true,
     add: {
       addButtonContent: '<i class="nb-plus"></i>',
@@ -41,16 +42,6 @@ export class WorkorderComponent {
         type: "number",
         filter: false,
       },
-    //   multiple: {
-    //     title: 'Multi select',
-    //     type: 'html',
-    //      editor: {
-    //       type: 'custom',
-    //       valuePrepareFunction: (cell, row) => row,
-    //       component: MultiSelComponent,
-    //      },
-    //   }
-    //  ,
       date: {
         title: "Date",
         type: 'html',

@@ -95,6 +95,14 @@ const mttr = require("./routes/mttrRoutes/mttrRouter")
 //MTBF routes
 const mtbf = require("./routes/mtbfRoutes/mtbfRouter")
 
+//Projects routes
+const addProject = require("./routes/projects/projectsRoute")
+const updateProject = require("./routes/projects/projectsUpdateRoute");
+const projectsList = require("./routes/projects/projectsListList");
+const deleteProject = require("./routes/projects/projectsDeleteRoute");
+
+//OEE routes 
+const availabilityOee = require("./routes/oeeRoutes/availability")
 // workOrderselect:
 const workOrderselect = require("./routes/workOrderSelect/workersListRoute")
 
@@ -181,10 +189,17 @@ app.use("/api/mttr", mttr);
 //MTBF path
 app.use("/api/mtbf", mtbf);
 
+//Projects path
+app.use("/api/addproject", addProject);
+app.use("/api/updateproject", updateProject);
+app.use("/api/projectsList", projectsList);
+app.use("/api/deleteproject", deleteProject);
 // workOrderSelect
 app.use("/api/workOrderselect", workOrderselect)
 
 
+//OEE path
+app.use("/api/availability", availabilityOee);
 
 
 
@@ -231,4 +246,7 @@ app.post('/haha', (req, res) => {
   console.log(id)
  haha.find({'_id':id}).then(result=>res.send({fullName :result[0].fullName}))
 })
+
+
+
 app.listen(PORT, console.log(`server is running on port ${PORT}`));

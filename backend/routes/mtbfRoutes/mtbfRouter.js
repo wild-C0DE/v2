@@ -25,9 +25,7 @@ router.get('/', (req, res) => {
 
     // {$group: {_id: "$machine"}}
  ])
-
  .then(result => {
-  
    let helper = []
   // console.log(result)
   for(let i =0;i<result.length;i++){
@@ -55,7 +53,8 @@ router.get('/', (req, res) => {
 
     // {$group: {_id: "$machine"}}
  ]).then(
-   result => {haddna = result
+   result => {
+    haddna = result
     let  hamza = haddna.concat(helper)
     myFriend = []
      for(var i = 0;i<hamza.length;i++){

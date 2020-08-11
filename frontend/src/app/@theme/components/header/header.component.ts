@@ -15,7 +15,9 @@ import { RouterModule, Routes ,Router} from '@angular/router';
   template: `
 
   <nb-layout-header fixed>
-  <nb-user size="large" status="primary" [name]="user?.fullName"></nb-user> <button nbButton status="primary" (click)="logout()"  ghost> <nb-icon icon="log-out-outline"  [options]="{ animation: { type: 'shake' } }"></nb-icon>Logout </button>
+
+  <nb-user size="large" status="primary" [name]="user?.fullName" ></nb-user> <button nbButton status="primary" (click)="logout()"  ghost> <nb-icon icon="log-out-outline"  [options]="{ animation: { type: 'shake' } }"></nb-icon>Logout </button>
+
 </nb-layout-header>
 
 
@@ -35,7 +37,7 @@ export class HeaderComponent implements OnInit {
           this.user = token.getPayload(); // here we receive a payload from the token and assigns it to our `user` variable 
         }
         
-      }) 
+      })  
   }
   ngOnInit() {
     this.http.post("http://localhost:8080/haha",{id:this.user.id} ).subscribe((res) =>{;
