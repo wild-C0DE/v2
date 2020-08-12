@@ -1,15 +1,8 @@
-import { Component, OnDestroy, OnInit,ChangeDetectionStrategy } from '@angular/core';
-import {ThemeModule} from '../../theme.module'
-import { NbThemeModule } from '@nebular/theme';
-import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
-import { NbAuthJWTToken, NbAuthService, NbTokenService } from '@nebular/auth';
-import { UserData } from '../../../@core/data/users';
-import { LayoutService } from '../../../@core/utils';
-import { map, takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { NbSidebarModule, NbLayoutModule } from '@nebular/theme';
+import { Component,  OnInit } from '@angular/core';
+import { NbAuthJWTToken, NbAuthService } from '@nebular/auth';
+
 import {HttpClient} from '@angular/common/http';
-import { RouterModule, Routes ,Router} from '@angular/router';
+import { Router} from '@angular/router';
 @Component({
   selector: 'ngx-header',
   template: `

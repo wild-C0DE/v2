@@ -2,11 +2,13 @@ import {Component, OnDestroy} from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators' ;
 import { SolarData } from '../../@core/data/solar';
-
+import {Router} from '@angular/router';
 interface CardSettings {
   title: string;
   iconClass: string;
   type: string;
+  animation: string;
+  link: string
 }
 
 @Component({
@@ -20,24 +22,32 @@ export class DashboardComponent implements OnDestroy {
 
   solarValue: number;
   emailCard: CardSettings = {
-    title: 'Email',
-    iconClass: 'nb-email',
+    title: 'Machines',
+    iconClass: 'nb-layout-one-column',
     type: 'danger',
+    animation: 'shake',
+    link:'./pages/machines/machine'
   };
   settingsCard: CardSettings = {
-    title: 'Settings',
-    iconClass: 'nb-gear',
+    title: 'Work-Order',
+    iconClass: 'nb-checkmark-circle',
     type: 'success',
+    animation:'zoom',
+    link:'./pages/work-order/workorder'
   };
   chatRoomCard: CardSettings = {
-    title: 'Chat Room',
-    iconClass: 'nb-compose',
+    title: 'Stock',
+    iconClass: 'nb-e-commerce',
     type: 'info',
+    animation: 'pulse',
+    link:'./pages/stock/stock-table'
   };
   chartsCard: CardSettings = {
-    title: 'Charts',
+    title: 'Chart',
     iconClass: 'nb-bar-chart',
     type: 'warning',
+    animation: 'zoom',
+    link:'./pages/dashboard'
   };
 
   statusCards: string;
@@ -79,7 +89,8 @@ export class DashboardComponent implements OnDestroy {
   };
 
   constructor(private themeService: NbThemeService,
-              private solarService: SolarData) {
+              private solarService: SolarData,
+              private router: Router) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
       .subscribe(theme => {
@@ -92,7 +103,9 @@ export class DashboardComponent implements OnDestroy {
         this.solarValue = data;
       });
   }
-
+  links(link) {
+    this.router.navigate([link])
+  }
   ngOnDestroy() {
     this.alive = false;
   }

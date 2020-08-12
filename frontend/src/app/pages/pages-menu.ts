@@ -9,6 +9,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
     
   },
+  {
+    title: 'Profile',
+    icon: {icon:'person-outline',options: {animation:{ type: 'pulse', infinite: true }}},
+    link: '/pages/profile',
+    
+  },
  
   {
     title: 'Charts',
@@ -16,7 +22,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'History Interventions Chart',
-    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    icon: {icon:'activity-outline',options: {animation:{ type: 'zoom', infinite: true }}},
     link: '/pages/charts/chartsHistory',
   },
   // {
@@ -26,7 +32,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   {
     title: 'AFNOR Chart',
-    icon: {icon:'pie-chart-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+    icon: {icon:'bar-chart-2',options: {animation:{ type: 'zoom', infinite: true }}},
     link: '/pages/charts/echartsAFNOR',
   },
   
@@ -130,7 +136,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   // },
   {
     title: 'Stock',
-    icon: 'shopping-cart-outline',
+    icon: 'shopping-cart',
     children: [
       {
         title: 'Stock Table',
@@ -148,7 +154,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Machines',
-    icon: 'car-outline',
+    icon: 'car',
     children: [
       {
         title: 'Machines List',
@@ -167,7 +173,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Work Order ',
-    icon: 'attach-outline',
+    icon: 'person-done',
     children: [
       {
         title: 'Work Order',
@@ -185,7 +191,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Equipements',
-    icon: "settings-outline",
+    icon: "layers",
     children: [
       {
         title: 'Equipements List',
@@ -235,7 +241,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
 {
 
     title: 'Workers',
-    icon: "settings-outline",
+    icon: "person",
     link: '/pages/workers/worker',
 
     // children: [
@@ -252,13 +258,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'Synthesis',
-    icon: "settings-outline",
+    icon: "sync",
     link: '/pages/synthesis/synthese',
         
   },
   {
     title: 'Interventions History',
-    icon: "settings-outline",
+    icon: "repeat",
     //link: '/pages/interventions/intervention',
     children: [    
      
@@ -287,7 +293,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'OEE',
-    icon: "settings-outline",
+    icon: "save",
     children: [
       
       {
@@ -309,25 +315,25 @@ export const MENU_ITEMS: NbMenuItem[] = [
   },
   {
     title: 'MTTR',
-    icon: "settings-outline",
+    icon: "trending-up",
     link: '/pages/mttr/mttr-synthesis',    
   },
 
   {
     title: 'MTBF',
-    icon: "settings-outline",
+    icon: "settings-2",
     link: '/pages/mtbf/mtbf-synthesis',    
   },
   {
     title: 'Projects',
-    icon: "settings-outline",
+    icon: "folder-add",
     link: '/pages/projects/project',    
   },
 
  {
     title: 'AFNOR Standard Ratios',
 
-    icon: "settings-outline",
+    icon: "flash",
     children: [
       {
         title: 'Ratio 1',

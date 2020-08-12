@@ -17,7 +17,8 @@ import {
   NbSidebarModule,
   NbToastrModule,
   NbWindowModule,
-  NbLayoutModule
+  NbLayoutModule,
+  NbUserModule
 } from '@nebular/theme';
 
 
@@ -39,7 +40,7 @@ import {
     }),
     CoreModule.forRoot(),
     ThemeModule.forRoot(),
-    
+    NbUserModule,
     NbLayoutModule
   
   ],
