@@ -28,7 +28,7 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: './auth/auth.module#NgxAuthModule',
   },
- 
+
  
   // {
   //   path: 'auth',

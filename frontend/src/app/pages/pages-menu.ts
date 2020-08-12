@@ -9,6 +9,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
     
   },
+  {
+    title: 'Profile',
+    icon: {icon:'person-outline',options: {animation:{ type: 'pulse', infinite: true }}},
+    link: '/pages/profile',
+    
+  },
  
   {
     title: 'Charts',
