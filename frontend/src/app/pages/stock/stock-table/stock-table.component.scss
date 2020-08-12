@@ -14,3 +14,21 @@
     margin: 0.5rem 0.2rem 0.5rem;
   }
 
+   .solved {
+    color: rgb(173, 207, 173);
+    }
+    .aborted {
+      color: red($color: #c93939)
+    }
+//     :host /deep/ ng2-smart-table tbody > .full  { 
+//       background-color:rgb(184, 218, 184);  
+// }
+:host /deep/ ng2-smart-table tbody > .empty  { 
+  background-color:rgb(248, 202, 202);  
+}
+// :host /deep/ ng2-smart-table tbody > .medium  { 
+//   background-color:rgb(223, 189, 127);  
+// }
+//     :host /deep/ ng2-smart-table thead > tr > th  { 
+//       background-color:blue;  
+// }
