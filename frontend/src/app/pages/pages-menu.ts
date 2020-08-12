@@ -15,6 +15,12 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/profile',
     
   },
+  // {
+  //   title: 'Chat Room',
+  //   icon: {icon:'message-square-outline',options: {animation:{ type: 'zoom', infinite: true }}},
+  //   link: '/pages/chat',
+    
+  // },
  
   {
     title: 'Charts',
@@ -146,10 +152,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Reports',
         link: '/pages/stock/reports',
       },
-      {
-        title: 'Chart',
-        link: '/pages/stock/stock-chart',
-      },
+      // {
+      //   title: 'Chart',
+      //   link: '/pages/stock/stock-chart',
+      // },
     ],
   },
   {

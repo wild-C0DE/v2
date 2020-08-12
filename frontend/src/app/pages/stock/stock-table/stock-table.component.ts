@@ -26,6 +26,7 @@ export class StockTableComponent {
       delete: false,
       edit: false
       },
+      
     columns: {
       tool: {
         title: 'Tool',
@@ -74,6 +75,22 @@ export class StockTableComponent {
         filter: false,
       },
     },
+    
+      rowClassFunction : function(row){
+        //console.log('row ', typeof row.data.min)
+            if(row.data.min - row.data.security <= 1) return "empty";
+            else if(row.data.min - row.data.security >= 2) return "full"
+            return "medium";
+      }
+   
+    // rowClassFunction: (row) =>{
+    //   if (row.data.min <4) {
+    //     return 'aborted';
+    //   } else if (row.data.min >5) {
+    //     return 'solved';
+    //   }
+    //   return '';
+    // },
   };
 
   

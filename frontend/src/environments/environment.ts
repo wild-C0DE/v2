@@ -13,6 +13,7 @@ const BASE_URL = 'http://localhost:8080';
 export const environment = {
   production: false,
   chatUrl: BASE_URL,
-  backendUrl: `${BASE_URL}/api`,
+  backendUrl: `${BASE_URL}`,
   chatPath: '/mean-chat-app.io',
 };
+
