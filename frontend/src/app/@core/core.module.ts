@@ -130,7 +130,7 @@ export const NB_CORE_PROVIDERS = [
 
           requireValidToken:false,
           redirect: {
-            success: '/auth/reset-password',
+            success: '/auth/check-email',
             failure: null,
           },
 
